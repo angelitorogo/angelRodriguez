@@ -1,0 +1,51 @@
+button {
+  display: inline-block;
+  padding: 0;
+  margin: 0.15rem;
+  width: 100%;
+  /*height: 40px; */
+  font-size: 1.2rem;
+  /*font-weight: 600;*/
+  height: 4vh;
+  font-size: 1.5vh;
+  color: #f3f3f3;
+  background: var(--color-gradient); /* Degradado azul */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.2), 
+    -2px -2px 5px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-hover-gradient); /* Invertir degradado en hover */
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.25),
+    -3px -3px 8px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+  color: #ffffff;
+}
+
+button:active:not(:disabled) {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+button:disabled {
+  color: #ddd;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* Enlaces dentro del botón */
+a {
+  color: #ffffff;
+  text-decoration: none;
+}

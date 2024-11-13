@@ -1,0 +1,211 @@
+<div class="form-group" *ngIf="type === 'file'">
+  <label class="form-label" 
+         [for]="id"
+         [ngStyle]="{
+          '--gradient-color-button': gradientColorButton,
+          '--hover-gradient-color-button': hoverGradientColorButton,
+          '--color-hover-placeholder': colorHoverPlaceholder,
+          '--color-placeholder': colorPlaceholder,
+          '-color-focus-input-dark': colorFocusInputDark,
+          '--color-border': colorBorde,
+          '--color-background': colorBackground,
+          '--color-texto': colorTexto,
+          '--color-focus-input': colorFocusInput,
+          '--gradient-color': gradientColor,
+          '--hover-gradient-color':gradientHoverColor,
+          '--color-focus-input-shadow': colorFocusInputShadow
+          }">{{ label }}:</label>
+  <div class="custom-file-container">
+    <input
+      [ngStyle]="{
+        '--gradient-color-button': gradientColorButton,
+        '--hover-gradient-color-button': hoverGradientColorButton,
+        '--color-hover-placeholder': colorHoverPlaceholder,
+        '--color-placeholder': colorPlaceholder,
+        '-color-focus-input-dark': colorFocusInputDark,
+        '--color-border': colorBorde,
+        '--color-background': colorBackground,
+        '--color-texto': colorTexto,
+        '--color-focus-input': colorFocusInput,
+        '--gradient-color': gradientColor,
+        '--hover-gradient-color':gradientHoverColor,
+        '--color-focus-input-shadow': colorFocusInputShadow
+        }"
+      type="file"
+      [name]="label"
+      [id]="id"
+      [disabled]="isDisabled"
+      (change)="onFileChange($event)"
+      #fileInput
+      style="display: none;"
+      multiple
+    >
+    <button 
+      [ngStyle]="{
+        '--gradient-color-button': gradientColorButton,
+        '--hover-gradient-color-button': hoverGradientColorButton,
+        '--color-hover-placeholder': colorHoverPlaceholder,
+        '--color-placeholder': colorPlaceholder,
+        '-color-focus-input-dark': colorFocusInputDark,
+        '--color-border': colorBorde,
+        '--color-background': colorBackground,
+        '--color-texto': colorTexto,
+        '--color-focus-input': colorFocusInput,
+        '--gradient-color': gradientColor,
+        '--hover-gradient-color':gradientHoverColor,
+        '--color-focus-input-shadow': colorFocusInputShadow,
+        '--color-texto-button': colorTextoButton
+        }"
+      type="button" 
+      class="custom-file-button" 
+      [ngClass]="{'disabled': isDisabled}"
+      (click)="fileInput.click()"
+    >
+      {{ fileName || 'Seleccione archivo' }}
+    </button>
+  </div>
+</div>
+
+<div class="form-group" *ngIf="type === 'radio'">
+  <h4 class="form-label form-label__radio"
+    [ngStyle]="{
+      '--gradient-color-button': gradientColorButton,
+      '--hover-gradient-color-button': hoverGradientColorButton,
+      '--color-hover-placeholder': colorHoverPlaceholder,
+      '--color-placeholder': colorPlaceholder,
+      '-color-focus-input-dark': colorFocusInputDark,
+      '--color-border': colorBorde,
+      '--color-background': colorBackground,
+      '--color-texto': colorTexto,
+      '--color-focus-input': colorFocusInput,
+      '--gradient-color': gradientColor,
+      '--hover-gradient-color':gradientHoverColor,
+      '--color-focus-input-shadow': colorFocusInputShadow
+      }">{{ label }}:</h4>
+  <div class="custom-radio-container">
+    <div *ngFor="let value of valuesRadio; let i = index">
+      <label [for]="id + '-' + i" class="label-radio">
+        <input
+          [ngStyle]="{
+            '--gradient-color-button': gradientColorButton,
+            '--hover-gradient-color-button': hoverGradientColorButton,
+            '--color-hover-placeholder': colorHoverPlaceholder,
+            '--color-placeholder': colorPlaceholder,
+            '-color-focus-input-dark': colorFocusInputDark,
+            '--color-border': colorBorde,
+            '--color-background': colorBackground,
+            '--color-texto': colorTexto,
+            '--color-focus-input': colorFocusInput,
+            '--gradient-color': gradientColor,
+            '--hover-gradient-color':gradientHoverColor,
+            '--color-focus-input-shadow': colorFocusInputShadow
+            }"
+          [type]="type"
+          [name]="label"
+          [id]="id + '-' + i"
+          [disabled]="isDisabled"
+          [value]="value"
+          (change)="onRadioChange($event, value)"
+          autocomplete="true"
+        />
+        {{ value }}
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="form-group" *ngIf="type !== 'file' && type !== 'radio' && type != 'checkbox'">
+  <label class="form-label" 
+        [for]="id"
+        [ngStyle]="{
+          '--gradient-color-button': gradientColorButton,
+          '--hover-gradient-color-button': hoverGradientColorButton,
+          '--color-hover-placeholder': colorHoverPlaceholder,
+          '--color-placeholder': colorPlaceholder,
+          '-color-focus-input-dark': colorFocusInputDark,
+          '--color-border': colorBorde,
+          '--color-background': colorBackground,
+          '--color-texto': colorTexto,
+          '--color-focus-input': colorFocusInput,
+          '--gradient-color': gradientColor,
+          '--hover-gradient-color':gradientHoverColor,
+          '--color-focus-input-shadow': colorFocusInputShadow
+          }">{{ label }}</label>
+  <input
+    [ngStyle]="{
+      '--gradient-color-button': gradientColorButton,
+      '--hover-gradient-color-button': hoverGradientColorButton,
+      '--color-hover-placeholder': colorHoverPlaceholder,
+      '--color-placeholder': colorPlaceholder,
+      '-color-focus-input-dark': colorFocusInputDark,
+      '--color-border': colorBorde,
+      '--color-background': colorBackground,
+      '--color-texto': colorTexto,
+      '--color-focus-input': colorFocusInput,
+      '--gradient-color': gradientColor,
+      '--hover-gradient-color':gradientHoverColor,
+      '--color-focus-input-shadow': colorFocusInputShadow
+      }"
+    [type]="type"
+    [placeholder]="placeholder"
+    [name]="type"
+    [id]="id"
+    [disabled]="isDisabled"
+    (input)="onInputChange($event, value)"
+    required
+    autocomplete="true"
+  />
+  <div *ngIf="invalid && touched">
+    <small class="text-danger">Valor requerido o formato incorrecto</small>
+  </div>
+</div>
+
+<div class="form-group" *ngIf="type === 'checkbox'" [ngClass]="{'type-checkbox': type === 'checkbox'}" >
+  <label class="form-label label-checkbox" 
+        [for]="id"
+        [ngStyle]="{
+          '--gradient-color-button': gradientColorButton,
+          '--hover-gradient-color-button': hoverGradientColorButton,
+          '--color-hover-placeholder': colorHoverPlaceholder,
+          '--color-placeholder': colorPlaceholder,
+          '-color-focus-input-dark': colorFocusInputDark,
+          '--color-border': colorBorde,
+          '--color-background': colorBackground,
+          '--color-texto': colorTexto,
+          '--color-focus-input': colorFocusInput,
+          '--gradient-color': gradientColor,
+          '--hover-gradient-color':gradientHoverColor,
+          '--color-focus-input-shadow': colorFocusInputShadow
+          }">
+          {{label}}
+        </label>
+  <input
+    [ngStyle]="{
+      '--gradient-color-button': gradientColorButton,
+      '--hover-gradient-color-button': hoverGradientColorButton,
+      '--color-hover-placeholder': colorHoverPlaceholder,
+      '--color-placeholder': colorPlaceholder,
+      '-color-focus-input-dark': colorFocusInputDark,
+      '--color-border': colorBorde,
+      '--color-background': colorBackground,
+      '--color-texto': colorTexto,
+      '--color-focus-input': colorFocusInput,
+      '--gradient-color': gradientColor,
+      '--hover-gradient-color':gradientHoverColor,
+      '--color-focus-input-shadow': colorFocusInputShadow
+      }"
+    [type]="type"
+    [placeholder]="placeholder"
+    [name]="type"
+    [id]="id"
+    [disabled]="isDisabled"
+    (input)="onInputChange($event, value)"
+    required
+    autocomplete="true"
+  />
+  <div *ngIf="invalid && touched">
+    <small class="text-danger">Valor requerido o formato incorrecto</small>
+  </div>
+</div>
+
+

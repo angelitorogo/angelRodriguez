@@ -1,0 +1,60 @@
+import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../../services/home-service.service';
+import { AuthService } from '../../../auth/service/auth.service';
+import { Router } from '@angular/router';
+import { User } from '../../interfaces/user.interface';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
+})
+export class HomeComponent implements OnInit{
+
+  identity?: User;
+
+  constructor(public _homeService: HomeService, private _authService: AuthService, private _router: Router) {}
+
+
+
+  ngOnInit(): void {
+
+    //if( !this.identity ) this._router.navigate(['/auth/login']);
+
+    this.prepararMenu();
+    
+  }
+
+
+  prepararMenu() {
+    //resetear valores mostrar de elementosMenu
+    for (let i = 0; i < this._homeService.elementosMenu.length; i++) {
+      this._homeService.elementosMenu[i].mostrar = true;
+    }
+
+    this.identity = this._authService.getIdentity;
+    
+    if(this.identity) {
+      //como estamos logados no mostramos ni login ni register
+      this._homeService.elementosMenu[3].mostrar = false;
+
+      //Si es user o userpro
+      if( this.identity?.role != 'ADMIN' ) {
+      
+        this._homeService.elementosMenu[2].mostrar = false;
+
+      }
+
+    } else {
+      //como NO estamos logados solo mostramos login y register
+      this._homeService.elementosMenu[0].mostrar = false;
+      this._homeService.elementosMenu[1].mostrar = false; 
+      this._homeService.elementosMenu[2].mostrar = false;
+      this._homeService.elementosMenu[4].mostrar = false;
+    }
+
+  }
+
+  
+
+}

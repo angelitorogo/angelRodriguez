@@ -1,0 +1,50 @@
+/* Reset de márgenes y paddings */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  background-color: #ebebeb;
+  background: url('../../../../assets/images/fondo6.webp');
+  color: #333;
+}
+
+
+.login-container {
+  width: 100%;
+  max-width: 560px;
+  padding: 3rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 4px #0a0a0a7d;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 4rem;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #212121;
+}
+
+form{
+  width: 71%;
+  margin: 0 auto;
+}
+
+.text-link {
+  color: #0c0c0c;
+  transition: all 0.2s ease;
+}
+
+.text-link:hover {
+  cursor: pointer;
+  color: #5d93ff;
+}
+
+.text-register {
+  margin-top: 3rem;
+}
+
+

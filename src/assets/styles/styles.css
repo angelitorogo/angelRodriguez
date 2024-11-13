@@ -1,0 +1,15 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+    --color-background: #e3f5ff;
+    --color-container: #494949;
+    --color-primary: #e3f5ff;
+    --color-texto: #e0e0e0;
+    --color-button: #c4eaff;
+}
+
+
+.container {
+    padding: 0rem;
+    height: 100vh;
+}

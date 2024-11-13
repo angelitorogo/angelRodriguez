@@ -1,0 +1,42 @@
+.nav {
+    height: 10rem;
+    border-bottom: 2px solid #aac6ffab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10rem;
+  
+  }
+  
+  
+  .brand-name {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+  }
+  
+  .menu-item {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .item-link {
+    color: #202020;
+    transition: all 0.2s ease;
+  }
+  
+  .menu-item:hover .item-link{
+    color: #5d93ff;
+  }
+  
+  .menu-item .active {
+    color: #5d93ff;
+  }
+  
+  

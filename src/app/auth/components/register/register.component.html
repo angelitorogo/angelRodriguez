@@ -1,0 +1,103 @@
+<div class="content">
+  <lib-modal-1
+      *ngIf="showModal1"
+      [text]="modalText1"
+      [type]="modalType1"
+      (close)="closeModal1()">
+  </lib-modal-1>
+  <div class="login-container">
+    <h2>Registro de usuario</h2>
+    
+    <form [formGroup]="formSignUp"  (ngSubmit)="submit()" autocomplete="off">
+      <lib-input-4
+        formControlName="fullname"
+        label="Nombre completo"
+        [type]="'text'"
+        [placeholder]="'Introduce tu nombre y apellidos'"
+
+        [colorTexto]="'#e0e0e0'"
+        [colorBackground]= "'#333'"
+        [colorFocusInput]="'#e3f5ff'"
+
+        [invalid] = "formSignUp.get('FullName')?.invalid"
+        [touched] = "formSignUp.get('FullName')?.touched">
+      </lib-input-4>
+
+      <lib-input-4
+        formControlName="email"
+        label="Correo"
+        [type]="'email'"
+        [placeholder]="'Introduce tu dirección de correo'"
+
+        [colorTexto]="'#e0e0e0'"
+        [colorBackground]= "'#333'"
+        [colorFocusInput]="'#e3f5ff'"
+
+        [invalid] = "formSignUp.get('Email')?.invalid"
+        [touched] = "formSignUp.get('Email')?.touched">
+      </lib-input-4>
+
+      <lib-input-4
+        formControlName="password1"
+        label="Contraseña"
+        [type]="'password'"
+        [placeholder]="''"
+    
+        [colorTexto]="'#e0e0e0'"
+        [colorBackground]= "'#333'"
+        [colorFocusInput]="'#e3f5ff'"
+
+        [invalid] = "formSignUp.get('Password1')?.invalid"
+        [touched] = "formSignUp.get('Password1')?.touched">
+      </lib-input-4>
+
+      <lib-input-4
+        formControlName="password2"
+        label="Repite contraseña"
+        [type]="'password'"
+        [placeholder]="''"
+    
+        [colorTexto]="'#e0e0e0'"
+        [colorBackground]= "'#333'"
+        [colorFocusInput]="'#e3f5ff'"
+
+        [invalid] = "formSignUp.get('Password2')?.invalid"
+        [touched] = "formSignUp.get('Password2')?.touched">
+      </lib-input-4>
+
+      <div class="group-checkbox">
+        <lib-input-4
+          formControlName="acepted"
+          [type]="'checkbox'"
+          [placeholder]="'Privado'"
+          [label]="'Al registrarte aceptas'"
+          [colorTexto]="'#999999'"
+          [colorBackground]= "'#f3f3f3'"
+          [colorFocusInput]="'#5d93ff'"
+
+          [invalid] = "formSignUp.get('Acepted')?.invalid"
+          [touched] = "formSignUp.get('Acepted')?.touched">
+        </lib-input-4>
+        <a class="link-checkbox" href="#">Privacidad y términos</a>
+      </div>
+      
+      
+      <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#1a1a1a'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Registrar'"
+        [type]="'submit'"
+        [isDisabled]="formSignUp.invalid">
+      </lib-boton6>
+    </form>
+
+
+    <div class="form-text">
+      <p class="text-register">
+        Si ya tienes una cuenta, puedes iniciar sesión <a routerLink="/auth/login" class="text-link">aquí</a>
+      </p>
+    </div>
+
+  </div>
+</div>

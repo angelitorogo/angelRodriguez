@@ -1,0 +1,19 @@
+
+<button  [ngStyle]="{
+    '--color-texto': colorTexto,
+    '--color-gradient': colorGradient,
+    '--color-hover-gradient': colorHoverGradient,
+    '--color-izq': colorIzq,
+    '--color-dcha': colorDcha,
+    '--color-dcha-light': colorDerechaLight,
+    '--color-dcha-lighten' : colorDerechaLighten,
+    '--disabled-color-1': disabledColor1,
+    '--disabled-color-2': disabledColor2,
+    'cursor': isDisabled ? 'not-allowed' : 'pointer'
+    }"
+    class="button"
+    [disabled]="isDisabled"
+    (click)="onClick()"
+    [type]="type">
+    {{ buttonText }}
+</button>

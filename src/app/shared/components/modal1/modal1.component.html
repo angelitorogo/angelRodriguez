@@ -1,0 +1,21 @@
+<div class="modal-overlay">
+    <div class="modal-content" [ngClass]="type" (click)="$event.stopPropagation()">
+      <p class="modal-text">{{ text }}</p>
+
+      <div id="modal-button-1" class="modal-button">
+        <lib-boton6 
+          [colorTexto]="'#ffffff'"
+          [colorIzq]="'#5d93ff'"
+          [colorDcha]="'#3333ff'"
+          [buttonText]="'Aceptar'"
+          (buttonClicked)="closeModal()"
+          [type]="'button'">
+        </lib-boton6>
+
+      </div>
+
+      
+
+    </div>
+</div>
+  

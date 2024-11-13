@@ -1,0 +1,200 @@
+<div class="header" id="header">
+
+    <div class="container-nav">
+
+        <app-navbar></app-navbar>
+
+        <div class="header-content">
+
+            <div class="central-content">
+
+                <h1 class="header-title">
+                    <span class="principal-title">Crea tu formulario.</span>
+                    <span class="text-title">La forma mas fácil de crear encuestas.</span>
+                </h1>
+
+                <p class="header-text">
+                    Diseña, personaliza y publica encuestas en cuestión de minutos. Facilita la recolección de datos de forma rápida y efectiva.
+                </p>
+
+                <a routerLink="/more" class="header-link">Leer más</a>
+
+            </div>
+
+            <div class="lateral-content">
+                <ul class="social-menu">
+                    <li class="social-item">
+                        <i class="bi bi-facebook"></i>
+                    </li>
+                    <li class="social-item">
+                        <i class="bi bi-linkedin"></i>
+                    </li>
+                    <li class="social-item">
+                        <i class="bi bi-twitter"></i>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+    
+</div>
+
+<div class="content">
+
+    <div class="about-this" id="about-this">
+
+        <div class="left-content">
+
+            <h2 class="about-title">
+                Acerca de
+            </h2>
+
+            <p class="about-text">
+                FormuEase nace con un propósito: simplificar la creación de encuestas. Hemos creado un conjunto de herramientas fáciles de usar y altamente personalizables que te permiten diseñar formularios en minutos, sin complicaciones. Con un enfoque en la usabilidad y la eficiencia, nuestra plataforma está aquí para ayudarte a obtener información valiosa de manera rápida y sencilla.
+            </p>
+
+            <a [routerLink]="['/surveis/create']" class="about-link">Crear encuesta</a>
+
+        </div>
+
+        <div class="right-content">
+
+        </div>
+
+    </div>
+
+    <div class="funciones" id="caracteristicas">
+
+        <div class="funciones-header">
+
+            <h2 class="funciones-title">
+                Caraterísticas
+            </h2>
+
+            <p class="funciones-texto">
+                Todo lo que necesitas para crear encuestas efectivas. Simplifica el proceso de crear, publicar y analizar tus encuestas. Desde la idea hasta los resultados: la herramienta completa para tus encuestas.
+            </p>
+
+        </div>
+
+
+        <ul class="funciones-lista">
+
+            <li class="funciones-item">
+
+                <h3 class="funcion-title">
+                    01
+                </h3>
+                <h4 class="funcion-nombre">
+                    Crea tu encuesta
+                </h4>
+                <p class="funcion-texto">
+                    Diseña tus preguntas a tu manera. Construye encuestas en pocos pasos.
+                </p>
+
+            </li>
+
+            <li class="funciones-item">
+
+                <h3 class="funcion-title">
+                    02
+                </h3>
+                <h4 class="funcion-nombre">
+                    Publica tu encuesta
+                </h4>
+                <p class="funcion-texto">
+                    Comparte con un clic. Publica y llega a tu audiencia. Ya sea por correo electrónico o por redes sociales.
+                </p>
+
+            </li>
+
+            <li class="funciones-item">
+
+                <h3 class="funcion-title">
+                    03
+                </h3>
+                <h4 class="funcion-nombre">
+                    Analiza los resultados
+                </h4>
+                <p class="funcion-texto">
+                    Obtén insights al instante. Analiza datos claros y precisos.
+                </p>
+
+            </li>
+
+        </ul>
+
+
+
+    </div>
+
+    <div class="contacto" id="contacto">
+
+        <div class="contacto-header">
+
+            <h4 class="contacto-title">
+                Contacto
+            </h4>
+            <p class="contacto-datos">
+                Dirección: Agustin Calvo 4, Madrid <br> Email: contact&#64;formuease.com. <br> Tel: +34 658 857 144
+            </p>
+
+        </div>
+
+        <div class="contacto-form">
+
+            <form class="form" action="">
+
+                <div class="form-title">
+                    También puedes contactarnos con este formulario
+                </div>
+
+                <div class="form-line">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Nombre *</label>
+                        <input type="text" name="name">
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="form-label" for="surname">Apellido *</label>
+                        <input type="text" name="surname">
+                    </div>
+                </div>
+
+                <div class="form-line">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email *</label>
+                        <input type="email" name="email">
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="form-label" for="asunto">Asunto *</label>
+                        <input type="text" name="asunto">
+                    </div>
+                </div>
+
+                <div class="form-line">
+                    <div class="form-group">
+                        <label class="form-label" for="textarea">Déjanos un mensaje *</label>
+                        <textarea name="textarea" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-form" type="submit">
+                    Enviar
+                </button>
+
+                <p class="form-texto">¡Gracias por tu mensaje!</p>
+
+            </form>
+            
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>
