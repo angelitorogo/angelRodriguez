@@ -3,14 +3,14 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ScreenSizeService } from '../../../shared/services/screen-size.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../service/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
 
   formSignIn: FormGroup;
 
@@ -18,9 +18,12 @@ export class LoginComponent{
   modalText1: string = 'Este es un mensaje de información';
   modalType1: 'info' | 'success' | 'alert' = 'info';
 
+  returnUrl: string = '/home';
+
   constructor(private fb: FormBuilder,
               private _authService: AuthService,
-              private _router: Router) {
+              private _router: Router,
+              private route: ActivatedRoute) {
 
     this.formSignIn = this.fb.group({
       email: new FormControl('',[Validators.required, Validators.email]),
@@ -28,6 +31,12 @@ export class LoginComponent{
     });
 
 
+  }
+
+  ngOnInit() {
+    // Obtiene el parámetro returnUrl de los queryParams
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
+    console.log(this.returnUrl)
   }
 
 
@@ -57,8 +66,14 @@ export class LoginComponent{
             
           }
         }
+
+        if( this.returnUrl != '/home') {
+          this._router.navigateByUrl(this.returnUrl);
+        } else {
+          this._router.navigateByUrl('/home');
+        }
     
-        this._router.navigateByUrl('/dashboard');
+        
         
       },
       error: (error: any) => {

@@ -32,7 +32,7 @@ export class AuthService {
         
         //console.log(this._homeService.elementosMenu)
         localStorage.clear();
-        this._router.navigate(['/auth/login']);
+        this._router.navigate(['/home']);
         //location.reload();
         
     }

@@ -10,6 +10,15 @@
   
 }
 
+.header-title {
+  width: 83rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  font-weight: 500;
+  margin: 9rem auto;
+}
+
 .nav {
   height: 10rem;
   border-bottom: 2px solid #aac6ffab;
@@ -78,14 +87,7 @@
   align-items: center;
 }
 
-.header-title {
-    width: 83rem;
-    display: flex;
-    flex-direction: column;
-    font-size: 4rem;
-    font-weight: 500;
-    margin: 9rem auto;
-}
+
 
 .content-text {
     position: absolute;

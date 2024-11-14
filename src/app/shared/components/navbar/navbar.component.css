@@ -32,11 +32,13 @@
   }
   
   .menu-item:hover .item-link{
+    cursor: pointer;
     color: #5d93ff;
   }
   
   .menu-item .active {
     color: #5d93ff;
   }
+
   
   

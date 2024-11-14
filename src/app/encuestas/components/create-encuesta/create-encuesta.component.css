@@ -1,0 +1,218 @@
+.header {
+    height: 40rem;
+  }
+  
+  .container-nav {
+    height: 40rem;
+    background: url('../../../../assets/images/fondo6.webp');
+  }
+
+  .header-title {
+    width: 83rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 9rem auto;
+}
+
+.subtitle {
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+
+.container-create {
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin: 2rem auto;
+    width: 20rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn-form {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-form:hover{
+    background-color: #0c0c0c;
+    cursor: pointer;
+    color: white;
+  }
+
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite;
+  position: absolute;
+   
+}
+@keyframes l1 {to{transform: rotate(.5turn)}}
+
+.group-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title-survey {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/* Estilo base para todos los inputs */
+input[type="text"] {
+  width: 100%;
+  margin: 0 auto;
+  height: 4vh;
+  padding: 0.75rem; 
+  border: none;
+  border-bottom: 1px solid #202020;
+  transition: all 0.3s ease;
+  outline: none;
+  font-size: 1.8vh;
+}
+
+input[type="text"]:focus::placeholder {
+  color: transparent
+}
+
+
+
+.container-creating {
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+}
+
+.box {
+  height: 40rem;
+  width: 1200px;
+  min-height: 10rem;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #000;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.box-question {
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.box-question ul {
+  width: 100%;
+  background-color: var(--color-background);
+  
+}
+
+.box-question ul li {
+  height: 4rem;
+  padding: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-question ul li:hover {
+  cursor: pointer;
+}
+
+.box-contain {
+  position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    padding-right: 10rem;
+}
+
+.group-buttons {
+  position: absolute;
+  width: 40rem;
+  display: flex;
+  gap: 2rem;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+lib-boton6 {
+  width: 100%;
+}
+
+.box-creation {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.prev-responses {
+  margin-top: 2rem;
+  padding: 1rem;
+  height: 30rem;
+  width: 40rem;
+  box-shadow: 1px 1px 4px 2px #00000025;
+}
+
+.title-prev {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.group-create {
+  margin-bottom: 2rem;
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+}
+
+.group-create select {
+  height: 3rem;
+  margin-left: 2rem;
+  padding-left: 1rem;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 2fr 2fr 8fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.input-opciones {
+  width: 20rem!important;
+  margin-top: 0.2rem!important;
+}
+.add {
+  margin:0;
+}
+
+a.btn.disabled {
+  pointer-events: none; /* Desactiva la interacción con el enlace */
+  color: #ccc; /* Cambia el color para dar aspecto deshabilitado */
+  background-color: #e0e0e0; /* Ajusta el fondo si es necesario */
+  cursor: not-allowed;
+}

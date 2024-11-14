@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LeerMasComponent } from './pages/leer-mas/leer-mas.component';
 import { RouterModule } from '@angular/router';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    LeerMasComponent
+    LeerMasComponent,
+    TermsConditionsComponent
   ],
   imports: [
     CommonModule,
