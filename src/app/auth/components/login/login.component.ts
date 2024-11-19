@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit{
   constructor(private fb: FormBuilder,
               private _authService: AuthService,
               private _router: Router,
-              private route: ActivatedRoute) {
+              private _route: ActivatedRoute) {
 
     this.formSignIn = this.fb.group({
       email: new FormControl('',[Validators.required, Validators.email]),
@@ -35,14 +35,11 @@ export class LoginComponent implements OnInit{
 
   ngOnInit() {
     // Obtiene el parámetro returnUrl de los queryParams
-    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
-    console.log(this.returnUrl)
+    this.returnUrl = this._route.snapshot.queryParamMap.get('returnUrl') || '/home';
   }
 
 
   submit() {
-  
-    console.log(this.formSignIn.value);
 
     const { email, password } = this.formSignIn.value;
 

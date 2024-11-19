@@ -14,8 +14,6 @@ export class AuthInterceptor implements HttpInterceptor {
     const sesion = this._autService.getIdentity;
     const token = this._autService.getToken;
 
-    console.log(sesion)
-    console.log(token)
 
     if (sesion) {
       request = request.clone({

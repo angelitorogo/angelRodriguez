@@ -148,7 +148,7 @@ input[type="text"]:focus::placeholder {
 
 .group-buttons {
   position: absolute;
-  width: 40rem;
+  width: 50rem;
   display: flex;
   gap: 2rem;
   bottom: 1rem;

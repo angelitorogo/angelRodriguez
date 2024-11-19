@@ -8,6 +8,7 @@
   background-color: #ebebeb;
   background: url('../../../../assets/images/fondo6.webp');
   color: #333;
+  letter-spacing: 0.1em;
 }
 
 
@@ -52,7 +53,7 @@ form{
 
 .link-checkbox {
   color: #999999;
-  font-size: 1.8vh;
+  font-size: 1.4vh;
   padding-top: 0.3rem;
   transition: all 0.2s ease;
 }

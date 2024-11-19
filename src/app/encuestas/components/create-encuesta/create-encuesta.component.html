@@ -56,7 +56,10 @@
         <div class="box-question">
             <ul>
                 <li *ngFor="let item of _encuestasService.encuesta.encuestaItem; let i = index" (click)="escogerQuestion(i)">
-                    <a>Pregunta {{i+1}}</a>
+                    <a>Pregunta {{i + 1}}</a>
+                </li>
+                <li *ngIf="selected">
+                    <a (click)="seguirCreando()">Añadir pregunta</a>
                 </li>
             </ul>
         </div>
@@ -64,7 +67,10 @@
 
             <div class="box-creation">
                 <div class="group-create">
-                    <label>Pregunta {{_encuestasService.encuesta.encuestaItem.length + 1}}:</label>
+                    <label>Pregunta
+                        <span *ngIf="!selected">{{_encuestasService.encuesta.encuestaItem.length + 1}}</span>
+                        <span *ngIf="selected">{{indexSelected! + 1}}</span>
+                        :</label>
                     <input type="text" [(ngModel)]="question">
                 </div>
     

@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardModule),
   },
   {
+    path: 'response',
+    loadChildren: () => import('./answered/answered.module').then( m => m.AnsweredModule),
+  },
+  {
     path:'**',
     redirectTo: 'home'
   }

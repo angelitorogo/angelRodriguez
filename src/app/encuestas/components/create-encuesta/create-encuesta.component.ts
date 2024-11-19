@@ -32,6 +32,7 @@ export class CreateEncuestaComponent implements OnInit{
   indexSelected: number|null = null;
 
   activarOptions: boolean = false;
+  selected: boolean = false;
 
   sesion: any;
   token: any;
@@ -145,13 +146,13 @@ export class CreateEncuestaComponent implements OnInit{
           this.addQuestion = false;
 
           this._encuestasService.encuesta = {
+            id: '',
+            created_at: new Date(),
             nombre: '',
             encuestaItem: [] // Array vacío para iniciar sin elementos
         };
           
         }
-    
-        
         
       },
       error: (error: any) => {
@@ -177,6 +178,7 @@ export class CreateEncuestaComponent implements OnInit{
   escogerQuestion(i: number) {
 
     this.indexSelected = i;
+    this.selected = true;
 
     this.questionSelected = this._encuestasService.encuesta.encuestaItem[i];
 
@@ -184,7 +186,17 @@ export class CreateEncuestaComponent implements OnInit{
     this.selectedOption = this.questionSelected.type;
     this.responses = this.questionSelected.options || []
 
+    console.log(this.indexSelected)
 
+
+  }
+
+  seguirCreando() {
+    this.indexSelected = null;
+    this.selected = false;
+    this.question = '';
+    this.selectedOption = '';
+    this.responses = [];
   }
 
   eliminar() {

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { Encuesta, EncuestaItem } from "../interfaces/encuesta";
 import { environment } from "../../../environments/environment";
+import { Observable } from "rxjs";
 
 
 @Injectable({
@@ -13,6 +14,8 @@ export class EncuestasService {
     apiUrl = environment.API_URL;
 
     encuesta: Encuesta = {
+        created_at: new Date(),
+        id: '',
         nombre: '',
         encuestaItem: [] // Array vacío para iniciar sin elementos
     };
@@ -33,8 +36,12 @@ export class EncuestasService {
     }
 
 
-    addSurvey( title: string) {
+    addSurvey( title: string):Observable<any>  {
         this.encuesta.nombre = title;
+
+
+        delete this.encuesta.id;
+        delete this.encuesta.created_at;
         
         return this._http.post(`${this.apiUrl}/encuestas/create-survey`, this.encuesta );
 

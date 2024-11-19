@@ -1,0 +1,84 @@
+.content {
+    height: auto;
+    background-color: var(--color-background);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  .title-content {
+    font-size: 3rem;
+    font-weight: 500s;
+    background-color: rgb(255, 255, 255);
+    width: 30rem;
+    margin: -4rem auto 0 auto;
+    text-align: center;
+    padding: 2rem 4rem;
+    box-shadow: 1px 1px 2px #000;
+  }
+  
+  .lista-encuestas {
+    width: 80rem;
+    margin: 3rem auto;
+    border-top: 1px solid #c9c9c9;
+    border-left: 1px solid #c9c9c9;
+    border-right: 1px solid #c9c9c9;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+  }
+  
+  .item-encuestas {
+    padding: 2rem;
+    border-bottom: 1px solid #c9c9c9;
+    display: grid;
+    grid-template-columns: 5fr 2fr 1fr 2fr 2fr;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  
+  .link-encuestas {
+    text-transform: uppercase;
+    font-weight: 700;
+  } 
+  .link-participantes {
+    font-size: 1.4rem;
+  }
+  
+  .contain-icono {
+    text-align: center;
+  }
+  
+  .bi-share-fill {
+    color: #4ec1ff;
+    filter: drop-shadow(1px 1px 0px #000)
+  }
+  
+  .bi-share-fill:hover {
+    color: black;
+    filter: drop-shadow(1px 1px 0px #4ec1ff);
+    cursor: pointer;
+  }
+  
+  
+  .content-button {
+    width: 14rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: -10.5rem;
+    right: 8rem;
+  }
+
+.content-button lib-boton6 {
+    margin: 4rem;
+    display: block;
+    width: 17rem;
+  }
+
+.content-button-no-encuestas {
+  width: 30rem;
+  margin: 2rem auto 0 auto;
+}

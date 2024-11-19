@@ -1,0 +1,216 @@
+.content {
+  height: auto;
+  background-color: var(--color-background);
+  padding-top: 4rem;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+}
+  
+.title-content {
+  font-size: 3rem;
+  font-weight: 500s;
+  background-color: #ffffff;
+  width: 80rem;
+  margin: -4rem auto 0 auto;
+  text-align: center;
+  padding: 2rem 0rem;
+  box-shadow: 1px 1px 2px #000;
+}
+
+.encuesta {
+  width: 100rem;
+  margin: 0 auto;
+}
+
+.group-question {
+  border: 1px solid black;
+  background-color: #ffffff;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 1px 1px 2px #000;
+}
+
+.question {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.group-question textarea {
+  margin-inline: 3rem;
+  padding: 1rem;
+  resize: none;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.group-question select {
+  height: 3rem;
+  width: 20rem;
+  margin-inline: 3rem;
+}
+
+.group-question section option {
+  text-align: center;
+}
+
+.custom-select {
+  position: relative;
+  width: 200px;
+}
+
+.group-select {
+  display: flex;
+  align-items: center;
+  width: 80rem;
+}
+
+.select-btn {
+  width: 25%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.seleccion-temp {
+  margin: 0  0 0 4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.options li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.options li:hover {
+  background-color: #f0f0f0;
+}
+
+.visible {
+  display: block;
+}
+
+
+/* Estilo para el div contenedor */
+#checkboxGroup {
+  display: flex; /* Flexbox para organizar los elementos */
+  flex-direction: column; /* Alinear elementos en columna */
+  gap: 10px; /* Espaciado entre los elementos */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 400px; /* Ancho máximo */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#checkboxGroup label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Estilo para cada etiqueta del checkbox */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el checkbox y el texto */
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Estilo para los checkboxes */
+.checkbox-input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  border: none;
+  width: 2rem;
+  height: 3rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--textColor);
+  background-color: #fff;
+  accent-color: #f3f3f3;
+}
+
+/* Cambiar el color al pasar sobre la etiqueta */
+.checkbox-label:hover {
+  color: #d97f1e; /* Cambiar el color del texto */
+}
+
+/* Estilo del checkbox al ser seleccionado */
+.checkbox-input:checked + label {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.opciones-puntuacion {
+  width: auto;
+  display: flex;
+  gap: 0rem;
+  height: 3rem;
+  padding-left: 0rem;
+  margin-left: 3rem;
+}
+
+.opcion {
+  width: auto;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 2rem;
+  padding-top: 0.4rem;
+}
+
+.opcion:first-child {
+  border-left: 1px solid #ccc;
+}
+
+.opcion:hover {
+  cursor: pointer;
+  background-color: #e5e5e5;
+}
+
+.active-level {
+ 
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #e5e5e5;
+}
+
+.group-buttons-options {
+  display:grid;
+  grid-template-columns: 6fr 2fr 2fr 2fr;
+  gap: 3rem;
+
+}

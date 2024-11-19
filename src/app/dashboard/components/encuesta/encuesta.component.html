@@ -1,0 +1,112 @@
+<lib-modal-1
+    *ngIf="showModal1"
+    [text]="modalText1"
+    [type]="modalType1"
+    (close)="closeModal1()">
+</lib-modal-1>
+
+<div class="title-content">
+    Encuesta: {{encuesta?.nombre}} - Creada el {{encuesta?.created_at | date: 'd/M/yy'}}
+</div>
+
+
+<div class="content">
+
+    <ul class="encuesta">
+        <li class="encuesta-item" *ngFor="let question of encuesta?.encuestaItem; let i = index">
+
+
+            <div class="type-input" [ngSwitch]="question.type">
+
+                <div class="group-question">
+
+                    <label class="question">{{i + 1}}.- {{question.question}}</label> 
+                    <textarea *ngSwitchCase="'TEXT'" type="text" class="input-text" rows="5" [id]="'textarea-' + i"></textarea>
+
+                    <div class="custom-select" *ngSwitchCase="'SELECT'">
+                        <div class="group-select">
+                            <button class="select-btn" (click)="mostrarOpciones(i)" [id]="'button-select-' + i">Selecciona una opción</button>
+                            <p class="seleccion-temp" [id]="'selection-option-' + i"></p>
+                        </div>
+                        <ul class="options" [id]="'opciones-' + i">
+                          <li data-value="option"  *ngFor="let option of question.options" (click)="onSelectChange($event, i)">{{option}}</li>
+                        </ul>
+                      </div>
+                      
+
+                    <div *ngSwitchCase="'CHECK'" id="checkboxGroup">
+                        <label *ngFor="let option of question.options">
+                            <input 
+                                [id]="'check-' + i"
+                                type="checkbox" 
+                                [value]="option" 
+                                (change)="onCheckboxChange(option, i)"/>
+                                    {{option}}
+                        </label>
+                        
+                    </div>
+
+                    <div *ngSwitchCase="'LEVEL'" [id]="'levelgroup-' + i">
+
+                        <div class="opciones-puntuacion">
+                            <div class="opcion" *ngFor="let option of question.options" (click)="seleccionarLevel($event, option, i)">{{option}}</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+
+            </div>   
+            
+           
+
+            
+            
+        </li>
+
+
+        <div class="group-buttons-options">
+    
+            <div></div>
+
+            <lib-boton6 
+                [colorTexto]="'#ffffff'"
+                [colorIzq]="'#0000dd'"
+                [colorDcha]="'#3333ff'"
+                [buttonText]="'Publicar'"
+                [type]="'button'"
+                [routerLink]="rutaPublish">
+            </lib-boton6>
+    
+            <lib-boton6 
+                [colorTexto]="'#ffffff'"
+                [colorIzq]="'#1a1a1a'"
+                [colorDcha]="'#3333ff'"
+                [buttonText]="'Ver Resultados'"
+                [type]="'button'"
+                [routerLink]="rutaResultado">
+            </lib-boton6>
+
+            <lib-boton6 
+                [colorTexto]="'#ffffff'"
+                [colorIzq]="'#dd0000'"
+                [colorDcha]="'#3333ff'"
+                [buttonText]="'Eliminar'"
+                [type]="'button'"
+                (click)="eliminar(encuesta?.id)">
+            </lib-boton6>
+    
+        </div>
+
+    </ul>
+
+    
+    
+
+
+
+
+</div>

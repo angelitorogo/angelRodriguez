@@ -1,0 +1,77 @@
+<lib-modal-1
+    *ngIf="showModal1"
+    [text]="modalText1"
+    [type]="modalType1"
+    (close)="closeModal1()">
+</lib-modal-1>
+
+<div class="title-content">
+    Encuestas
+</div>
+
+
+<div class="content">
+
+
+    <ul class="lista-encuestas" *ngIf="encuestas.length > 0">
+        <li class="item-encuestas" *ngFor="let item of encuestas; let i = index">
+            <a class="link-encuestas">{{item.nombre}}</a>
+            <a class="link-participantes">Participantes: 32</a>
+            <div class="contain-icono">
+                <i class="bi bi-share-fill"></i>
+            </div>
+            <lib-boton6 
+                [colorTexto]="'#ffffff'"
+                [colorIzq]="'#1a1a1a'"
+                [colorDcha]="'#3333ff'"
+                [buttonText]="'Ver'"
+                [type]="'button'"
+                (click)="verEncuesta(item)">
+            </lib-boton6>
+            <lib-boton6 
+                [colorTexto]="'#ffffff'"
+                [colorIzq]="'#dd0000'"
+                [colorDcha]="'#3333ff'"
+                [buttonText]="'Eliminar'"
+                [type]="'button'"
+                (click)="eliminar(i)">
+            </lib-boton6>
+        </li>
+        
+        <li>
+            <div class="content-button">
+                <lib-boton6 
+                    [colorTexto]="'#ffffff'"
+                    [colorIzq]="'#00aa00'"
+                    [colorDcha]="'#3333ff'"
+                    [buttonText]="'Nueva encuesta'"
+                    [type]="'button'"
+                    [routerLink]="['/surveis/create']">
+                </lib-boton6>
+            </div>
+        </li>
+
+
+        
+        
+        
+    </ul>
+
+    <div class="content-button-no-encuestas" *ngIf="encuestas.length === 0">
+        <lib-boton6 
+            [colorTexto]="'#ffffff'"
+            [colorIzq]="'#00aa00'"
+            [colorDcha]="'#3333ff'"
+            [buttonText]="'Nueva encuesta'"
+            [type]="'button'"
+            [routerLink]="['/surveis/create']">
+        </lib-boton6>
+    </div>
+
+    
+
+    
+
+
+
+</div>
