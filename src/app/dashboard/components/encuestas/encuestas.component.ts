@@ -23,6 +23,8 @@ export class EncuestasComponent {
   metadata?: Metadata;
   encuestaVer: any;
 
+  
+
   constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService) {
 
 
@@ -51,9 +53,6 @@ export class EncuestasComponent {
           this.encuestas = response.encuestas;
           this.metadata = response.metadata;
         }
-
-        console.log(this.encuestas);
-        console.log(this.metadata);
 
 
       },

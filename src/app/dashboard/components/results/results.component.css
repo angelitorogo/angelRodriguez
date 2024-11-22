@@ -1,0 +1,275 @@
+.title-content {
+    max-width: 80rem;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+.resalt {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.text {
+    margin-bottom: 0;
+    font-size: 1.6rem;
+}
+
+.text2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 69rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.content-izq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.content-dcha {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-izq {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.container-table {
+    display: flex;
+    flex-direction: column;
+    width: 65rem;
+    border: 1px solid #ddd;
+    height: 56.6rem;
+    overflow-y: scroll;
+}
+
+.row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.header {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+.cell {
+    flex: 1;
+    padding: 8px 8px 8px 20px;
+    text-align: left;
+    font-size: 1.6rem;
+}
+
+.cell:nth-child(odd) {
+    border-right: 1px solid #ddd;
+}
+
+/* Opcional: Cambiar el color al pasar el cursor */
+.row.item:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+.activa {
+    background-color: var(--color-background);
+}
+
+
+
+.group-buttons-nav {
+    margin-top: 4rem;
+    display: flex;
+    background-color: var(--color-background);
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 20rem;
+    margin: 4rem auto;
+}
+
+.contain-icon {
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    width: 4rem;
+    border-left: 2px solid #eeeeee;
+    transition: all 0.3s ease;
+}
+
+.contain-icon:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.contain-icon:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.contain-icon:last-child {
+    border-right: 2px solid #eeeeee;
+}
+
+.contain-icon:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+} 
+
+.contain-icon:nth-child(3):hover {
+    cursor: auto;
+    background-color: var(--color-background);
+    color: black;
+} 
+
+.bi {
+    font-weight: 700;
+}
+
+.container-questions {
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    height: 56.6rem;
+    width: 64.8rem;
+}
+
+.survey {
+    border-bottom: 1px solid #ccc;;
+    padding: 1rem 2rem;
+}
+
+.survey:last-child {
+    border-bottom: none
+}
+
+.group-question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 8px;
+}
+
+.survey-question {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.survey-response {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.6rem;
+    text-indent: 2rem;
+}
+
+
+
+.content-estadisticas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.content-general {
+    width: 130rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.content-question-text,
+.content-question-words {
+    border: 1px solid #ddd;
+    margin-top: 6rem;
+    padding: 4rem;
+    height: 56.6rem;
+    overflow-y: auto;
+}
+
+.lista-responses,
+.lista-responses,
+.lista-words {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    border: 1px solid #ddd;
+}
+
+.link-responses span {
+    font-weight: 700;
+}
+
+.item-responses,
+.item-words {
+    border-bottom: 1px solid #ddd;
+    padding:1.8rem;
+    align-content: center;
+}
+
+.item-responses:last-child,
+.item-words:last-child {
+    border-bottom: none;
+}
+
+
+.item-responses:hover,
+.item-words:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.sub-title-words{
+    margin: 0 0 2rem 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.content-general.select,
+.content-general.check,
+.content-general.level
+ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60rem;
+}
+
+
+.content-general.check,
+.content-general.level {
+    border: none;
+    height: 37rem;
+}

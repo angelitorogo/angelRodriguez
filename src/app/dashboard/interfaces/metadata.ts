@@ -3,3 +3,9 @@ export interface Metadata {
     page: number;
     lastPage: number;
   }
+
+  export interface MetadataResponse {
+    totalEncuestasRespondidas: number;
+    page: number;
+    lastPage: number;
+  }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { Modal1Component } from '../shared/components/modal1/modal1.component';
 import { Boton6Component } from '../shared/components/boton6/boton6.component';
@@ -11,7 +10,7 @@ import { EncuestasComponent } from './components/encuestas/encuestas.component';
 import { FormsModule } from '@angular/forms';
 import { ResultsComponent } from './components/results/results.component';
 import { PublishComponent } from './components/publish/publish.component';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -28,8 +27,8 @@ import { PublishComponent } from './components/publish/publish.component';
     FormsModule,
     SharedModule,
     Modal1Component,
-    Boton6Component
-
+    Boton6Component,
+    NgxChartsModule,
   ]
 })
 export class DashboardModule { }

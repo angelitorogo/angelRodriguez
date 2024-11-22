@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { environment } from "../../../environments/environment";
@@ -27,6 +27,11 @@ export class DashboardService {
         return this._http.delete(`${this.apiUrl}/encuestas/delete-one/${id}`);
     }
 
+    loadSurveisRespondedById(id: string) {
+
+        return this._http.get(`${this.apiUrl}/encuestas/find-all-responded/${id}`);
+    }
+    
 
 
 }

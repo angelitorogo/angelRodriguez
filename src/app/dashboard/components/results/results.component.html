@@ -1,1 +1,136 @@
-<p>results works!</p>
+
+<div class="title-content" *ngIf="nombreEncuesta && fechaEncuesta">
+    <h3 class="title">Resultados de la encuesta <span class="resalt">{{nombreEncuesta}}</span></h3>
+    <p class="text">Fecha publicación: <span class="resalt">{{ fechaEncuesta  | date:'HH:mm:ss - dd/MM/yyyy'}}</span></p>
+    <p class="text2">Recopiladas: <span class="resalt">{{metadata.totalEncuestasRespondidas}}</span></p>
+</div>
+
+<div class="container">
+
+    <div class="content-izq">
+
+        <h4 class="title-izq">Encuestas respondidas</h4>
+
+        <div class="container-table">
+            <!-- Encabezados -->
+            <div class="row header">
+                <div class="cell">Email</div>
+                <div class="cell">Fecha respuesta</div>
+            </div>
+        
+            <!-- Contenido dinámico -->
+            <div 
+                class="row item" 
+                *ngFor="let item of encuestasRespondidas; let i = index" 
+                [id]="'item-' + (i + 1)" 
+                (click)="seleccion(i, item)">
+                <div class="cell">{{ item.email }}</div>
+                <div class="cell">{{ item.created_at | date:'HH:mm:ss - dd/MM/yyyy' }}</div>
+            </div>
+        </div>   
+    
+    
+    
+    </div>
+
+    <div class="content-dcha">
+
+        <h4 class="title-izq">Preguntas encuesta</h4>
+
+        <div class="container-questions" *ngIf="encuestaSeleccionada" id="container-questions">
+            <!-- Contenido dinámico -->
+            <div 
+                class="row item group-question" 
+                *ngFor="let item of encuestaSeleccionada.respuestas; let i = index"
+                (click)="seleccionPregunta(item, i)">
+                <h5 class="survey-question">{{ i + 1 }}.- {{ item.EncuestaItem.question }}</h5>
+                <p class="survey-response">"{{ item.respuesta }}"</p>
+            </div>
+        </div>
+        
+
+        
+    </div>
+
+    
+</div>
+
+<div class="content-estadisticas" *ngIf="estadisticaSeleccionada?.estadisticas">
+    <h4 class="title-izq">Estadísticas</h4>
+    <h3 class="sub-title" >Pregunta: {{estadisticaSeleccionada?.question}}</h3>
+
+    <div class="content-general" *ngIf="estadisticaSeleccionada?.type === 'TEXT'">
+
+        <div class="content-question-text">
+
+            <h3 class="sub-title-words">Respuestas totales: {{estadisticaSeleccionada?.respuestas?.length}}</h3>
+
+            <ul class="lista-responses">
+                <li [id]="'itemb-' + (i + 1)"  class="item-responses" *ngFor="let item of estadisticaSeleccionada?.respuestas; let i= index" (click)="seleccion(i)">
+                    <a class="link-responses" *ngIf="!item.email">{{i + 1}}.- <span>Anónimo</span>  - {{item.respuesta}}</a>
+                    <a class="link-responses" *ngIf="item.email">{{i + 1}}.- <span>{{item.email}}</span> - {{item.respuesta}}</a>
+                </li>
+            </ul>
+    
+        </div>
+    
+        <div class="content-question-words">
+
+            <h3 class="sub-title-words">Palabras repetidas:</h3>
+    
+            <ul class="lista-words">
+                <li class="item-words" *ngFor="let item of estadisticaSeleccionada?.palabrasMasComunes">
+                    <a class="link-words">"{{item.palabra}}" - {{item.frecuencia}} veces</a>
+                </li>
+            </ul>
+    
+        </div>
+    </div>
+
+
+
+    <div class="content-general select" *ngIf="estadisticaSeleccionada?.type === 'SELECT'">
+
+        <ngx-charts-bar-vertical
+            [view]="[800, 500]"
+            [scheme]="'vivid'"
+            [results]="data"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="true"
+            [legendTitle] = "'Franja de edad'"
+            [showXAxisLabel]="true"
+            [showDataLabel]="true"
+            [noBarWhenZero]="true"
+            [gradient]="true"
+            [barPadding]="20"
+            [xAxisLabel]="'Respuestas'"
+            [showYAxisLabel]="true"
+            [yAxisLabel]="'Porcentaje %'">
+        </ngx-charts-bar-vertical>
+
+    </div> 
+
+    <div class="content-general check" *ngIf="estadisticaSeleccionada?.type === 'CHECK'">
+
+        <ngx-charts-pie-grid
+            [view]="view"
+            [results]="data">
+        </ngx-charts-pie-grid>
+                    
+    
+    </div>
+
+    <div class="content-general level" *ngIf="estadisticaSeleccionada?.type === 'LEVEL'">
+
+        <ngx-charts-advanced-pie-chart
+            [view]="view"
+            [results]="data"
+            [gradient]="true"
+            [animations]="true">
+        </ngx-charts-advanced-pie-chart>
+
+    </div>
+
+</div>
+

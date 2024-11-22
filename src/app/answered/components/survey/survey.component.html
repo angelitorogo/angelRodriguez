@@ -104,7 +104,26 @@
         </div>
     </div>
 
-    <div class="mensaje" *ngIf="mostrarMensaje">
+    <div class="encuesta" *ngIf="mostrarMensaje">
+
+        <div class="container-mensaje">
+            <h3 class="title-mensaje">Gracias por participar!</h3>
+            <p class="text-mensaje">
+                Tus respuestas seran procesadas y analizadas.
+            </p>
+            <div class="container-btn-mensaje">
+                <lib-boton6 
+                    [colorTexto]="'#ffffff'"
+                    [colorIzq]="'#1a1a1a'"
+                    [colorDcha]="'#3333ff'"
+                    [buttonText]="'Aceptar'"
+                    [type]="'button'"
+                    [routerLink]="'/home'"
+                    > <!--(click)="volverContestar()"-->
+                </lib-boton6>
+            </div>
+            
+        </div>
 
     </div>
 

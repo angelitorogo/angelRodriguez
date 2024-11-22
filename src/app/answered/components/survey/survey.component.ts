@@ -17,6 +17,7 @@ export class SurveyComponent implements OnInit{
   modalText1: string = 'Este es un mensaje de información';
   modalType1: 'info' | 'success' | 'alert' = 'info';
 
+  id: string = '';
   encuesta!: Encuesta; 
 
   response: { 
@@ -51,13 +52,13 @@ export class SurveyComponent implements OnInit{
   opcionEscogida: string|null = null;
 
 
-  mostrarMensaje: boolean = true; //cambiar a false
+  mostrarMensaje: boolean = false; //cambiar a false
 
 
   constructor(public _authService: AuthService, 
               private _router: Router, 
               private _dashboardService: DashboardService,
-               private _route: ActivatedRoute,
+              private _route: ActivatedRoute,
               private _surveysService: SurveysService) {
 
   }
@@ -67,11 +68,11 @@ export class SurveyComponent implements OnInit{
   ngOnInit(): void {
 
 
-    const id = this._route.snapshot.paramMap.get('id')!;
+    this.id = this._route.snapshot.paramMap.get('id')!;
    
-    this.loadSurveyById(id);
+    this.loadSurveyById(this.id);
     
-    console.log(this.response);
+    //console.log(this.response);
     
   }
 
@@ -108,8 +109,6 @@ export class SurveyComponent implements OnInit{
 
 
         this.numPreguntas = this.encuesta!.encuestaItem.length;
-        
-        console.log(this.encuesta)
 
        
 
@@ -273,46 +272,6 @@ export class SurveyComponent implements OnInit{
     }
   }
 
-
-  recolectarTextos() {
-
-
-
-    for (let i = 0; i < this.encuesta!.encuestaItem.length; i++) {
-      const element = this.encuesta!.encuestaItem[i];
-
-      if(element.type === 'TEXT') {
-        
-        const elementHTML = document.getElementById(`textarea-${i}`) as HTMLTextAreaElement;
-        let resp: string[] = [];
-        resp.push(elementHTML.value);
-
-        let question = this.encuesta!.encuestaItem[i].question
-        this.response[i] = {
-          id: i,
-          encuestaItemId: this.encuesta!.encuestaItem[i].id!,
-          question: question,
-          respuesta: resp
-        }
-        
-        
-      }
-
-      if(element.type === 'EMAIL') {
-
-        const elementHTML = document.getElementById(`input-${i}`) as HTMLInputElement;
-        const resp: any = elementHTML.value;
-
-        this.email = resp;
-
-      }
-      
-    }
-
-  
-  }
-
-
   mostrarOpciones(i: number) {
     const opciones = document.getElementById(`opciones-${i}`)!;
 
@@ -440,14 +399,16 @@ export class SurveyComponent implements OnInit{
 
     let resp= response.map(({ id, question, ...resto }) => resto);
 
-    this.responseEncuesta.email = resp[0].respuesta[0];
+    if(resp[0].respuesta[0] != '') {
+      this.responseEncuesta.email = resp[0].respuesta[0];
+    } else {
+      this.responseEncuesta.email = undefined;
+    }
 
     resp.shift();
     
     this.responseEncuesta.encuestaId = this.encuesta.id;
     this.responseEncuesta.respuestas = resp;
-  
-    console.log(this.responseEncuesta)
 
 
     this.enviarResponse(this.responseEncuesta);
@@ -483,6 +444,17 @@ export class SurveyComponent implements OnInit{
 
   }
 
+
+  volverContestar() {
+    this.mostrarMensaje = false;
+    this.response = [];
+    this.email = '';
+    this.preguntaActual = 1;
+    this.idActual = '';
+
+    this.loadSurveyById(this.id);
+
+  }
   
 
 }

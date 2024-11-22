@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -19,7 +20,8 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
   ],
   exports:[
   ],

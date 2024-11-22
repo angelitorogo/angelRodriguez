@@ -79,7 +79,6 @@ export class Boton6Component implements OnInit {
 
         // Si se proporciona un routerLink, navegar a la ruta
         if (this.routerLink) {
-            console.log('navegando...')
             this.router.navigate(Array.isArray(this.routerLink) ? this.routerLink : [this.routerLink]);
         }
     }

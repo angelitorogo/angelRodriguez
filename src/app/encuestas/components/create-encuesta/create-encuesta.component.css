@@ -172,6 +172,7 @@ lib-boton6 {
   height: 30rem;
   width: 40rem;
   box-shadow: 1px 1px 4px 2px #00000025;
+  overflow-y: scroll;
 }
 
 .title-prev {

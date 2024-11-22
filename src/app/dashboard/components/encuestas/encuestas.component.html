@@ -16,7 +16,6 @@
     <ul class="lista-encuestas" *ngIf="encuestas.length > 0">
         <li class="item-encuestas" *ngFor="let item of encuestas; let i = index">
             <a class="link-encuestas">{{item.nombre}}</a>
-            <a class="link-participantes">Participantes: 32</a>
             <div class="contain-icono">
                 <i class="bi bi-share-fill"></i>
             </div>
@@ -27,6 +26,14 @@
                 [buttonText]="'Ver'"
                 [type]="'button'"
                 (click)="verEncuesta(item)">
+            </lib-boton6>
+            <lib-boton6 
+                [colorTexto]="'#ffffff'"
+                [colorIzq]="'#1a1a1a'"
+                [colorDcha]="'#3333ff'"
+                [buttonText]="'Resultados'"
+                [type]="'button'"
+                [routerLink]="'/dashboard/resultados/' + item.id">
             </lib-boton6>
             <lib-boton6 
                 [colorTexto]="'#ffffff'"

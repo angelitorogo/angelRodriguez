@@ -58,10 +58,7 @@ export class EncuestaComponent implements OnInit{
       next: async (response: any) => {
 
         this.encuesta = response;
-        
-        console.log(this.encuesta)
-
-
+  
       },
       error: (error: any) => {
 
@@ -187,30 +184,33 @@ export class EncuestaComponent implements OnInit{
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent): void {
 
+    if(this.encuesta) {
+      for (let i = 0; i < this.encuesta!.encuestaItem.length; i++) {
 
-    for (let i = 0; i < this.encuesta!.encuestaItem.length; i++) {
-
-      const element = this.encuesta!.encuestaItem[i];
-
-      if( element.type == 'SELECT') {
-    
-        //tenemos el i de los select
-        const opciones = document.getElementById(`opciones-${i}`)!;
-        const divExcluido = document.getElementById(`button-select-${i}`)!;
-
-        // Verifica si el clic ocurrió dentro del div excluido
-        if (divExcluido.contains(event.target as Node)) {
-          return; // Sal del método sin hacer nada
+        const element = this.encuesta!.encuestaItem[i];
+  
+        if( element.type == 'SELECT') {
+      
+          //tenemos el i de los select
+          const opciones = document.getElementById(`opciones-${i}`)!;
+          const divExcluido = document.getElementById(`button-select-${i}`)!;
+  
+          // Verifica si el clic ocurrió dentro del div excluido
+          if (divExcluido.contains(event.target as Node)) {
+            return; // Sal del método sin hacer nada
+          }
+      
+          if( opciones.classList.contains('visible')) {
+            opciones?.classList.remove('visible');
+          }
+  
         }
-    
-        if( opciones.classList.contains('visible')) {
-          opciones?.classList.remove('visible');
-        }
-
+  
       }
-
+  
     }
 
+    
   }
   
 

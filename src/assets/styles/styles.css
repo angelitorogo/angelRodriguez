@@ -2,6 +2,7 @@
 
 :root {
     --color-background: #f3f3f3;
+    --color-background-hover: #353535;
     --color-container: #494949;
     --color-primary: #e3f5ff;
     --color-texto: #e0e0e0;
@@ -13,3 +14,13 @@
     padding: 0rem;
     height: 100vh;
 }
+
+.advanced-pie-legend .legend-items-container .legend-items {
+    white-space: normal !important; /* Forzar el cambio */
+    overflow: visible !important;   /* Forzar el cambio */
+  }
+
+  .item-value {
+    display: none;
+  }
+

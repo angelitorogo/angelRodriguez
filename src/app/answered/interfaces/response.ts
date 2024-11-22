@@ -2,7 +2,7 @@
   
 export interface  responseEncuesta {
     encuestaId?: string,
-    email: string,
+    email?: string,
     respuestas: responseEncuestaItem[] 
 }
 
