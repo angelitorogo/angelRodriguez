@@ -45,6 +45,7 @@ export class CreateEncuestaComponent implements OnInit{
   ngOnInit(): void {
     this.sesion = this._authService.getIdentity;
     this.token = this._authService.getToken;
+
   }
 
   AceptarTitleSurvey() {
@@ -55,7 +56,6 @@ export class CreateEncuestaComponent implements OnInit{
   
   comenzarEncuesta() {
 
-    console.log(this.sesion)
 
     if( !this.sesion ) {
       const currentUrl = this._router.url; // Obtiene la URL actual
@@ -172,7 +172,14 @@ export class CreateEncuestaComponent implements OnInit{
   }
 
   onOptionChange() {
+    document.getElementById('options-trigger')?.classList.toggle('visible')
+  }
+
+  selectedOptionFunc(option: string) {
+    this.selectedOption = option
     this.activarOptions = true;
+    document.getElementById('options-trigger')?.classList.remove('visible')
+
   }
 
   escogerQuestion(i: number) {
@@ -183,7 +190,32 @@ export class CreateEncuestaComponent implements OnInit{
     this.questionSelected = this._encuestasService.encuesta.encuestaItem[i];
 
     this.question = this.questionSelected.question;
-    this.selectedOption = this.questionSelected.type;
+
+
+    switch (this.questionSelected.type) {
+      case "TEXT":
+        this.selectedOption = "Respuesta texto"
+        break;
+
+      case "SELECT":
+        this.selectedOption = "Selección de una"
+        break;
+
+      case "CHECK":
+        this.selectedOption = "Seleccionar una o varias"
+        break;
+
+      case "LEVEL":
+        this.selectedOption = "Puntuacion"
+        break;
+
+    }
+
+     this.questionSelected.type;
+
+
+
+
     this.responses = this.questionSelected.options || []
 
     console.log(this.indexSelected)

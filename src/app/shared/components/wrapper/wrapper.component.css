@@ -1,0 +1,64 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    height: var(--height);
+    overflow: visible;
+    position: absolute;
+}
+
+.card {
+    height: 100%;
+    transition: flex 0.5s ease;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Rellenar el contenedor manteniendo la proporción */
+    object-position: center; /* Centrar la imagen en el contenedor */
+  }
+
+.card:hover {
+    flex:10;
+}
+
+@media (min-width: 768px) { 
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        height: var(--height);
+        overflow: hidden;
+        border: 1px solid black;
+    }
+    
+    .card {
+        flex: 1;
+        height: 100%;
+        transition: flex 0.5s ease;
+        cursor: pointer;
+        border-right: 1px solid black;
+        position: relative;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    .card:last-child {
+        border-right: none;
+    }
+    
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Rellenar el contenedor manteniendo la proporción */
+        object-position: center; /* Centrar la imagen en el contenedor */
+      }
+    
+    .card:hover {
+        flex: 3;
+    }
+}

@@ -5,6 +5,7 @@ import { EncuestaResponse, Respuesta } from '../../interfaces/tabladata';
 import { MetadataResponse } from '../../interfaces/metadata';
 import { EstadisticasService } from '../../services/estadisticas.service';
 import { ResponseEstadisticas } from '../../interfaces/estadisticas';
+import { A } from '@angular/cdk/keycodes';
 
 
 @Component({
@@ -38,7 +39,9 @@ export class ResultsComponent implements OnInit{
   data: any[] = [];
   
 
-  view: [number, number] = [800, 300];
+  viewVertical: [number, number] = [0, 0];
+  viewCheck: [ number, number] = [0, 0];
+  viewLevel: [ number, number] = [0, 0];
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -134,21 +137,73 @@ export class ResultsComponent implements OnInit{
 
   seleccionPregunta(respuesta: Respuesta, i: number) {
 
-    
-
+    const ancho = window.innerWidth;
     this.data = [];
-
     this.estadisticaSeleccionada = this.estadisticas[i];
-    
-      const elements = this.estadisticaSeleccionada.estadisticas;
 
-      for (let x = 0; x < elements.length; x++) {
-        const element = elements[x];
-        this.data.push({
-          name: element.respuesta,
-          value: element.porcentaje
-        })
+    if(ancho > 768) {
+
+      switch (this.estadisticaSeleccionada.opciones.length) {
+        case 2:
+  
+          this.viewVertical = [ancho/5, 500]
+          
+          break;
+  
+        case 3:
+  
+          this.viewVertical = [ancho/4, 500]
+          
+          break;
+  
+        case 4:
+  
+          this.viewVertical = [ancho/3, 500]
+          
+          break;
+  
+        case 5:
+  
+          this.viewVertical = [ancho/2, 500]
+          
+          break;
+  
+        case 6:
+  
+          this.viewVertical = [ancho/1.5, 500]
+          
+          break;
+      
+        default:
+
+          this.viewVertical = [ancho/1.5, 500]
+          
+          break;
       }
+
+      this.viewCheck = [ancho/2, 500]
+      this.viewLevel = [ancho/2, 500]
+      
+    } else {
+
+      this.viewVertical=[ancho - ((ancho * 5) / 100), 500]
+      this.viewCheck = [ancho - ((ancho * 5) / 100), 400]
+      this.viewLevel = [ancho, 400]
+
+
+    }
+    
+    
+    
+    const elements = this.estadisticaSeleccionada.estadisticas;
+
+    for (let x = 0; x < elements.length; x++) {
+      const element = elements[x];
+      this.data.push({
+        name: element.respuesta,
+        value: element.porcentaje
+      })
+    }
 
     
   }

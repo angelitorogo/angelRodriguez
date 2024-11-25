@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LeerMasComponent } from './pages/leer-mas/leer-mas.component';
 import { RouterModule } from '@angular/router';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { Boton6Component } from './components/boton6/boton6.component';
 
 
 
@@ -17,6 +19,7 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
   declarations: [
     NavbarComponent,
     FooterComponent,
+    WrapperComponent,
     HomeComponent,
     LeerMasComponent,
     TermsConditionsComponent
@@ -25,7 +28,8 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    Boton6Component
   ],
   exports: [
     NavbarComponent,

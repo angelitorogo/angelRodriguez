@@ -60,6 +60,22 @@
   color: #5d93ff;
 }
 
+@media (max-width: 768px) { 
+
+  .header {
+    height: 32rem;
+  }
+
+  .header-title {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 7rem auto;
+    text-align: center;
+  }
+}
 
 
 
@@ -132,6 +148,7 @@
 .header-link {
   position: absolute;
   bottom: -60rem;
+  margin-bottom: unset;
   border: 1px solid black;
   padding: 1.5rem 5rem;
   color: #202020;
@@ -159,6 +176,62 @@
     top: -4rem;
     right: 2rem;
     z-index: 1;
+}
+
+
+@media (max-width: 768px) { 
+
+  .content {
+    height: auto;
+    letter-spacing: 0.1em;
+    background-color: var(--color-background);
+    margin-top: 8rem;
+  }
+
+  .content-text {
+    position: unset;
+    width: 100%;
+  }
+
+  .header-text {
+    padding: 2rem;
+    text-align: justify;
+    text-indent: 4rem;
+    background-color: white; 
+    width: 70rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    box-shadow: 4px 4px 4px #202020;
+  }
+
+  .text-1, .text-2, .text-3 {
+    width: 95%;
+    margin: 2rem auto;
+    position: relative;
+    top: unset;
+    left: unset;
+  }
+
+  .header-link {
+    position: unset;
+    margin-bottom: 4rem;
+    border: 1px solid black;
+    padding: 1.5rem 5rem;
+    color: #202020;
+    transition: all 0.2s ease;
+  }
+
+  .bi-ui-checks, 
+  .bi-clipboard-data,
+  .bi-share-fill
+   {
+    font-size: 3.5rem;
+    position: absolute;
+    top: -0.5rem;
+    left: -6.5rem;
+    z-index: 1;
+  }
+
 }
 
 

@@ -63,25 +63,33 @@
                 </li>
             </ul>
         </div>
+
         <div class="box-contain">
 
             <div class="box-creation">
                 <div class="group-create">
-                    <label>Pregunta
+                    <label class="label-question">Pregunta
                         <span *ngIf="!selected">{{_encuestasService.encuesta.encuestaItem.length + 1}}</span>
                         <span *ngIf="selected">{{indexSelected! + 1}}</span>
                         :</label>
                     <input type="text" [(ngModel)]="question">
                 </div>
     
-                <div class="group-create select">
-                    <label>Tipo de respuesta:</label>
-                    <select [(ngModel)]="selectedOption" (change)="onOptionChange()">
-                        <option *ngFor="let option of options" [value]="option">{{ option }}</option>
-                    </select>
+                <div class="group-create select custom-select">
+
+                    <div class="label-select">
+                        <div class="select-trigger" (click)="onOptionChange()">Tipo de respuesta:</div>
+                        <span *ngIf="selectedOption">{{selectedOption}}</span>
+                    </div>
+                    
+                    
+                    <ul class="options-trigger" id="options-trigger" >
+                        <li class="option" *ngFor="let option of options"  (click)="selectedOptionFunc(option)">{{ option }}</li>
+                    </ul>
+
                 </div>
     
-                <div class="group-create">
+                <div class="group-create check-create">
                     <label>Opciones:</label>
                     <br>
                     <div class="options">

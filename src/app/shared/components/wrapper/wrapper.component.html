@@ -1,0 +1,5 @@
+<div class="wrapper" [ngStyle]="{'--width': width, '--height': height}">
+    <div class="card" *ngFor="let item of wrapper" [ngStyle]="{ 'background-color': item.image ? 'white' : item.backgroundColor}">
+        <img [src]="item.image" *ngIf="item.image">
+    </div>
+</div>

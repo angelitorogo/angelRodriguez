@@ -87,17 +87,16 @@
         </div>
     </div>
 
-
-
     <div class="content-general select" *ngIf="estadisticaSeleccionada?.type === 'SELECT'">
 
-        <ngx-charts-bar-vertical
-            [view]="[800, 500]"
+        <ngx-charts-bar-vertical 
+            [view]="viewVertical"
             [scheme]="'vivid'"
             [results]="data"
+            [noBarWhenZero]="false"
             [xAxis]="true"
             [yAxis]="true"
-            [legend]="true"
+            [legend]="false"
             [legendTitle] = "'Franja de edad'"
             [showXAxisLabel]="true"
             [showDataLabel]="true"
@@ -114,7 +113,7 @@
     <div class="content-general check" *ngIf="estadisticaSeleccionada?.type === 'CHECK'">
 
         <ngx-charts-pie-grid
-            [view]="view"
+            [view]="viewCheck"
             [results]="data">
         </ngx-charts-pie-grid>
                     
@@ -124,8 +123,8 @@
     <div class="content-general level" *ngIf="estadisticaSeleccionada?.type === 'LEVEL'">
 
         <ngx-charts-advanced-pie-chart
-            [view]="view"
             [results]="data"
+            [view]="viewLevel"
             [gradient]="true"
             [animations]="true">
         </ngx-charts-advanced-pie-chart>

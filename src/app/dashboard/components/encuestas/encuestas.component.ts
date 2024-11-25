@@ -23,6 +23,8 @@ export class EncuestasComponent {
   metadata?: Metadata;
   encuestaVer: any;
 
+  mostrarOpciones: boolean = false;
+  encuestaSel: number|null = null;
   
 
   constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService) {
@@ -42,6 +44,40 @@ export class EncuestasComponent {
      
   }
 
+  mostrarEncuesta(i: number) {
+
+    
+
+    const ancho = window.innerWidth;
+    if( ancho > 768) return;
+
+    const items = document.getElementsByClassName('item-encuestas');
+    const opciones = document.getElementsByClassName('container-opciones');
+
+    if( this.encuestaSel == i) {
+      document.getElementById('opciones-'+i)?.classList.remove('visible');
+      items[i].classList.remove('seleccionado');
+      this.encuestaSel = null;
+      return;
+    }
+
+    this.mostrarOpciones = true;
+    this.encuestaSel = i;
+
+    
+
+    for (let i = 0; i < opciones.length; i++) {
+      const element = opciones[i];
+      element.classList.remove('visible')
+      items[i].classList.remove('seleccionado')
+      
+    }
+
+
+    document.getElementById('opciones-'+i)?.classList.add('visible');
+    items[i].classList.add('seleccionado')
+
+  }
 
 
   loadSurveisUser() {

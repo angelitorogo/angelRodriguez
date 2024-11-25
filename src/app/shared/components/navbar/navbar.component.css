@@ -1,4 +1,4 @@
-.nav {
+/*.nav {
     height: 10rem;
     border-bottom: 2px solid #aac6ffab;
     display: flex;
@@ -39,6 +39,106 @@
   .menu-item .active {
     color: #5d93ff;
   }
+*/
+  
+/* Estilos generales */
+.nav {
+  height: 10rem;
+  border-bottom: 2px solid #aac6ffab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10rem;
+  position: relative;
+  z-index: 10;
+}
 
-  
-  
+.brand-name {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 8rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-item {
+  text-decoration: none;
+}
+
+.item-link {
+  color: #202020;
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover .item-link {
+  cursor: pointer;
+  color: #5d93ff;
+}
+
+.menu-item .active {
+  color: #5d93ff;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .nav {
+      padding-inline: 2rem;
+  }
+
+  .brand-name {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    right: 0;
+    background-color: #000000ab;
+    border-bottom: 2px solid #aac6ffab;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    height: 22rem;
+    padding-top: 2.5rem;
+  }
+
+  .menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+  }
+
+  .menu-item {
+      text-align: center;
+  }
+
+  .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      cursor: pointer;
+      z-index: 20;
+  }
+
+  .menu-toggle span {
+      display: block;
+      width: 2.5rem;
+      height: 0.4rem;
+      background-color: #202020;
+  }
+
+  .item-link {
+    color: #ececec;
+    transition: all 0.2s ease;
+  }
+}

@@ -124,7 +124,7 @@ input:focus::placeholder {
 .label-checkbox {
   padding-top: 0.8rem;
   color: var(--color-texto);
-  font-size: 1.4vh;
+  font-size: 1.2rem;
 }
 
 input[type="checkbox"]:checked {

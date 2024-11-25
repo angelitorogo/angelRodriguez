@@ -29,8 +29,15 @@ h2 {
   color: #212121;
 }
 form{
-  width: 71%;
+  width: 95%;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  form{
+    width: 71%;
+    margin: 0 auto;
+  }
 }
 
 .text-link {
@@ -65,4 +72,9 @@ form{
 
 .text-register {
   margin-top: 3rem;
+}
+
+lib-input4 {
+
+  width: 100%;
 }

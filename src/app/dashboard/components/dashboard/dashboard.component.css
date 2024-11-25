@@ -1,8 +1,29 @@
 
 .header {
-    height: 34rem;
+    height: 29rem;
   }
   
+  .container-nav {
+    height: 29rem;
+    background: url('../../../../assets/images/fondo6.webp');
+  }
+
+  .header-title {
+    text-align: center;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 4rem auto;
+}
+
+@media (min-width: 768px) { 
+  
+  .header {
+    height: 34rem;
+  }
+
   .container-nav {
     height: 34rem;
     background: url('../../../../assets/images/fondo6.webp');
@@ -16,6 +37,5 @@
     font-size: 4rem;
     font-weight: 500;
     margin: 9rem auto;
+  }
 }
-
-

@@ -13,6 +13,22 @@ export class HomeComponent implements OnInit{
 
   identity?: User;
 
+  wrapper= [ //maximo 9 elementos
+    {
+      image: 'assets/images/example_1.png', backgroundColor: '#ff0000'
+    },
+    {
+      image: 'assets/images/example_5.png', backgroundColor: '#00ff00'
+    },
+    {
+      image: 'assets/images/example_3.png', backgroundColor: '#0000ff'
+    },
+    {
+      image: 'assets/images/example_4.png', backgroundColor: '#ff00AA'
+    }  
+  ];
+
+
   constructor(public _homeService: HomeService, private _authService: AuthService, private _router: Router) {}
 
 

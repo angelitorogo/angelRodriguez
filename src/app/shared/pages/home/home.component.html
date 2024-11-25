@@ -1,3 +1,4 @@
+
 <div class="header" id="header">
 
     <div class="container-nav">
@@ -62,6 +63,21 @@
 
         <div class="right-content">
 
+        </div>
+
+    </div>
+
+    <div class="examples" id="examples">
+
+        <h2 class="examples-title">
+            Estadísticas
+        </h2>
+
+        <div class="container-wrapper">
+            <lib-wrapper
+                [wrapper]="wrapper"
+                [height]="'500px'">
+            </lib-wrapper>
         </div>
 
     </div>
@@ -183,9 +199,17 @@
                     </div>
                 </div>
 
-                <button class="btn btn-form" type="submit">
-                    Enviar
-                </button>
+                <div class="container-boton">
+                    <lib-boton6 
+                        [colorTexto]="'#ffffff'"
+                        [colorIzq]="'#1a1a1a'"
+                        [colorDcha]="'#3333ff'"
+                        [buttonText]="'Envíar'"
+                        [type]="'submit'">
+                    </lib-boton6>
+                </div>
+
+                
 
                 <p class="form-texto">¡Gracias por tu mensaje!</p>
 

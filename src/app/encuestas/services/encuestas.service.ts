@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
-export class EncuestasService {
+export class EncuestasService{
 
     apiUrl = environment.API_URL;
 
@@ -29,9 +29,9 @@ export class EncuestasService {
             question,
             type,
             options: options ?? [] // Si no hay opciones, inicializamos como un array vacío
-          };
-      
-          this.encuesta.encuestaItem.push(newQuestion);
+        };
+    
+        this.encuesta.encuestaItem.push(newQuestion);
 
     }
 

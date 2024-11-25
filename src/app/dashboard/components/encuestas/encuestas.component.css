@@ -1,7 +1,120 @@
 .content {
-    height: 23rem;
+  height: unset;
+  background-color: var(--color-background);
+  padding-top: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 6rem;
+}
+
+.title-content {
+  font-size: 2.2rem;
+  font-weight: 500;
+  background-color: rgb(255, 255, 255);
+  width: 30rem;
+  margin: -4rem auto 0 auto;
+  text-align: center;
+  padding: 2rem 4rem;
+  box-shadow: 1px 1px 2px #000;
+}
+
+.lista-encuestas {
+  width: 95%;
+  margin: 1rem auto;
+  border-top: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.item-encuestas {
+  padding: 2rem;
+  border-bottom: 1px solid #c9c9c9;
+  display: grid;
+  grid-template-columns:1fr;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+
+.link-encuestas {
+  text-transform: uppercase;
+  font-weight: 700;
+  
+} 
+.link-participantes {
+  font-size: 1.4rem;
+}
+
+.contain-icono {
+  text-align: center;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.bi-share-fill {
+  color: #4ec1ff;
+  filter: drop-shadow(1px 1px 0px #000);
+
+}
+
+.bi-share-fill:hover {
+  color: black;
+  filter: drop-shadow(1px 1px 0px #4ec1ff);
+  cursor: pointer;
+}
+
+
+.content-button {
+  width: 95%;
+  padding: 1rem;
+  position: static;
+  margin: 1rem auto;
+  bottom: 0;
+}
+
+.content-button lib-boton6 {
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+.content-button-no-encuestas {
+  width: 30rem;
+  margin: 2rem auto 0 auto;
+}
+
+.container-opciones {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.visible {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+}
+
+.seleccionado {
+  background-color: #0000001a;
+  transition: all 0.2s ease;
+}
+
+
+@media (min-width: 768px) {  
+
+  .content {
+    height: unset;
     background-color: var(--color-background);
-    padding-top: 2rem;
+    padding-top: 0;
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding-bottom: 4rem;
@@ -20,7 +133,8 @@
   
   .lista-encuestas {
     width: 80rem;
-    margin: 3rem auto;
+    height: 32rem;
+    margin: 0rem auto;
     border-top: 1px solid #c9c9c9;
     border-left: 1px solid #c9c9c9;
     border-right: 1px solid #c9c9c9;
@@ -28,13 +142,14 @@
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     position: relative;
+    overflow-y: scroll;
   }
   
   .item-encuestas {
     padding: 2rem;
     border-bottom: 1px solid #c9c9c9;
     display: grid;
-    grid-template-columns: 5fr 2fr 1fr 2fr 2fr;
+    grid-template-columns: 5fr 2fr 5fr;
     align-items: center;
     gap: 2rem;
   }
@@ -50,6 +165,9 @@
   
   .contain-icono {
     text-align: center;
+    position: static;
+    top: 20px;
+    left: 152px;
   }
   
   .bi-share-fill {
@@ -65,20 +183,21 @@
   
   
   .content-button {
-    width: 14rem;
-    padding: 1rem;
-    position: absolute;
-    bottom: -10.5rem;
-    right: 8rem;
+    width: 20rem;
+    margin: 0 auto;
   }
 
-.content-button lib-boton6 {
-    margin: 4rem;
-    display: block;
-    width: 17rem;
+  .content-button-no-encuestas {
+    width: 30rem;
+    margin: 2rem auto 0 auto;
   }
 
-.content-button-no-encuestas {
-  width: 30rem;
-  margin: 2rem auto 0 auto;
+  .container-opciones {
+    display: grid;
+    grid-template-columns: 3fr 4fr 3fr;
+    gap: 1rem;
+  }
+
+
+
 }
