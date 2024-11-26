@@ -1,237 +1,160 @@
-
 .header {
-  height: 40rem;
+  height: 54rem;
+  letter-spacing: 0.1em;
 }
 
 .container-nav {
-  height: 40rem;
-  /*background-color: var(--color-background);*/
+  height: 54rem;
+  background-color: var(--color-background);
   background: url('../../../../assets/images/fondo6.webp');
-  
 }
 
 .header-title {
-  width: 83rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-size: 4rem;
-  font-weight: 500;
-  margin: 9rem auto;
-}
-
-.nav {
-  height: 10rem;
-  border-bottom: 2px solid #aac6ffab;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-inline: 10rem;
-
+  font-weight: 500;
+  text-align: center;
+  margin-top: 2rem;
+  height: 37rem;
 }
 
-
-.brand-name {
+.text-title {
   font-size: 3rem;
   font-weight: 500;
+  margin-top: 1rem;
 }
-
-.menu {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: 8rem;
-}
-
-.menu-item {
-  text-decoration: none;
-  color: black;
-}
-
-.item-link {
-  color: #202020;
-  transition: all 0.2s ease;
-}
-
-.menu-item:hover .item-link{
-  color: #5d93ff;
-}
-
-.menu-item .active {
-  color: #5d93ff;
-}
-
-@media (max-width: 768px) { 
-
-  .header {
-    height: 32rem;
-  }
-
-  .header-title {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    font-size: 3rem;
-    font-weight: 500;
-    margin: 7rem auto;
-    text-align: center;
-  }
-}
-
-
-
-
-/*Content*/
 
 .content {
-    height: 110rem;
-    letter-spacing: 0.1em;
-    background-color: var(--color-background);
-    margin-top: 8rem;
-  }
-  
-.header-content {
-  display: grid;
-  grid-template-columns: 12fr;
-  height: 120rem;
+  width: 90%;
+  margin: 3rem auto;
 }
 
 .central-content {
   text-align: center;
   display: flex;
-  gap: 2rem;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
-
-
 .content-text {
-    position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.6rem;
+  text-align: justify;
+  letter-spacing: 0.1em;
 }
 
 .header-text {
-    padding: 4rem;
-    text-align: justify;
-    text-indent: 4rem;
-    background-color: white; 
-    width: 70rem;
-    font-size: 1.6rem;
+  width: 100%;
+}
+
+.container-boton-about {
+  width: 25rem;
+  margin-block: 2rem;
+}
+
+
+.group-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+
+
+.image {
+  box-shadow: 1px 1px 4px var(--color-shadow);
+}
+
+
+@media (min-width: 768px) { 
+  .header {
+    height: 54rem;
     letter-spacing: 0.1em;
-    box-shadow: 4px 4px 4px #202020;
-}
-
-.text-1 {
-
-    position: relative;
-    top: 10rem;
-    left: 20rem;
-    z-index: 3;
-
-}
-
-.text-2 {
-
-    position: relative;
-    top: 6rem;
-    left: -15rem;
-    z-index: 2;
-}
-
-.text-3 {
-
-    position: relative;
-    top: 2rem;
-    left: 20rem;
-    z-index: 1;
-}
-
-.header-link {
-  position: absolute;
-  bottom: -60rem;
-  margin-bottom: unset;
-  border: 1px solid black;
-  padding: 1.5rem 5rem;
-  color: #202020;
-  transition: all 0.2s ease;
-}
-
-.header-link:hover {
-  border: 1px solid #5d93ff;;
-  padding: 1.5rem 5rem;
-  color: #5d93ff;
-}
-
-
-.bi-ui-checks, .bi-clipboard-data {
-    font-size: 5rem;
-    position: absolute;
-    top: -4rem;
-    left: -6rem;
-    z-index: 1;
-}
-
-.bi-share-fill {
-    font-size: 5rem;
-    position: absolute;
-    top: -4rem;
-    right: 2rem;
-    z-index: 1;
-}
-
-
-@media (max-width: 768px) { 
-
-  .content {
-    height: auto;
-    letter-spacing: 0.1em;
-    background-color: var(--color-background);
-    margin-top: 8rem;
   }
-
+  
+  .container-nav {
+    height: 54rem;
+    background-color: var(--color-background);
+    background: url('../../../../assets/images/fondo6.webp');
+  }
+  
+  .header-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 4rem;
+    align-items: center;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 2rem;
+    height: 37rem;
+  }
+  
+  .text-title {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+  
+  .content {
+    width: 90%;
+    margin: 3rem auto;
+  }
+  
+  .central-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
   .content-text {
-    position: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.6rem;
+    text-align: justify;
+    letter-spacing: 0.1em;
+    margin-top: 4rem;
+  }
+  
+  .header-text {
     width: 100%;
   }
-
-  .header-text {
-    padding: 2rem;
-    text-align: justify;
-    text-indent: 4rem;
-    background-color: white; 
-    width: 70rem;
-    font-size: 1.6rem;
-    letter-spacing: 0.1em;
-    box-shadow: 4px 4px 4px #202020;
+  
+  .container-boton-about {
+    width: 25rem;
+    margin-block: 2rem;
   }
-
-  .text-1, .text-2, .text-3 {
-    width: 95%;
-    margin: 2rem auto;
-    position: relative;
-    top: unset;
-    left: unset;
-  }
-
-  .header-link {
-    position: unset;
+  
+  
+  .group-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
     margin-bottom: 4rem;
-    border: 1px solid black;
-    padding: 1.5rem 5rem;
-    color: #202020;
-    transition: all 0.2s ease;
   }
-
-  .bi-ui-checks, 
-  .bi-clipboard-data,
-  .bi-share-fill
-   {
-    font-size: 3.5rem;
-    position: absolute;
-    top: -0.5rem;
-    left: -6.5rem;
-    z-index: 1;
+  
+  .group-text:nth-child(2) {
+    flex-direction: row-reverse;
   }
-
+  
+  .image {
+    box-shadow: 1px 1px 4px var(--color-shadow);
+  }
+  
 }
-
-
