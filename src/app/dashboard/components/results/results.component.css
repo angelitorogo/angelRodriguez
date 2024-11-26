@@ -32,6 +32,20 @@
     gap: 4rem;
 }
 
+.container-sin {
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 26.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-volver {
+    width: 20rem;
+}
+
+
 .content-izq {
     display: block;
     width: 95%;
@@ -321,6 +335,16 @@
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
     }
+
+    .container-sin {
+        max-width: 1600px;
+        margin: 0 auto;
+        height: 26.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
     
     .content-izq {
         display: flex;
@@ -570,6 +594,13 @@
 
     .content-general.level {
         margin-left: unset;
+    }
+
+    .sin-encuestas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
 }

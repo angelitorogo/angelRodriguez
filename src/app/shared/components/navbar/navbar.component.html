@@ -13,16 +13,16 @@
 
     <ul class="menu" [class.open]="menuOpen">
         <li class="menu-item">
-            <a [routerLink]="['/home']" class="item-link active">Inicio</a>
+            <a (click)="irA('/home')" class="item-link active">Inicio</a>
         </li>
         <li class="menu-item">
-            <a [routerLink]="['/surveis/create']" class="item-link">Crear encuesta</a>
+            <a (click)="irA('/surveis/create')" class="item-link">Crear encuesta</a>
         </li>
         <li class="menu-item">
-            <a [routerLink]="['/dashboard']" class="item-link">Dashboard</a>
+            <a (click)="irA('/dashboard')" class="item-link">Dashboard</a>
         </li>
         <li class="menu-item">
-            <a [routerLink]="['/home']" fragment="contacto" class="item-link">Contacto</a>
+            <a (click)="irA('/home', 'contacto')" fragment="contacto" class="item-link">Contacto</a>
         </li>
         <li class="menu-item" *ngIf="_authService.getIdentity">
             <a (click)="logout()" fragment="contacto" class="item-link">Salir</a>

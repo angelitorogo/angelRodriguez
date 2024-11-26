@@ -1,11 +1,22 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 :root {
-    --color-background: #f3f3f3;
-    --color-background-hover: #353535;
-    --color-container: #494949;
-    --color-primary: #e3f5ff;
+    --color-background: #eeeeee;
     --color-texto: #e0e0e0;
+    --color-nav:#434343;
+    --color-active-hover: #5d93ff;
+    --color-border: #aac6ff;
+    --color-texto-atenuado: #a2a2a2;
+
+    --color-texto-login: #333;
+    --color-container: #ffffffc7;
+
+    --color-shadow: #0a0a0a7d;
+
+    --color-verde: #006e4e;
+    --color-rojo: #9d0000;
+   
+    --color-primary: #e3f5ff;
     --color-button: #c4eaff;
 }
 

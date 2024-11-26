@@ -5,7 +5,7 @@ import { EncuestaResponse, Respuesta } from '../../interfaces/tabladata';
 import { MetadataResponse } from '../../interfaces/metadata';
 import { EstadisticasService } from '../../services/estadisticas.service';
 import { ResponseEstadisticas } from '../../interfaces/estadisticas';
-import { A } from '@angular/cdk/keycodes';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -19,7 +19,9 @@ export class ResultsComponent implements OnInit{
   page: number = 1;
   items: number = 10;
 
-  
+  showModal1: boolean = false;
+  modalText1: string = 'Este es un mensaje de información';
+  modalType1: 'info' | 'success' | 'alert' = 'info';
 
   encuestasRespondidas: EncuestaResponse[] = [];
   metadata: MetadataResponse = {
@@ -38,6 +40,7 @@ export class ResultsComponent implements OnInit{
 
   data: any[] = [];
   
+  nohayEncuestas: boolean = false;
 
   viewVertical: [number, number] = [0, 0];
   viewCheck: [ number, number] = [0, 0];
@@ -52,7 +55,8 @@ export class ResultsComponent implements OnInit{
 
   constructor(private _dashboardService: DashboardService, 
               private _route: ActivatedRoute,
-              private _stadisticasService: EstadisticasService) {
+              private _stadisticasService: EstadisticasService,
+              private _location: Location) {
 
   }
 
@@ -65,9 +69,11 @@ export class ResultsComponent implements OnInit{
     this.cargarEncuestasRespondidas(this.id);
     this.cargarEstadisticas(this.id);
 
+  }
 
 
-
+  volver() {
+    this._location.back();
   }
 
 
@@ -76,27 +82,37 @@ export class ResultsComponent implements OnInit{
     this._dashboardService.loadSurveisRespondedById(id).subscribe({
       next: async (response: any) => {
 
+        if (response.encuestasRespondidas.length > 0 ) {
+          this.encuestasRespondidas = response.encuestasRespondidas;
+
+
+          this.metadata = response.metadata;
+  
+          this.nombreEncuesta = this.encuestasRespondidas[0].Encuesta.nombre;
+          this.fechaEncuesta = this.encuestasRespondidas[0].Encuesta.created_at!;
+  
+  
+          this.encuestaSeleccionada = this.encuestasRespondidas[0];
+          
+  
+          setTimeout(() => {
+            document.getElementById('item-1')!.classList.add('activa')
+          }, 200);
+
+          this.nohayEncuestas = false;
+  
+          //console.log(this.encuestasRespondidas)
+          //console.log(this.metadata)
+          //console.log(this.encuestaSeleccionada)
+  
+        } else {
+
+          this.nohayEncuestas = true;
+          this.openModal1('info', 'No hay encuestas respondidas')
+
+        }
         
-        this.encuestasRespondidas = response.encuestasRespondidas;
-
-
-        this.metadata = response.metadata;
-
-        this.nombreEncuesta = this.encuestasRespondidas[0].Encuesta.nombre;
-        this.fechaEncuesta = this.encuestasRespondidas[0].Encuesta.created_at!;
-
-
-        this.encuestaSeleccionada = this.encuestasRespondidas[0];
         
-
-        setTimeout(() => {
-          document.getElementById('item-1')!.classList.add('activa')
-        }, 200);
-
-        //console.log(this.encuestasRespondidas)
-        //console.log(this.metadata)
-        //console.log(this.encuestaSeleccionada)
-
       },
       error: (error: any) => {
 
@@ -229,6 +245,17 @@ export class ResultsComponent implements OnInit{
     })
 
   }
+
+  openModal1(type: 'info' | 'success' | 'alert', text: string) {
+    this.modalType1 = type;
+    this.modalText1 = text;
+    this.showModal1 = true;
+  }
+
+  closeModal1() {
+    this.showModal1 = false;
+  }
+
 
 
 }

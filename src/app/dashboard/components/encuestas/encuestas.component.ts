@@ -132,8 +132,10 @@ export class EncuestasComponent {
           this.metadata = response.metadata;
         }
 
-        console.log(this.encuestas);
-        console.log(this.metadata);
+        //console.log(this.encuestas);
+        //console.log(this.metadata);
+
+        this.openModal1('success', 'Encuesta eliminada!')
 
 
       },

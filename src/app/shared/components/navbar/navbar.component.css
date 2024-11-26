@@ -1,61 +1,23 @@
-/*.nav {
-    height: 10rem;
-    border-bottom: 2px solid #aac6ffab;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 10rem;
-  
-  }
-  
-  
-  .brand-name {
-    font-size: 3rem;
-    font-weight: 500;
-  }
-  
-  .menu {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 8rem;
-  }
-  
-  .menu-item {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .item-link {
-    color: #202020;
-    transition: all 0.2s ease;
-  }
-  
-  .menu-item:hover .item-link{
-    cursor: pointer;
-    color: #5d93ff;
-  }
-  
-  .menu-item .active {
-    color: #5d93ff;
-  }
-*/
+
   
 /* Estilos generales */
 .nav {
   height: 10rem;
-  border-bottom: 2px solid #aac6ffab;
+  border-bottom: 2px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-inline: 10rem;
   position: relative;
   z-index: 10;
+  background-color: var(--color-nav);
+
 }
 
 .brand-name {
   font-size: 3rem;
   font-weight: 500;
+  color: var(--color-texto);
 }
 
 .menu {
@@ -71,17 +33,17 @@
 }
 
 .item-link {
-  color: #202020;
+  color: var(--color-texto);
   transition: all 0.2s ease;
 }
 
 .menu-item:hover .item-link {
   cursor: pointer;
-  color: #5d93ff;
+  color: var(--color-active-hover);
 }
 
 .menu-item .active {
-  color: #5d93ff;
+  color: var(--color-active-hover);
 }
 
 /* Estilos responsivos */
@@ -100,15 +62,14 @@
     top: 0rem;
     left: 0;
     right: 0;
-    background-color: #000000ab;
-    border-bottom: 2px solid #aac6ffab;
+    background-color: var(--color-nav);
+    border-bottom: 2px solid var(--color-border);
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    height: 22rem;
     padding-top: 2.5rem;
   }
 
@@ -134,11 +95,11 @@
       display: block;
       width: 2.5rem;
       height: 0.4rem;
-      background-color: #202020;
+      background-color: var(--color-texto)
   }
 
   .item-link {
-    color: #ececec;
+    color: var(--color-texto);
     transition: all 0.2s ease;
   }
 }

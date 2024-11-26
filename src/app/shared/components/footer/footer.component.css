@@ -1,8 +1,9 @@
 /* Footer styles */
 .footer {
-    color: #a2a2a2;
-    padding: 2rem 1.5rem;
+    color: var(--color-texto-atenuado);
+    padding: 2rem;
     text-align: center;
+    background-color: var(--color-nav);
   }
   
   .footer-content {
@@ -24,7 +25,7 @@
   
   .footer-section h3,
   .footer-section h4 {
-    color: black;
+    color: var(--color-texto);
     margin-bottom: 1.5rem;
   }
   
@@ -38,18 +39,18 @@
   }
   
   .footer-section ul li a {
-    color: #a2a2a2;
+    color: var(--color-texto-atenuado);
     text-decoration: none;
   }
   
   .footer-section ul li a:hover {
-    color: #5d93ff;
+    color: var(--color-active-hover);
   }
   
   .footer-bottom {
     margin-top: 1.5rem;
     font-size: 0.9rem;
-    color: #999;
+    color: var(--color-texto-atenuado);
   }
   
   .footer-texto {
@@ -57,7 +58,7 @@
   }
   
   .copyright span {
-    color: black;
+    color: var(--color-texto);
   }
   
   .copyright {

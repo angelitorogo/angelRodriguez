@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shared/pages/home/home.component';
 import { LeerMasComponent } from './shared/pages/leer-mas/leer-mas.component';
 import { TermsConditionsComponent } from './shared/pages/terms-conditions/terms-conditions.component';
+import { FaqComponent } from './shared/pages/faq/faq.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'terms-conditions',
     component: TermsConditionsComponent
+  },
+  {
+    path: 'faqs',
+    component: FaqComponent
   },
   {
     path: 'auth',

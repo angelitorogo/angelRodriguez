@@ -17,12 +17,21 @@
                 <p class="header-text">
                     Diseña, personaliza y publica encuestas en cuestión de minutos. Facilita la recolección de datos de forma rápida y efectiva.
                 </p>
-
-                <a routerLink="/more" class="header-link">Leer más</a>
+                
+                <div class="container-boton-about">
+                    <lib-boton6 
+                        [colorTexto]="'#ffffff'"
+                        [colorIzq]="'#434343'"
+                        [colorDcha]="'#3333ff'"
+                        [buttonText]="'Leer más'"
+                        [type]="'button'"
+                        [routerLink]="['/more']">
+                    </lib-boton6>
+                </div>
 
             </div>
 
-            <div class="lateral-content">
+            <!--<div class="lateral-content">
                 <ul class="social-menu">
                     <li class="social-item">
                         <i class="bi bi-facebook"></i>
@@ -34,7 +43,7 @@
                         <i class="bi bi-twitter"></i>
                     </li>
                 </ul>
-            </div>
+            </div>-->
 
 
         </div>
@@ -57,7 +66,18 @@
                 FormuEase nace con un propósito: simplificar la creación de encuestas. Hemos creado un conjunto de herramientas fáciles de usar y altamente personalizables que te permiten diseñar formularios en minutos, sin complicaciones. Con un enfoque en la usabilidad y la eficiencia, nuestra plataforma está aquí para ayudarte a obtener información valiosa de manera rápida y sencilla.
             </p>
 
-            <a [routerLink]="['/surveis/create']" class="about-link">Crear encuesta</a>
+            <!--<a [routerLink]="['/surveis/create']" class="about-link">Crear encuesta</a>-->
+
+            <div class="container-boton-about">
+                <lib-boton6 
+                    [colorTexto]="'#ffffff'"
+                    [colorIzq]="'#434343'"
+                    [colorDcha]="'#3333ff'"
+                    [buttonText]="'Crear encuesta'"
+                    [type]="'button'"
+                    [routerLink]="['/surveis/create']">
+                </lib-boton6>
+            </div>
 
         </div>
 
@@ -202,7 +222,7 @@
                 <div class="container-boton">
                     <lib-boton6 
                         [colorTexto]="'#ffffff'"
-                        [colorIzq]="'#1a1a1a'"
+                        [colorIzq]="'#434343'"
                         [colorDcha]="'#3333ff'"
                         [buttonText]="'Envíar'"
                         [type]="'submit'">

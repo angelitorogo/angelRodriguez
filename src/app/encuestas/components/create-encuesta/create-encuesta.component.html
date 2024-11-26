@@ -23,7 +23,17 @@
 </lib-modal-1>
 
 <div class="container-create"  *ngIf="!addQuestion" >
-    <a  class="btn btn-form" *ngIf="!comenzar" (click)="comenzarEncuesta()">Nueva encuesta</a>
+
+    <div class="container-new" *ngIf="!comenzar">
+        <lib-boton6 
+            [colorTexto]="'#ffffff'"
+            [colorIzq]="'#434343'"
+            [colorDcha]="'#3333ff'"
+            [buttonText]="'Comenzar'"
+            [type]="'button'"
+            (click)="comenzarEncuesta()">
+        </lib-boton6>
+    </div>
 
     <div class="loader" *ngIf="loading"></div>
 
@@ -36,7 +46,7 @@
     
         <lib-boton6 
             [colorTexto]="'#ffffff'"
-            [colorIzq]="'#1a1a1a'"
+            [colorIzq]="'#434343'"
             [colorDcha]="'#3333ff'"
             [buttonText]="'Aceptar'"
             [type]="'button'"
@@ -94,7 +104,15 @@
                     <br>
                     <div class="options">
                         <input class="input-opciones" type="text" [(ngModel)]="option">
-                        <a class="btn btn-form add" [class.disabled]="!activarOptions || selectedOption == 'Respuesta texto'" (click)="addOption(option)">Añadir opción</a>
+                        <lib-boton6 
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="'#434343'"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="'Añadir opción'"
+                            [type]="'button'"
+                            (click)="addOption(option)"
+                            [isDisabled]="!activarOptions || selectedOption == 'Respuesta texto'">
+                        </lib-boton6>
                     </div>
                     
                 </div>
@@ -122,7 +140,7 @@
                 </lib-boton6>
                 <lib-boton6 
                     [colorTexto]="'#ffffff'"
-                    [colorIzq]="'#1a1a1a'"
+                    [colorIzq]="'#434343'"
                     [colorDcha]="'#3333ff'"
                     [buttonText]="'Guardar y añadir '"
                     [type]="'button'"
@@ -131,7 +149,7 @@
                 </lib-boton6>
                 <lib-boton6 
                     [colorTexto]="'#ffffff'"
-                    [colorIzq]="'#1a1a1a'"
+                    [colorIzq]="'#434343'"
                     [colorDcha]="'#3333ff'"
                     [buttonText]="'Terminar'"
                     [type]="'button'"

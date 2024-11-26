@@ -8,8 +8,8 @@
 
 .container-nav {
   height: 54rem;
-  /*background-color: var(--color-background);*/
-  background: url('../../../../assets/images/fondo6.webp');
+  background-color: var(--color-background);
+  /*background: url('../../../../assets/images/fondo5.webp');*/
   
 }
 
@@ -101,8 +101,8 @@
   
   .container-nav {
     height: 80rem;
-    /*background-color: var(--color-background);*/
-    background: url('../../../../assets/images/fondo6.webp');
+    background-color: var(--color-background);
+    /*background: url('../../../../assets/images/fondo6.webp');*/
     
   }
   
@@ -137,16 +137,16 @@
   }
   
   .header-link {
-    border: 1px solid black;
+    border: 1px solid var(--color-nav);
     padding: 1.5rem 5rem;
-    color: #202020;
+    color: var(--color-nav);
     transition: all 0.2s ease;
   }
   
   .header-link:hover {
-    border: 1px solid #5d93ff;;
+    border: 1px solid var( --color-active-hover);
     padding: 1.5rem 5rem;
-    color: #5d93ff;
+    color:  --color-active-hover;
   }
   
   
@@ -201,8 +201,8 @@
 
 /*ABOUT THIS*/
 .about-this {
-  width: 95%;
-  height: 85rem;
+  width: 100%;
+  height: 84rem;
   margin: 10rem auto 0 auto;
   display: block;
   position: relative;
@@ -218,7 +218,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 95%;
+  width: 90%;
   margin: 4rem auto;
 }
 
@@ -251,30 +251,34 @@
   text-align: justify;
 }
 
+.container-boton-about {
+  width: 100%;
+}
+
 .about-link {
-  border: 1px solid black;
+  border: 1px solid var(--color-nav);
   padding: 1.5rem 5rem;
-  color: #202020;
+  color: var(--color-nav);
   transition: all 0.2s ease;
 }
 
 .about-link:hover {
-  border: 1px solid #5d93ff;;
+  border: 1px solid var(--color-active-hover);
   padding: 1.5rem 5rem;
-  color: #5d93ff;
+  color:var(--color-active-hover);
 }
 
 @media (min-width: 768px) { 
 
   .about-this {
     width: 90%;
-    height: 60rem;
+    height: 54rem;
     margin: 10rem auto 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
-    top: -100px;        /* Ajusta el valor para desplazar la sección hacia arriba */
-    padding-top: 200px;
+    top: -208px;
+    padding-top: 217px;
     align-items: center;
   }
   
@@ -304,12 +308,17 @@
     width: 60rem;
     font-size: 5rem;
     font-weight: 500;
+    margin-top: 0rem;
   }
   
   .about-text {
     width: 70rem;
     font-size: 1.6rem;
     margin-inline: 3rem;
+  }
+
+  .container-boton-about {
+    width: 30rem;
   }
   
   .about-link {
@@ -329,14 +338,14 @@
 
 /*CARACTERISTICAS*/
 .funciones {
-  width: 95%;
+  width: 90%;
   height: unset;
   margin: 3rem auto 0 auto;
   display: flex;
   flex-direction: column;
   position: relative;
-  top: unset;
-  padding-top: unset;
+  top: -29px;
+  padding-top: 32px;
 }
 
 .funciones-header {
@@ -349,6 +358,7 @@
 
 .funciones-texto {
   text-align: justify;
+  margin-inline: 6px;
 }
 
 .funciones-item {
@@ -389,13 +399,15 @@
 @media (min-width: 768px) { 
   .funciones {
     width: 75%;
-    height: 77rem;
-    margin: 10rem auto 0 auto;
+    height: 55rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     position: relative;
+    padding-top: 264px;
     top: -100px;
-    padding-top: 163px;
+    justify-content: center;
+    align-items: center;
   }
   
   .funciones-header {
@@ -476,7 +488,7 @@
 
 
 .form {
-  width: 95%;
+  width: 90%;
   margin: 4rem auto 0 auto;
   display: flex;
   flex-direction: column;
@@ -566,7 +578,7 @@ textarea {
   }
   
   .form-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
     margin: 3rem 0;
   }
@@ -619,11 +631,11 @@ textarea {
   width: 100%;
   height: 120rem;
   padding-top: 4rem;
-  margin: -7.5rem auto 0 auto ;
+  margin:0 auto ;
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: -1;
+
 }
  
 .examples-title {
@@ -644,7 +656,7 @@ textarea {
     width: 100%;
     height: 77rem;
     padding-top: 4rem;
-    margin: 10rem auto;
+    margin: 0rem auto;
     display: flex;
     flex-direction: column;
   }

@@ -21,7 +21,12 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
-}
+  }
+
+  irA(ruta: string, fragmento?: string) {
+    this.toggleMenu();
+    this._router.navigate([ruta], {fragment: fragmento})
+  }
 
 }
 

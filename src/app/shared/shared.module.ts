@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { Boton6Component } from './components/boton6/boton6.component';
+import { FaqComponent } from './pages/faq/faq.component';
 
 
 
@@ -22,7 +23,8 @@ import { Boton6Component } from './components/boton6/boton6.component';
     WrapperComponent,
     HomeComponent,
     LeerMasComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,

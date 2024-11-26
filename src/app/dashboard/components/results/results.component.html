@@ -5,7 +5,30 @@
     <p class="text2">Recopiladas: <span class="resalt">{{metadata.totalEncuestasRespondidas}}</span></p>
 </div>
 
-<div class="container">
+<lib-modal-1
+    *ngIf="showModal1"
+    [text]="modalText1"
+    [type]="modalType1"
+    (close)="closeModal1()">
+</lib-modal-1>
+
+<div class="container-sin" *ngIf="nohayEncuestas">
+
+    <div class="container-volver">
+        <lib-boton6 
+            [colorTexto]="'#ffffff'"
+            [colorIzq]="'#1a1a1a'"
+            [colorDcha]="'#3333ff'"
+            [buttonText]="'Volver'"
+            [type]="'button'"
+            (click)="volver()">
+        </lib-boton6>
+    </div>
+
+    
+</div>
+
+<div class="container" *ngIf="!nohayEncuestas">
 
     <div class="content-izq">
 
@@ -55,7 +78,7 @@
     
 </div>
 
-<div class="content-estadisticas" *ngIf="estadisticaSeleccionada?.estadisticas">
+<div class="content-estadisticas" *ngIf="estadisticaSeleccionada?.estadisticas && !nohayEncuestas">
     <h4 class="title-izq">Estadísticas</h4>
     <h3 class="sub-title" >Pregunta: {{estadisticaSeleccionada?.question}}</h3>
 
