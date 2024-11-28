@@ -5,9 +5,14 @@
         <app-navbar></app-navbar>
 
         <h1 class="header-title">
-            <span class="principal-title">Crear Encuesta<br> 
-                <p class="subtitle" *ngIf="titleSurvey === ''">Click en comenzar para empezar tu nueva encuesta</p>
-                <p class="subtitle" *ngIf="titleSurvey != ''">{{titleSurvey}}</p>
+            <span class="principal-title">
+              Encuestas Profesionales en Minutos
+            </span>
+            <span class="text-title" *ngIf="titleSurvey === ''">
+                Click en comenzar para empezar tu nueva encuesta
+            </span>
+            <span class="text-title" *ngIf="titleSurvey != ''">
+                {{titleSurvey}}
             </span>
         </h1>
 
@@ -21,6 +26,9 @@
     [type]="modalType1"
     (close)="closeModal1()">
 </lib-modal-1>
+
+
+
 
 <div class="container-create"  *ngIf="!addQuestion" >
 

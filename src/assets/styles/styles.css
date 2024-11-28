@@ -31,6 +31,11 @@
     overflow: visible !important;   /* Forzar el cambio */
   }
 
+  
+.advanced-pie-legend .legend-items-container .legend-items .legend-item {
+  margin-bottom: 1rem !important;
+}
+
   .item-value {
     display: none;
   }

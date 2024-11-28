@@ -48,7 +48,8 @@
                 [id]="'item-' + (i + 1)" 
                 (click)="seleccion(i, item)">
                 <div class="cell">{{ item.email }}</div>
-                <div class="cell">{{ item.created_at | date:'HH:mm:ss - dd/MM/yyyy' }}</div>
+                <div class="cell" *ngIf="widthSize > 768">{{ item.created_at | date:'HH:mm:ss - dd/MM/yyyy' }}</div>
+                <div class="cell" *ngIf="widthSize <= 768">{{ item.created_at | date:'dd/MM/yyyy' }}</div>
             </div>
         </div>   
     
@@ -128,7 +129,8 @@
             [barPadding]="20"
             [xAxisLabel]="'Respuestas'"
             [showYAxisLabel]="true"
-            [yAxisLabel]="'Porcentaje %'">
+            [yAxisLabel]="'Porcentaje %'"
+            [animations]="true">
         </ngx-charts-bar-vertical>
 
     </div> 
@@ -137,13 +139,14 @@
 
         <ngx-charts-pie-grid
             [view]="viewCheck"
-            [results]="data">
+            [results]="data"
+            [animations]="true">
         </ngx-charts-pie-grid>
                     
     
     </div>
 
-    <div class="content-general level" *ngIf="estadisticaSeleccionada?.type === 'LEVEL'">
+    <div class="content-general level" *ngIf="estadisticaSeleccionada?.type === 'LEVEL'" id="level">
 
         <ngx-charts-advanced-pie-chart
             [results]="data"

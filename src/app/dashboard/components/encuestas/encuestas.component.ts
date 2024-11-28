@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../../shared/interfaces/user.interface';
 import { Encuesta } from '../../../encuestas/interfaces/encuesta';
 import { Metadata } from '../../interfaces/metadata';
 import { AuthService } from '../../../auth/service/auth.service';
 import { Router } from '@angular/router';
 import { DashboardService } from '../../services/dashboard.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-encuestas',
   templateUrl: './encuestas.component.html',
   styleUrl: './encuestas.component.css'
 })
-export class EncuestasComponent {
+export class EncuestasComponent implements OnInit{
+
+  domain = environment.DOMAIN_URL;
 
   sesion?:User;
 
@@ -19,13 +22,20 @@ export class EncuestasComponent {
   modalText1: string = 'Este es un mensaje de información';
   modalType1: 'info' | 'success' | 'alert' = 'info';
 
+  showModal2: boolean = false; //cambiar a false
+  modalText2: string = 'https://link_de_la_encuesta.com/link';
+  modalType2: 'info' | 'success' | 'alert' = 'info';
+  share: boolean = true;
+
   encuestas: Encuesta[] = [];
   metadata?: Metadata;
   encuestaVer: any;
 
   mostrarOpciones: boolean = false;
   encuestaSel: number|null = null;
-  
+
+  surveySharedId: string = '';
+  urlSharedSurvey: string = '';
 
   constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService) {
 
@@ -164,6 +174,60 @@ export class EncuestasComponent {
 
   closeModal1() {
     this.showModal1 = false;
+  }
+
+  clickIconoFill(id: string| undefined) {
+    const linkSurvey = `${this.domain}/response/survey/${id}`;
+    this.openModal2('info', linkSurvey, id)
+  }
+
+  openModal2(type: 'info' | 'success' | 'alert', text: string, id?: string) {
+    this.modalType2 = type;
+    this.modalText2 = text;
+    this.showModal2 = true;
+    if(id) {
+      this.surveySharedId = id;
+    }
+    this.share = true;
+    console.log(id)
+  }
+
+  closeModal2(data: [string, string]) {
+
+    const redSocial = data[0];
+    const id = data[1];
+
+    let encuesta: any = this.encuestas.find((encuesta) => encuesta?.id === id);
+    //console.log(encuesta)
+    
+    if(redSocial) {
+      //ya tengo la red social a la que quiero compartir la encuesta en redSocial
+
+      const shareUrlFacebook = `http://localhost:4200/assets/pagina_intermedia/share.html?id=${id}&name=${encuesta.nombre}&platform=${redSocial}`;
+      //const shareUrlFacebook = `http://localhost:4200/assets/pagina_intermedia/share.html?id=${id}&name=${encuesta.nombre}&platform=${redSocial}`;
+          
+      window.open(shareUrlFacebook, '_blank');
+
+    } else {
+      
+      this.copiarAlPortapapeles(this.modalText2);
+    
+    }
+    
+  
+    this.showModal2 = false;
+
+  }
+
+  
+
+
+  copiarAlPortapapeles(textoACopiar: string) {
+    navigator.clipboard.writeText(textoACopiar).then(() => {
+      //console.log('Texto copiado al portapapeles con éxito.');
+    }).catch(err => {
+      console.error('Error al copiar el texto al portapapeles: ', err);
+    });
   }
 
 

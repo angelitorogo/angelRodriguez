@@ -286,6 +286,7 @@
     justify-content: center;
     align-items: center;
     height: unset;
+    margin-right: 2rem;
 }
 
 
@@ -293,14 +294,13 @@
 .content-general.level {
     border: none;
     height: 37rem;
-    margin-top: 4rem;
+    margin: 4rem auto;
 }
 
 
 .content-general.level {
     margin-left: 3rem;
 }
-
 
 
 @media (min-width: 768px) {  
@@ -329,8 +329,8 @@
     
     .container {
         max-width: 1600px;
-        margin: 0 auto;
-        height: 69rem;
+        margin: 0 auto 6rem auto;
+        /* height: 69rem; */
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
@@ -372,7 +372,7 @@
         flex-direction: column;
         width: 65rem;
         border: 1px solid #ddd;
-        height: 56.6rem;
+        max-height: 56.6rem;
         overflow-y: scroll;
     }
     
@@ -471,7 +471,7 @@
     .container-questions {
         border: 1px solid #ccc;
         overflow-y: scroll;
-        height: 56.6rem;
+        max-height: 56.6rem;
         width: 64.8rem;
     }
     
@@ -582,6 +582,7 @@
         justify-content: center;
         align-items: center;
         height: 60rem;
+        margin-right: unset;
     }
     
     
@@ -589,11 +590,13 @@
     .content-general.level {
         border: none;
         height: 37rem;
-        margin-top: 8rem;
+        margin-block: 8rem;
     }
 
     .content-general.level {
-        margin-left: unset;
+        margin-left: 20%;
+        height: unset;
+
     }
 
     .sin-encuestas {
@@ -603,4 +606,5 @@
         align-items: center;
     }
 
+    
 }

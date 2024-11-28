@@ -100,7 +100,6 @@ export class SurveyComponent implements OnInit{
 
         this.encuesta = response;
 
-
         this.encuesta?.encuestaItem.unshift({
           
           question: 'Correo electrónico',
@@ -206,9 +205,11 @@ export class SurveyComponent implements OnInit{
    
     if(document.getElementById(`iconCheck-${this.preguntaActual - 1}`)?.classList.contains('visible')) {
       this.continuar = true;
+      
     } else {
       this.continuar = false;
     }
+
     
   }
 
@@ -249,15 +250,22 @@ export class SurveyComponent implements OnInit{
     const email = (event.target as HTMLTextAreaElement).value;
 
 
-
     if(emailPattern.test(email)) {
       document.getElementById(`iconCheck-${i}`)?.classList.add('visible');
       this.continuar = true;
+
+
     } else if (email === ''){
+      document.getElementById(`iconCheck-${i}`)?.classList.remove('visible');
       this.continuar = true;
+
+      
+      
     } else {
       document.getElementById(`iconCheck-${i}`)?.classList.remove('visible');
       this.continuar = false;
+
+
     }
   }
 
@@ -266,9 +274,32 @@ export class SurveyComponent implements OnInit{
     if( textareaValue.length > 3) {
       document.getElementById(`iconCheck-${i}`)?.classList.add('visible');
       this.continuar = true;
+
+      const question = this.encuesta!.encuestaItem[i].question;
+      let resp: string[] = [];
+      resp.push(textareaValue);
+
+      this.response[i] = {
+        id: i,
+        encuestaItemId: this.encuesta!.encuestaItem[i].id!,
+        question: question,
+        respuesta: resp
+      }
+      
     } else {
       document.getElementById(`iconCheck-${i}`)?.classList.remove('visible');
       this.continuar = false;
+
+      const question = this.encuesta!.encuestaItem[i].question;
+      let resp: string[] = [];
+
+      this.response[i] = {
+        id: i,
+        encuestaItemId: this.encuesta!.encuestaItem[i].id!,
+        question: question,
+        respuesta: resp
+      }
+
     }
   }
 
@@ -277,13 +308,15 @@ export class SurveyComponent implements OnInit{
 
     if( opciones.classList.contains('visible')) {
       opciones?.classList.remove('visible');
+
     } else {
       opciones?.classList.add('visible');
+
     }
 
   }
 
-
+  /*SELECT*/
   onSelectChange(event: Event, i: number){
     
     const opciones = document.getElementById(`opciones-${i}`)!;
@@ -304,6 +337,7 @@ export class SurveyComponent implements OnInit{
     this.continuar = true;
 
 
+
     this.response[i] = {
       id: i,
       encuestaItemId: this.encuesta!.encuestaItem[i].id!,
@@ -313,7 +347,7 @@ export class SurveyComponent implements OnInit{
 
   }
 
-
+  /*CHECK*/
   onCheckboxChange(event: Event, option: any, i: number) {
 
     let checked: any;
@@ -346,16 +380,17 @@ export class SurveyComponent implements OnInit{
     if (this.response[i].respuesta!.length != 0) {
       document.getElementById(`iconCheck-${i}`)?.classList.add('visible');
       this.continuar = true;
+      
     } else {
       document.getElementById(`iconCheck-${i}`)?.classList.remove('visible');
-    this.continuar = false;
+      this.continuar = false;
     }
 
     
 
   }
 
-
+  /*LEVEL*/
   seleccionarLevel(event: Event, option: any, i: number) {
 
     const target = event.target as HTMLElement;
@@ -382,6 +417,7 @@ export class SurveyComponent implements OnInit{
     target.classList.add('active-level')
     document.getElementById(`iconCheck-${i}`)?.classList.add('visible');
     this.continuar = true;
+
 
   }
 
@@ -411,6 +447,7 @@ export class SurveyComponent implements OnInit{
     this.responseEncuesta.respuestas = resp;
 
 
+    console.log(this.responseEncuesta)
     this.enviarResponse(this.responseEncuesta);
 
   }

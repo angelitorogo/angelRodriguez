@@ -251,4 +251,6 @@ export class CreateEncuestaComponent implements OnInit{
     this.showModal1 = false;
   }
 
+  
+
 }

@@ -97,7 +97,7 @@
                     [buttonText]="'Terminar'"
                     [type]="'button'"
                     (click)="aceptar()"
-                    [isDisabled]="response.length != numPreguntas">
+                    [isDisabled]="response.length != numPreguntas && !continuar">
                 </lib-boton6>
             </div>
             

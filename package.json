@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
+    "@nguniversal/express-engine": "^16.2.0",
     "@swimlane/ngx-charts": "^21.0.0",
     "bootstrap-icons": "^1.11.3",
     "my-lib": "1.0.0",

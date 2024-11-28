@@ -5,10 +5,18 @@
     (close)="closeModal1()">
 </lib-modal-1>
 
+<lib-modal-1
+    *ngIf="showModal2"
+    [text]="modalText2"
+    [type]="modalType2"
+    [share]="share"
+    [surveyId]="surveySharedId"
+    (close)="closeModal2($event)">
+</lib-modal-1>
+
 <div class="title-content">
     Encuestas
 </div>
-
 
 <div class="content">
 
@@ -23,12 +31,14 @@
         </lib-boton6>
     </div>
 
+    
+
 
     <ul class="lista-encuestas" *ngIf="encuestas.length > 0">
         <li class="item-encuestas" *ngFor="let item of encuestas; let i = index">
             <a class="link-encuestas" (click)="mostrarEncuesta(i)">{{item.nombre}}</a>
             <div class="contain-icono">
-                <i class="bi bi-share-fill"></i>
+                <i class="bi bi-share-fill" (click)="clickIconoFill(item.id)"></i>
             </div>
             <div class="container-opciones" [id]="'opciones-' + i">
                 <lib-boton6 

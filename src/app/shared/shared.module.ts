@@ -24,7 +24,7 @@ import { FaqComponent } from './pages/faq/faq.component';
     HomeComponent,
     LeerMasComponent,
     TermsConditionsComponent,
-    FaqComponent
+    FaqComponent,
   ],
   imports: [
     CommonModule,

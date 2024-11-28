@@ -52,6 +52,8 @@ export class ResultsComponent implements OnInit{
 
   @ViewChild('templateToolTip') templateToolTip!: TemplateRef<any>;
 
+  widthSize: number = 0;
+
 
   constructor(private _dashboardService: DashboardService, 
               private _route: ActivatedRoute,
@@ -69,6 +71,8 @@ export class ResultsComponent implements OnInit{
     this.cargarEncuestasRespondidas(this.id);
     this.cargarEstadisticas(this.id);
 
+    this.widthSize = screen.width;
+
   }
 
 
@@ -81,6 +85,7 @@ export class ResultsComponent implements OnInit{
 
     this._dashboardService.loadSurveisRespondedById(id).subscribe({
       next: async (response: any) => {
+
 
         if (response.encuestasRespondidas.length > 0 ) {
           this.encuestasRespondidas = response.encuestasRespondidas;
@@ -154,8 +159,12 @@ export class ResultsComponent implements OnInit{
   seleccionPregunta(respuesta: Respuesta, i: number) {
 
     const ancho = window.innerWidth;
+    const alto = window.innerHeight;
+
     this.data = [];
     this.estadisticaSeleccionada = this.estadisticas[i];
+
+    const sorted = this.estadisticaSeleccionada.estadisticas.sort((a, b) => b.porcentaje - a.porcentaje);
 
     if(ancho > 768) {
 
@@ -163,55 +172,66 @@ export class ResultsComponent implements OnInit{
         case 2:
   
           this.viewVertical = [ancho/5, 500]
+          this.viewCheck = [ancho/4, 500]
+          this.viewLevel = [ancho/2, alto/5]
+          
           
           break;
   
         case 3:
   
           this.viewVertical = [ancho/4, 500]
+          this.viewCheck = [ancho/2.5, 500]
+          this.viewLevel = [ancho/1.8, alto/5]
           
           break;
   
         case 4:
   
           this.viewVertical = [ancho/3, 500]
+          this.viewCheck = [ancho/2, 500]
+          this.viewLevel = [ancho/1.5, alto/4]
           
           break;
   
         case 5:
   
-          this.viewVertical = [ancho/2, 500]
+          this.viewVertical = [ancho/2.5, 500]
+          this.viewCheck = [ancho/2, 500]
+          this.viewLevel = [ancho/1.3, alto/3]
           
           break;
   
         case 6:
   
-          this.viewVertical = [ancho/1.5, 500]
+          this.viewVertical = [ancho/2, 500]
+          this.viewCheck = [ancho/2, 500]
+          this.viewLevel = [ancho/1.2, alto/3]
           
           break;
       
         default:
 
-          this.viewVertical = [ancho/1.5, 500]
+          this.viewVertical = [ancho/1.8, 500]
+          this.viewCheck = [ancho/2, 500]
+          this.viewLevel = [ancho/1.2, alto/3]
           
           break;
       }
 
-      this.viewCheck = [ancho/2, 500]
-      this.viewLevel = [ancho/2, 500]
       
     } else {
 
       this.viewVertical=[ancho - ((ancho * 5) / 100), 500]
       this.viewCheck = [ancho - ((ancho * 5) / 100), 400]
-      this.viewLevel = [ancho, 400]
+      this.viewLevel = [ancho/1.1, 300]
 
 
     }
     
     
     
-    const elements = this.estadisticaSeleccionada.estadisticas;
+    const elements = sorted;
 
     for (let x = 0; x < elements.length; x++) {
       const element = elements[x];
@@ -229,6 +249,7 @@ export class ResultsComponent implements OnInit{
 
     this._stadisticasService.loadEstadisticasById(id!).subscribe({
       next: async (response: ResponseEstadisticas[]) => {
+
 
         this.estadisticas = response;
         //this.estadisticaSeleccionada = response[0];

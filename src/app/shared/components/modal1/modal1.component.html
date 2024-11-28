@@ -1,14 +1,13 @@
-<div class="modal-overlay">
+<div class="modal-overlay" *ngIf="!share">
     <div class="modal-content" [ngClass]="type" (click)="$event.stopPropagation()">
       <p class="modal-text">{{ text }}</p>
 
-      <div id="modal-button-1" class="modal-button">
+      <div id="modal-button-1" class="modal-button" >
         <lib-boton6 
           [colorTexto]="'#ffffff'"
           [colorIzq]="'#5d93ff'"
           [colorDcha]="'#3333ff'"
-          [buttonText]="'Aceptar'"
-          (buttonClicked)="closeModal()"
+          (buttonClicked)="closeModal('')"
           [type]="'button'">
         </lib-boton6>
 
@@ -18,4 +17,68 @@
 
     </div>
 </div>
+
+
+<div class="modal-overlay" *ngIf="share" >
+  <div class="modal-content" [ngClass]="type" (click)="$event.stopPropagation()">
+
+    <h3 class="title-link">Link de la encuesta</h3>
+    <p class="modal-text">{{ text }}</p>
+
+    <div class="group-buttons">
+
+      <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#006e4e'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Copiar Link'"
+        (buttonClicked)="closeModal('')"
+        [type]="'button'">
+      </lib-boton6>
+
+      <p class="modal-text">Compartir</p>
+
+      <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#1877F2'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Facebook'"
+        (buttonClicked)="closeModal('facebook')"
+        [type]="'button'">
+      </lib-boton6>
+
+      <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#434343'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'X'"
+        (buttonClicked)="closeModal('x')"
+        [type]="'button'">
+      </lib-boton6>
+
+      <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#E1306C'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Instagram'"
+        (buttonClicked)="closeModal('instagram')"
+        [type]="'button'">
+      </lib-boton6>
+
+      <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="' #0A66C2'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'LinkedIn'"
+        (buttonClicked)="closeModal('linkedin')"
+        [type]="'button'">
+      </lib-boton6>
+
+    </div>
+
+
+
+  </div>
+</div>
+
   

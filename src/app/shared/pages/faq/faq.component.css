@@ -10,18 +10,35 @@
 }
 
 .header-title {
-  width: unset;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   font-size: 4rem;
+  align-items: center;
   font-weight: 500;
-  margin: 9rem auto;
+  text-align: center;
+  margin-top: 2rem;
+  height: 26rem;
+  
+}
+
+.principal-title {
+  background-color: #dadada73;
+  padding: 1rem;
+  width: 100%;
+}
+
+.text-title {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-top: 0rem;
+  background-color: #dadada73;
+  padding: 1rem;
+  width: 100%;
 }
 
 .privacy-terms-container {
-  max-width: 1200px; /* Ancho máximo para mejorar la legibilidad */
+  max-width: 850px; /* Ancho máximo para mejorar la legibilidad */
   margin: 2rem auto;
   padding: 0 2rem 2rem 2rem;
   background-color: #ffffff; /* Fondo blanco para claridad */
@@ -49,7 +66,7 @@
   color: #333333;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  border-left: 4px solid #5d93ff;
+  border-left: 4px solid var(--color-active-hover);
   padding-left: 1rem;
 }
 
@@ -71,26 +88,42 @@
 }
 
 a {
-  color: #5d93ff;
+  color: var(--color-active-hover);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:hover {
-  color: #333333; /* Cambio de color en hover */
-  text-decoration: underline;
-}
 
 @media (min-width: 768px) {
   .header-title {
-      width: 83rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 4rem;
-      font-weight: 500;
-      margin: 9rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 4rem;
+    align-items: center;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 2rem;
+    height: 26rem;
+  }
+
+  .principal-title {
+    background-color: #dadada73;
+    padding: 1rem;
+    width: 75rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+  }
+  
+  
+  .text-title {
+    font-size: 3rem;
+    font-weight: 500;
+    background-color: #dadada73;
+    padding: 1rem;
+    width: 75rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
   }
   
   .privacy-terms-container p {

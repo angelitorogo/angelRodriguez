@@ -6,7 +6,9 @@
 .container-nav {
   height: 54rem;
   background-color: var(--color-background);
-  background: url('../../../../assets/images/fondo6.webp');
+  background-image: url('../../../../assets/images/fondo6.webp');
+  background-size: cover;
+  background-position: center;
 }
 
 .header-title {
@@ -19,17 +21,27 @@
   text-align: center;
   margin-top: 2rem;
   height: 37rem;
+  
+}
+
+.principal-title {
+  background-color: #dadada73;
+  padding: 1rem;
+  width: 100%;
 }
 
 .text-title {
   font-size: 3rem;
   font-weight: 500;
-  margin-top: 1rem;
+  margin-top: 0rem;
+  background-color: #dadada73;
+  padding: 1rem;
+  width: 100%;
 }
 
 .content {
   width: 90%;
-  margin: 3rem auto;
+  margin: 3rem auto 1rem auto;
 }
 
 .central-content {
@@ -44,7 +56,7 @@
 .content-text {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0rem;
   font-size: 1.6rem;
   text-align: justify;
   letter-spacing: 0.1em;
@@ -52,6 +64,7 @@
 
 .header-text {
   width: 100%;
+  padding-bottom: 2rem;
 }
 
 .container-boton-about {
@@ -65,8 +78,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 0rem;
   margin-bottom: 4rem;
+  border-bottom: 1px solid #333;
+}
+
+.group-text:first-child {
+  margin-top: 2rem;
+}
+
+.group-text:last-child {
+  margin-bottom: 0;
 }
 
 
@@ -78,12 +100,12 @@
 
 @media (min-width: 768px) { 
   .header {
-    height: 54rem;
+    height: 40rem;
     letter-spacing: 0.1em;
   }
   
   .container-nav {
-    height: 54rem;
+    height: 40rem;
     background-color: var(--color-background);
     background: url('../../../../assets/images/fondo6.webp');
   }
@@ -97,13 +119,26 @@
     font-weight: 500;
     text-align: center;
     margin-top: 2rem;
-    height: 37rem;
+    height: 26rem;
   }
+
+  .principal-title {
+    background-color: #dadada73;
+    padding: 1rem;
+    width: 75rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+  }
+  
   
   .text-title {
     font-size: 3rem;
     font-weight: 500;
-    margin-top: 1rem;
+    background-color: #dadada73;
+    padding: 1rem;
+    width: 75rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
   }
   
   .content {
@@ -132,6 +167,8 @@
   
   .header-text {
     width: 100%;
+    border: 1px solid #bdbdbd;
+        padding: 2rem;
   }
   
   .container-boton-about {
@@ -145,8 +182,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
     margin-bottom: 4rem;
+    border-bottom: none;
+    gap: 4rem;
   }
   
   .group-text:nth-child(2) {

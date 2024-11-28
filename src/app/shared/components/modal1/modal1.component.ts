@@ -16,13 +16,16 @@ export class Modal1Component {
   
   @Input() text: string = ''; // El texto a mostrar en el modal
   @Input() type: 'info' | 'success' | 'alert' = 'info'; // Tipo de modal
-  @Output() close = new EventEmitter<void>(); // Evento para cerrar el modal
+  @Input() surveyId?: string;
+  @Output() close = new EventEmitter<[string, string]>(); // Evento para cerrar el modal
+
+  @Input() share: boolean = false;;
 
   constructor(){}
 
   // Método para cerrar el modal
-  closeModal():void {
-    this.close.emit();
+  closeModal(redSocial: string):void {
+    this.close.emit([redSocial, this.surveyId!]);
   }
 }
 

@@ -1,0 +1,83 @@
+<html>
+<head>
+  <script>
+    // Lee el parámetro `id` desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const surveyId = urlParams.get('id');
+    const surveyName = urlParams.get('name');
+    
+    const domain = 'http://localhost:4200/#'; //cuando se tenga dominio cambiar
+
+    // Inserta las etiquetas Open Graph dinámicamente
+    document.head.innerHTML += `
+      <meta property="og:title" content="Encuesta: ${surveyName}">
+      <meta property="og:description" content="Responde a esta encuesta única y ayúdanos a mejorar.">
+      <meta property="og:url" content="${domain}/response/survey/${surveyId}">
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Encuesta: ${surveyName}" />
+      <meta name="twitter:image" content="http://localhost:4200/assets/images/fondo6.webp" />
+      <meta name="twitter:description" content="Responde a esta encuesta única y ayúdanos a mejorar." />
+      <meta name="twitter:url" content="${domain}/response/survey/${surveyId}" />
+    `;
+  </script>
+  <style>
+    .share-container {
+      text-align: center;
+      margin: 2rem;
+    }
+    
+    .share-container h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+    
+    .share-container a {
+      color: #1DA1F2; /* Azul de X (Twitter) o el color que prefieras */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .share-container a:hover {
+      text-decoration: underline;
+    }
+    
+  </style>
+</head>
+<body>
+  <script>
+    // Redirige al usuario a la encuesta después de que Facebook lea las etiquetas
+    setTimeout(() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const surveyId = urlParams.get('id');
+      const redSocial = urlParams.get('platform');
+      const surveyUrl = `${domain}/response/survey/${surveyId}`;
+
+      if (redSocial === 'facebook') {
+        // URL para compartir en Facebook
+        this.urlSharedSurvey = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(surveyUrl)}`;
+        window.location.href = this.urlSharedSurvey;
+      } else if( redSocial === 'x') {
+        const mensaje = encodeURIComponent('¡Responde a esta encuesta rápidamente!');
+        const hashtags = encodeURIComponent('encuesta,datos');
+        const via = 'angelitorogo';
+        this.urlX = `https://twitter.com/intent/tweet?url=${encodeURIComponent(surveyUrl)}&text=${mensaje}&hashtags=${hashtags}&via=${via}`;
+        window.location.href = this.urlX;
+      } else if( redSocial === 'instagram') {
+
+      } else {
+
+      }
+
+      
+      
+    
+      
+    }, 200); // Espera 3 segundos antes de redirigir
+  </script>
+
+  <div class="share-container">
+    <h1>Redirigiéndote a facebook...</h1>
+  </div>
+
+</body>
+</html>

@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+## EXTRA
+
+Cuando se tenga dominio comprado hay que cambiarlo en:
+
+    src\assets\pagina_intermedia\share.html -> const domain = 'http://localhost:4200/#'; //cuando se tenga dominio cambiar
+    export const environment = {
+        API_URL: 'https://auth.argomez.com/api',
+        DOMAIN_URL: 'http://localhost:4200/#'   //aqui tambien
+    };

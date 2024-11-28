@@ -221,6 +221,7 @@ export class EncuestaComponent implements OnInit{
       next: async (response: any) => {
 
         this._router.navigateByUrl('/dashboard/encuestas')
+        
 
       },
       error: (error: any) => {

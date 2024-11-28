@@ -16,7 +16,7 @@ export class Boton6Component implements OnInit {
     @Input() colorTexto: string = '#ffffff';
     @Input() colorIzq: string = '#ffffff';
     @Input() colorDcha: string = '#000000';
-    @Input() buttonText: string| null = 'Aceptar';
+    @Input() buttonText: string = 'Aceptar';
     @Input() isDisabled: boolean = false; 
     @Input() type: string = 'button'; 
 
@@ -40,6 +40,7 @@ export class Boton6Component implements OnInit {
        this.disabledColor2 = this.generateDisabledColor(this.colorDcha);
        this.colorGradient = this.generateGradient(this.colorIzq);
        this.colorHoverGradient = this.generateHoverGradient(this.colorIzq);
+
     }
 
     generateGradient(hex: string): string {
