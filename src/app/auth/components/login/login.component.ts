@@ -4,6 +4,7 @@ import { ScreenSizeService } from '../../../shared/services/screen-size.service'
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit{
   constructor(private fb: FormBuilder,
               private _authService: AuthService,
               private _router: Router,
-              private _route: ActivatedRoute) {
+              private _route: ActivatedRoute, private _titleService: Title) {
 
     this.formSignIn = this.fb.group({
       email: new FormControl('',[Validators.required, Validators.email]),
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit() {
+    this._titleService.setTitle('Formuease | Login');
     // Obtiene el parámetro returnUrl de los queryParams
     this.returnUrl = this._route.snapshot.queryParamMap.get('returnUrl') || '/home';
   }

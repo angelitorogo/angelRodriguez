@@ -3,6 +3,7 @@ import { AuthService } from '../../../auth/service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardService } from '../../services/dashboard.service';
 import { Encuesta } from '../../../encuestas/interfaces/encuesta';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-encuesta',
@@ -34,11 +35,13 @@ export class EncuestaComponent implements OnInit{
 
   arraySelects: number[] = [];
 
-  constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService, private _route: ActivatedRoute) {
+  constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService, private _route: ActivatedRoute, private _titleService: Title) {
 
   }
 
   ngOnInit(): void {
+
+    this._titleService.setTitle('Formuease | Encuesta');
 
     const id = this._route.snapshot.paramMap.get('id')!;
     this.rutaResultado = `/dashboard/resultados/${id}`;

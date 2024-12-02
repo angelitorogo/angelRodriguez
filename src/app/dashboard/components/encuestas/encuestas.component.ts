@@ -3,9 +3,10 @@ import { User } from '../../../shared/interfaces/user.interface';
 import { Encuesta } from '../../../encuestas/interfaces/encuesta';
 import { Metadata } from '../../interfaces/metadata';
 import { AuthService } from '../../../auth/service/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { DashboardService } from '../../services/dashboard.service';
 import { environment } from '../../../../environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-encuestas',
@@ -37,21 +38,31 @@ export class EncuestasComponent implements OnInit{
   surveySharedId: string = '';
   urlSharedSurvey: string = '';
 
-  constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService) {
+  constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService, private _titleService: Title) {
 
 
   }
 
   ngOnInit(): void {
-      this.sesion = this._authService.getIdentity;
-      if( !this.sesion ) {
-        const currentUrl = this._router.url; // Obtiene la URL actual
-        this._router.navigate(['/auth/login'], { queryParams: { returnUrl: currentUrl } });
-      } else {
-        this.loadSurveisUser();
-      }
-      
+
+    this._titleService.setTitle('Formuease | Encuestas');
+
+    this.sesion = this._authService.getIdentity;
+    if( !this.sesion ) {
+      const currentUrl = this._router.url; // Obtiene la URL actual
+      this._router.navigate(['/auth/login'], { queryParams: { returnUrl: currentUrl } });
+    } else {
+      this.loadSurveisUser();
+    }
      
+  }
+
+  getTitleFromRoute(route: any): string {
+    let title = route.data?.title || '';
+    if (route.firstChild) {
+      title = this.getTitleFromRoute(route.firstChild) || title;
+    }
+    return title;
   }
 
   mostrarEncuesta(i: number) {
@@ -177,7 +188,7 @@ export class EncuestasComponent implements OnInit{
   }
 
   clickIconoFill(id: string| undefined) {
-    const linkSurvey = `${this.domain}/response/survey/${id}`;
+    const linkSurvey = `${this.domain}#/response/survey/${id}`;
     this.openModal2('info', linkSurvey, id)
   }
 
@@ -189,7 +200,6 @@ export class EncuestasComponent implements OnInit{
       this.surveySharedId = id;
     }
     this.share = true;
-    console.log(id)
   }
 
   closeModal2(data: [string, string]) {
@@ -203,8 +213,8 @@ export class EncuestasComponent implements OnInit{
     if(redSocial) {
       //ya tengo la red social a la que quiero compartir la encuesta en redSocial
 
-      const shareUrlFacebook = `http://localhost:4200/assets/pagina_intermedia/share.html?id=${id}&name=${encuesta.nombre}&platform=${redSocial}`;
-      //const shareUrlFacebook = `http://localhost:4200/assets/pagina_intermedia/share.html?id=${id}&name=${encuesta.nombre}&platform=${redSocial}`;
+      const shareUrlFacebook = `${this.domain}assets/pagina_intermedia/share.html?id=${id}&name=${encuesta.nombre}&platform=${redSocial}`;
+      console.log(shareUrlFacebook)
           
       window.open(shareUrlFacebook, '_blank');
 

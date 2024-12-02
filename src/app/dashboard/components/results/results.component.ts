@@ -6,6 +6,7 @@ import { MetadataResponse } from '../../interfaces/metadata';
 import { EstadisticasService } from '../../services/estadisticas.service';
 import { ResponseEstadisticas } from '../../interfaces/estadisticas';
 import { Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -58,12 +59,14 @@ export class ResultsComponent implements OnInit{
   constructor(private _dashboardService: DashboardService, 
               private _route: ActivatedRoute,
               private _stadisticasService: EstadisticasService,
-              private _location: Location) {
+              private _location: Location, private _titleService: Title) {
 
   }
 
 
   ngOnInit(): void {
+
+    this._titleService.setTitle('Formuease | Estadísticas');
     
     this.id = this._route.snapshot.paramMap.get('id')!;
 
@@ -172,7 +175,7 @@ export class ResultsComponent implements OnInit{
         case 2:
   
           this.viewVertical = [ancho/5, 500]
-          this.viewCheck = [ancho/4, 500]
+          this.viewCheck = [ancho/3.5, 500]
           this.viewLevel = [ancho/2, alto/5]
           
           
@@ -181,7 +184,7 @@ export class ResultsComponent implements OnInit{
         case 3:
   
           this.viewVertical = [ancho/4, 500]
-          this.viewCheck = [ancho/2.5, 500]
+          this.viewCheck = [ancho/3, 500]
           this.viewLevel = [ancho/1.8, alto/5]
           
           break;
@@ -197,7 +200,7 @@ export class ResultsComponent implements OnInit{
         case 5:
   
           this.viewVertical = [ancho/2.5, 500]
-          this.viewCheck = [ancho/2, 500]
+          this.viewCheck = [ancho/2.5, 500]
           this.viewLevel = [ancho/1.3, alto/3]
           
           break;
@@ -205,7 +208,7 @@ export class ResultsComponent implements OnInit{
         case 6:
   
           this.viewVertical = [ancho/2, 500]
-          this.viewCheck = [ancho/2, 500]
+          this.viewCheck = [ancho/2.5, 500]
           this.viewLevel = [ancho/1.2, alto/3]
           
           break;

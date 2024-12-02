@@ -3,6 +3,7 @@ import { HomeService } from '../../services/home-service.service';
 import { AuthService } from '../../../auth/service/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../interfaces/user.interface';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -29,13 +30,15 @@ export class HomeComponent implements OnInit{
   ];
 
 
-  constructor(public _homeService: HomeService, private _authService: AuthService, private _router: Router) {}
+  constructor(public _homeService: HomeService, private _authService: AuthService, private _router: Router, private _titleService: Title) {}
 
 
 
   ngOnInit(): void {
 
     //if( !this.identity ) this._router.navigate(['/auth/login']);
+
+    this._titleService.setTitle('Formuease | Inicio');
 
     this.prepararMenu();
     

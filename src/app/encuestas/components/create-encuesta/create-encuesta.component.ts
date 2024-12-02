@@ -3,6 +3,7 @@ import { EncuestasService } from '../../services/encuestas.service';
 import { EncuestaItem } from '../../interfaces/encuesta';
 import { AuthService } from '../../../auth/service/auth.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-encuesta',
@@ -38,11 +39,12 @@ export class CreateEncuestaComponent implements OnInit{
   token: any;
   
 
-  constructor(public _encuestasService: EncuestasService, private _authService: AuthService, private _router: Router) {
+  constructor(public _encuestasService: EncuestasService, private _authService: AuthService, private _router: Router, private _titleService: Title) {
 
   }
 
   ngOnInit(): void {
+    this._titleService.setTitle('Formuease | Nueva encuesta');
     this.sesion = this._authService.getIdentity;
     this.token = this._authService.getToken;
 

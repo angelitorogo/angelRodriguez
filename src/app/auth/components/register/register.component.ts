@@ -4,13 +4,14 @@ import { ScreenSizeService } from '../../../shared/services/screen-size.service'
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent{
+export class RegisterComponent implements OnInit{
 
   formSignUp: FormGroup;
 
@@ -20,7 +21,7 @@ export class RegisterComponent{
 
   constructor(private fb: FormBuilder,
               private _authService: AuthService,
-              private _router: Router) {
+              private _router: Router, private _titleService: Title) {
 
                 this.formSignUp = this.fb.group({
                   fullname: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -33,11 +34,14 @@ export class RegisterComponent{
 
 
   }
+  ngOnInit(): void {
+    this._titleService.setTitle('Formuease | Registro');
+  }
 
 
   submit() {
   
-    console.log(this.formSignUp.value);
+    
 
     const { email, fullname, password1, password2, acepted } = this.formSignUp.value;
 

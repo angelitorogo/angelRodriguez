@@ -96,7 +96,7 @@
 .cell {
     flex: 1;
     padding: 8px 8px 8px 20px;
-    text-align: left;
+    text-align: center;
     font-size: 1.6rem;
 }
 
@@ -395,7 +395,7 @@
     .cell {
         flex: 1;
         padding: 8px 8px 8px 20px;
-        text-align: left;
+        text-align: center;
         font-size: 1.6rem;
     }
     
@@ -591,6 +591,7 @@
         border: none;
         height: 37rem;
         margin-block: 8rem;
+        margin-left: 0;
     }
 
     .content-general.level {

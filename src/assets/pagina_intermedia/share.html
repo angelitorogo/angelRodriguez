@@ -6,18 +6,23 @@
     const surveyId = urlParams.get('id');
     const surveyName = urlParams.get('name');
     
-    const domain = 'http://localhost:4200/#'; //cuando se tenga dominio cambiar
+    const domain = 'http://localhost:4200/'; //cuando se tenga dominio cambiar
+    //const domain = 'https://formuease.argomez.com/'; //cuando se tenga dominio cambiar
 
     // Inserta las etiquetas Open Graph dinámicamente
     document.head.innerHTML += `
-      <meta property="og:title" content="Encuesta: ${surveyName}">
-      <meta property="og:description" content="Responde a esta encuesta única y ayúdanos a mejorar.">
-      <meta property="og:url" content="${domain}/response/survey/${surveyId}">
+      <meta property="og:title" content="Encuesta: ${surveyName}" />
+      <meta property="og:description" content="Responde a esta encuesta única y ayúdanos a mejorar." />
+      <meta property="og:image" content="https://formuease.argomez.com/assets/images/fondo6.png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:url" content="${domain}/#/response/survey/${surveyId}" />
+      <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Encuesta: ${surveyName}" />
-      <meta name="twitter:image" content="http://localhost:4200/assets/images/fondo6.webp" />
+      <meta name="twitter:image" content="${domain}/assets/images/fondo6.png" />
       <meta name="twitter:description" content="Responde a esta encuesta única y ayúdanos a mejorar." />
-      <meta name="twitter:url" content="${domain}/response/survey/${surveyId}" />
+     />
     `;
   </script>
   <style>
@@ -50,17 +55,19 @@
       const urlParams = new URLSearchParams(window.location.search);
       const surveyId = urlParams.get('id');
       const redSocial = urlParams.get('platform');
-      const surveyUrl = `${domain}/response/survey/${surveyId}`;
+      //const surveyUrl = `http://localhost:4200/#`;
+      const surveyUrl = `${domain}#/response/survey/${surveyId}`;
 
       if (redSocial === 'facebook') {
         // URL para compartir en Facebook
         this.urlSharedSurvey = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(surveyUrl)}`;
+        console.log(urlSharedSurvey)
         window.location.href = this.urlSharedSurvey;
       } else if( redSocial === 'x') {
         const mensaje = encodeURIComponent('¡Responde a esta encuesta rápidamente!');
         const hashtags = encodeURIComponent('encuesta,datos');
-        const via = 'angelitorogo';
-        this.urlX = `https://twitter.com/intent/tweet?url=${encodeURIComponent(surveyUrl)}&text=${mensaje}&hashtags=${hashtags}&via=${via}`;
+        //const via = 'angelitorogo';
+        this.urlX = `https://twitter.com/intent/tweet?url=${encodeURIComponent(surveyUrl)}&text=${mensaje}&hashtags=${hashtags}`;
         window.location.href = this.urlX;
       } else if( redSocial === 'instagram') {
 

@@ -1,15 +1,15 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 :root {
-    --color-background: #eeeeee;
+    --color-background: #ebf5ff;
     --color-texto: #e0e0e0;
-    --color-nav:#434343;
+    --color-nav:#242424;
     --color-active-hover: #5d93ff;
     --color-border: #aac6ff;
     --color-texto-atenuado: #a2a2a2;
 
     --color-texto-login: #333;
-    --color-container: #ffffffc7;
+    --color-container: #ffffffe8;
 
     --color-shadow: #0a0a0a7d;
 

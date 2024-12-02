@@ -5,6 +5,7 @@ import { DashboardService } from '../../../dashboard/services/dashboard.service'
 import { Encuesta } from '../../../encuestas/interfaces/encuesta';
 import { responseEncuesta, responseEncuestaItem } from '../../interfaces/response';
 import { SurveysService } from '../../services/surveys.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-survey',
@@ -59,7 +60,8 @@ export class SurveyComponent implements OnInit{
               private _router: Router, 
               private _dashboardService: DashboardService,
               private _route: ActivatedRoute,
-              private _surveysService: SurveysService) {
+              private _surveysService: SurveysService,
+              private _titleService: Title) {
 
   }
 
@@ -67,6 +69,7 @@ export class SurveyComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this._titleService.setTitle('Formuease | Responde a esta encuesta');
 
     this.id = this._route.snapshot.paramMap.get('id')!;
    

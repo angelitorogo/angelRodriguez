@@ -1,10 +1,10 @@
 .content {
   height: unset;
   background-color: var(--color-background);
-  padding-top: 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding-bottom: 0rem;
+  padding-top: 0.1rem;
+  padding-bottom: 1rem;
 }
 
 .title-content {
@@ -117,7 +117,8 @@
     padding-top: 0;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    padding-block: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

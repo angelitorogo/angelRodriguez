@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angelRodriguez": {
+    "formuease": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -48,21 +48,33 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
+              "fileReplacements": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "1Mb",
+                "maximumError": "2MB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "10kB",
+                "maximumError": "15kB"
+              }
+            ],
               "outputHashing": "all"
             },
             "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ],
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
@@ -74,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angelRodriguez:build:production"
+              "buildTarget": "formuease:build:production"
             },
             "development": {
-              "buildTarget": "angelRodriguez:build:development"
+              "buildTarget": "formuease:build:development"
             }
           },
           "defaultConfiguration": "development"
