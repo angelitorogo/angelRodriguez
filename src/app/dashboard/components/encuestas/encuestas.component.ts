@@ -38,7 +38,10 @@ export class EncuestasComponent implements OnInit{
   surveySharedId: string = '';
   urlSharedSurvey: string = '';
 
-  constructor(public _authService: AuthService, private _router: Router, private _dashboardService: DashboardService, private _titleService: Title) {
+  constructor(public _authService: AuthService, 
+    private _router: Router, 
+    private _dashboardService: DashboardService, 
+    private _titleService: Title) {
 
 
   }
@@ -188,8 +191,10 @@ export class EncuestasComponent implements OnInit{
   }
 
   clickIconoFill(id: string| undefined) {
+
     const linkSurvey = `${this.domain}#/response/survey/${id}`;
     this.openModal2('info', linkSurvey, id)
+
   }
 
   openModal2(type: 'info' | 'success' | 'alert', text: string, id?: string) {
@@ -208,15 +213,17 @@ export class EncuestasComponent implements OnInit{
     const id = data[1];
 
     let encuesta: any = this.encuestas.find((encuesta) => encuesta?.id === id);
-    //console.log(encuesta)
+
     
     if(redSocial) {
       //ya tengo la red social a la que quiero compartir la encuesta en redSocial
 
-      const shareUrlFacebook = `${this.domain}assets/pagina_intermedia/share.html?id=${id}&name=${encuesta.nombre}&platform=${redSocial}`;
-      console.log(shareUrlFacebook)
-          
-      window.open(shareUrlFacebook, '_blank');
+      if( redSocial === 'facebook') {
+        const urlSharedFacebook = `https://www.facebook.com/sharer/sharer.php?u=https://formuease-api.argomez.com/previews/${id}.html`;
+       
+        window.open(urlSharedFacebook, '_blank');
+      }
+      
 
     } else {
       

@@ -101,6 +101,8 @@ export class SurveyComponent implements OnInit{
     this._dashboardService.loadSurveyById(id).subscribe({
       next: async (response: any) => {
 
+        //console.log(response)
+
         this.encuesta = response;
 
         this.encuesta?.encuestaItem.unshift({

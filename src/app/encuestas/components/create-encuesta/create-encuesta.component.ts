@@ -15,7 +15,12 @@ export class CreateEncuestaComponent implements OnInit{
   comenzar: boolean = false; //cambiar a false
   loading: boolean = false;
   creando: boolean = false; // Cambiar a false
+  addImage: boolean = false; // cambiar a false
   addQuestion: boolean = false; //cambiar a false
+
+  selectedFileName: string | null = null;
+  selectedFile: File | null = null;
+  imageSrc: string | ArrayBuffer | null = null;
 
   option: string = '';
 
@@ -51,8 +56,52 @@ export class CreateEncuestaComponent implements OnInit{
   }
 
   AceptarTitleSurvey() {
-    console.log(this.titleSurvey)
+    
+    this.addImage = true;
+    
+  }
+
+  aceptar() {
+    this.addImage = false;
     this.addQuestion = true;
+  }
+
+
+  onFileSelected(event: any) {
+
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      this.selectedFileName = input.files[0].name;
+    } 
+
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+    } else {
+      this.selectedFile = null;
+      this.selectedFileName = '';
+    }
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.imageSrc = reader.result;
+      };
+
+
+      reader.readAsDataURL(file); 
+
+    }
+
+    this.imageSrc = null;
+
+  }
+
+  triggerFileInput() {
+    const fileInputButton = document.getElementById('image') as HTMLInputElement;
+    fileInputButton.click();
   }
 
   
@@ -132,13 +181,40 @@ export class CreateEncuestaComponent implements OnInit{
 
   terminar(){
 
+    if( this.selectedFile ) {
 
-    
+      let base64Image;
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+          base64Image = reader.result as string;
+          this._encuestasService.encuesta.image = base64Image;
+              
+          this.enviarPeticion();
+
+      };
+
+      reader.readAsDataURL(this.selectedFile); // Convierte el archivo a Base64
+  
+      
+    } else {
+               
+      this.enviarPeticion();
+      
+
+    } 
+
+  }
+
+  enviarPeticion() {
 
     this._encuestasService.addSurvey(this.titleSurvey).subscribe({
       next: async (response: any) => {
 
-        if (response.id) {
+        console.log(response);
+
+        if (response.encuestaSinCamposExtras.id) {
 
           this.openModal1('success', 'Se ha creado la encuesta con éxito. Consulta el dashboard para compartirlo o analizar datos')
 
@@ -151,8 +227,13 @@ export class CreateEncuestaComponent implements OnInit{
             id: '',
             created_at: new Date(),
             nombre: '',
+            image: undefined,
             encuestaItem: [] // Array vacío para iniciar sin elementos
-        };
+          };
+
+          this.imageSrc = null;
+          this.selectedFileName = null;
+          this.selectedFile =null;
           
         }
         

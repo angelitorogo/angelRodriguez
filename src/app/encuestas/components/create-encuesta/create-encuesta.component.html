@@ -45,7 +45,7 @@
 
     <div class="loader" *ngIf="loading"></div>
 
-    <div class="content-create"  *ngIf="comenzar && !loading">
+    <div class="content-create"  *ngIf="comenzar && !loading && !addImage">
         <div class="group-title">
             <label class="title-survey">Título de encuesta</label>
             <input [(ngModel)]="titleSurvey" placeholder="Nombre de la encuesta" class="input-title-survey" type="text">
@@ -63,6 +63,67 @@
         </lib-boton6>
 
     </div>
+
+    <div class="content-create"  *ngIf="comenzar && !loading && addImage">
+        <div class="group-title">
+            <label class="title-survey">Añade una imagen a la encuesta</label>
+
+            <div class="group-image">
+                <div class="image-container" *ngIf="imageSrc"> 
+                    <img [src]="imageSrc" alt=""  oncontextmenu="return false;">
+                </div>
+
+                <div class="button-file">
+                    <input type="file"
+                        #fileInput 
+                        name="image" 
+                        id="image" 
+                        class="input input-file" 
+                        required=""  
+                        (change)="onFileSelected($event)" 
+                        accept="image/*" 
+                        style="display: none;"
+                    >
+
+                    <div class="content-button-image">
+                        <lib-boton6 
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="'#242424'"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="(selectedFileName! | truncate:15) || 'Seleccionar imagen'"
+                            [type]="'button'"
+                            (click)="triggerFileInput()"
+                            (change)="onFileSelected($event)">
+                        </lib-boton6>
+                        <lib-boton6 *ngIf="!selectedFileName"
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="'#9d0000'"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="'Omitir'"
+                            [type]="'button'"
+                            (click)="aceptar()">
+                        </lib-boton6>
+                        <lib-boton6 *ngIf="selectedFileName"
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="'#006e4e'"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="'Aceptar'"
+                            [type]="'button'"
+                            (click)="aceptar()">
+                        </lib-boton6>
+                    </div>
+                   
+                   
+                </div>
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+
 
 
 </div>

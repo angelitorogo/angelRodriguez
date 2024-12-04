@@ -37,19 +37,15 @@ export class EncuestasService{
 
 
     addSurvey( title: string):Observable<any>  {
+        
         this.encuesta.nombre = title;
-
 
         delete this.encuesta.id;
         delete this.encuesta.created_at;
-        
+
         return this._http.post(`${this.apiUrl}/encuestas/create-survey`, this.encuesta );
 
-        
-
-
     }
-
 
 
 

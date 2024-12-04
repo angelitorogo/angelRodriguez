@@ -30,6 +30,8 @@ export class Boton6Component implements OnInit {
 
     @Input() routerLink: string | any[] | null = null; // Propiedad opcional para routerLink
     @Output() buttonClicked = new EventEmitter<void>(); // Emisor del evento de clic
+    @Output() imageSelect = new EventEmitter<Event>();
+    
     constructor(private router: Router) {
 
     }
@@ -82,6 +84,10 @@ export class Boton6Component implements OnInit {
         if (this.routerLink) {
             this.router.navigate(Array.isArray(this.routerLink) ? this.routerLink : [this.routerLink]);
         }
+    }
+
+    onChange(event: Event) {
+        this.imageSelect.emit(event);
     }
       
 

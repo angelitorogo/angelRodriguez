@@ -15,10 +15,33 @@ header {
 }
 
 .content {
-    height: 50rem;
-    padding: 2rem;
+    height: auto;
+    padding:  0 2rem 2rem 2rem;
 }
 
+.container-image {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+
+@media (min-width: 768px) { 
+  .content {
+    height: auto;
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  .container-image {
+    width: 100rem;
+    margin: 2rem auto;
+  }
+
+  .container-image img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+}
 
 
 

@@ -1,10 +1,17 @@
 
 <header>
     <h1 class="title" *ngIf="encuesta">{{encuesta.nombre}}</h1>
+    
 </header>
+
+
 
 <div class="content">
 
+    <div class="container-image" *ngIf="encuesta">
+        <img [src]="encuesta.image" alt="">
+    </div>
+    
 
     <div class="encuesta" *ngIf="!mostrarMensaje">
 

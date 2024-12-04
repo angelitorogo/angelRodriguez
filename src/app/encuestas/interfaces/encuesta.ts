@@ -3,6 +3,7 @@ export interface Encuesta {
     id?: string;
     created_at?: Date;
     nombre: string;
+    image?: string;
     encuestaItem: EncuestaItem[];
 }
 

@@ -80,11 +80,11 @@
 }
 
 .container-create {
-    height: 30rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-block: 3rem;
 }
 
 @media (min-width: 768px) { 
@@ -140,6 +140,7 @@
 .title-survey {
   font-size: 3rem;
   font-weight: 500;
+  text-align: center;
 }
 
 /* Estilo base para todos los inputs */
@@ -510,6 +511,82 @@ a.btn.disabled {
   }
 
 }
+
+
+.group-image {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content:center;
+  align-items: center;
+}
+
+.image-container {
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid rgb(160, 160, 160);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content-button-image {
+  margin-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 25rem;
+}
+
+.input-file {
+  height: 3.9rem;
+  padding: 0.8rem;
+  margin-top: 0.7rem;
+  width: 15rem;
+}
+
+
+@media (min-width: 768px) { 
+
+  .group-image {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:center;
+    align-items: center;
+  }
+  
+  .image-container {
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid rgb(160, 160, 160);
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .content-button-image {
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    width: 45rem;
+  }
+  
+  .input-file {
+    height: 3.9rem;
+    padding: 0.8rem;
+    margin-top: 0.7rem;
+    width: 15rem;
+  }
+
+  
+}
+
 
 
 .visible {

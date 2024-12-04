@@ -6,12 +6,14 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { Boton6Component } from "../shared/components/boton6/boton6.component";
 import { Modal1Component } from '../shared/components/modal1/modal1.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 
 
 @NgModule({
   declarations: [
-    CreateEncuestaComponent
+    CreateEncuestaComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
