@@ -523,7 +523,6 @@ a.btn.disabled {
 .image-container {
   width: 15rem;
   height: 15rem;
-  border: 1px solid rgb(160, 160, 160);
 }
 
 .image-container img {
@@ -560,7 +559,6 @@ a.btn.disabled {
   .image-container {
     width: 15rem;
     height: 15rem;
-    border: 1px solid rgb(160, 160, 160);
   }
   
   .image-container img {

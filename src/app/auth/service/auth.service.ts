@@ -23,7 +23,6 @@ export class AuthService {
     }
 
     logIn(email: string, password: string):Observable<any> {
-        console.log(`${this.apiUrl}/auth/login`)
         return this._http.post(`${this.apiUrl}/auth/login`, { email, password });
     }
 

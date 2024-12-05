@@ -452,7 +452,7 @@ export class SurveyComponent implements OnInit{
     this.responseEncuesta.respuestas = resp;
 
 
-    console.log(this.responseEncuesta)
+    //console.log(this.responseEncuesta)
     this.enviarResponse(this.responseEncuesta);
 
   }

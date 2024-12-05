@@ -212,7 +212,7 @@ export class CreateEncuestaComponent implements OnInit{
     this._encuestasService.addSurvey(this.titleSurvey).subscribe({
       next: async (response: any) => {
 
-        console.log(response);
+        //console.log(response);
 
         if (response.encuestaSinCamposExtras.id) {
 

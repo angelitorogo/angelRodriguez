@@ -8,107 +8,118 @@
 
 <div class="content">
 
-    <div class="container-image" *ngIf="encuesta">
-        <img [src]="encuesta.image" alt="">
-    </div>
     
-
+    
     <div class="encuesta" *ngIf="!mostrarMensaje">
 
-        <div class="encuesta-item" *ngFor="let question of encuesta?.encuestaItem; let i= index" [id]="'question-' + i">
-
-
-            <div class="type-input" [ngSwitch]="question.type">
-    
-                <div class="group-question">
-
-                    <div class="title-question-check">
-                        <label class="question">{{i + 1}}.- {{question.question}} </label> 
-                        <i class="bi bi-check" [id]="'iconCheck-' + i"></i>
-                    </div>
-
-                    <input *ngSwitchCase="'EMAIL'" class="input-email" type="email" [id]="'input-' + i" (input)="onInputEmail($event, i)">
-    
-                    <textarea *ngSwitchCase="'TEXT'" type="text" class="input-text" rows="5" [id]="'textarea-' + i" (input)="onInput($event, i)"></textarea>
-    
-                    <div class="custom-select" *ngSwitchCase="'SELECT'">
-                        <div class="group-select">
-                            <button class="select-btn" (click)="mostrarOpciones(i)" [id]="'button-select-' + i" >Selecciona una opción</button>
-                            <!--<button class="select-btn" (click)="mostrarOpciones(i)" [id]="'button-select-' + i" *ngIf="responseEncuesta[i].response">{{responseEncuesta[i].response}}</button>-->
-                            
-                        </div>
-                        <ul class="options" [id]="'opciones-' + i">
-                          <li data-value="option"  *ngFor="let option of question.options" (click)="onSelectChange($event, i)">{{option}}</li>
-                        </ul>
-                        <p class="seleccion-temp" [id]="'selection-option-' + i" style="display: none;"></p>
-                    </div>
-                      
-                      
-    
-                    <div *ngSwitchCase="'CHECK'" id="checkboxGroup">
-                        <label *ngFor="let option of question.options">
-                            <input 
-                                [id]="'check-' + i"
-                                type="checkbox" 
-                                [value]="option" 
-                                (change)="onCheckboxChange($event,option, i)"/>
-                                    {{option}}
-                        </label>
-                        
-                    </div>
-    
-                    <div *ngSwitchCase="'LEVEL'" [id]="'levelgroup-' + i" class="group-level">
-    
-                        <div class="opciones-puntuacion">
-                            <div class="opcion" *ngFor="let option of question.options" (click)="seleccionarLevel($event, option, i)">{{option}}</div>
-                        </div>
-    
-                    </div>
-    
-                </div>
-    
-                
-    
-    
-            </div>  
-    
-
-        </div>
-    
-        <div class="content-buttons">
-            <div class="contain-button">
-                <lib-boton6
-                    [colorTexto]="'#ffffff'"
-                    [colorIzq]="'#242424'"
-                    [colorDcha]="'#3333ff'"
-                    [buttonText]="textButtonAnt"
-                    [type]="'button'"
-                    (click)="anterior()"
-                    [isDisabled]="preguntaActual == 1">
-                </lib-boton6>
-            </div>
-            <div class="contain-button">
-                <lib-boton6 *ngIf="preguntaActual != numPreguntas"
-                    [colorTexto]="'#ffffff'"
-                    [colorIzq]="'#242424'"
-                    [colorDcha]="'#3333ff'"
-                    [buttonText]="textButtonSig"
-                    [type]="'button'"
-                    (click)="siguiente()"
-                    [isDisabled]="!continuar">
-                </lib-boton6>
-                <lib-boton6 *ngIf="preguntaActual == numPreguntas"
-                    [colorTexto]="'#ffffff'"
-                    [colorIzq]="colorBoton"
-                    [colorDcha]="'#3333ff'"
-                    [buttonText]="'Terminar'"
-                    [type]="'button'"
-                    (click)="aceptar()"
-                    [isDisabled]="response.length != numPreguntas && !continuar">
-                </lib-boton6>
-            </div>
+        <div class="container-flex" *ngIf="encuesta">
             
+            <div class="encuesta-sin-image">
+
+                <div class="encuesta-item" *ngFor="let question of encuesta?.encuestaItem; let i= index" [id]="'question-' + i">
+
+
+                    <div class="type-input" [ngSwitch]="question.type">
+            
+                        <div class="group-question">
+        
+                            <div class="title-question-check">
+                                <label class="question">{{i + 1}}.- {{question.question}} </label> 
+                                <i class="bi bi-check" [id]="'iconCheck-' + i"></i>
+                            </div>
+        
+                            <input *ngSwitchCase="'EMAIL'" class="input-email" type="email" [id]="'input-' + i" (input)="onInputEmail($event, i)">
+            
+                            <textarea *ngSwitchCase="'TEXT'" type="text" class="input-text" rows="5" [id]="'textarea-' + i" (input)="onInput($event, i)"></textarea>
+            
+                            <div class="custom-select" *ngSwitchCase="'SELECT'">
+                                <div class="group-select">
+                                    <button class="select-btn" (click)="mostrarOpciones(i)" [id]="'button-select-' + i" >Selecciona una opción</button>
+                                    <!--<button class="select-btn" (click)="mostrarOpciones(i)" [id]="'button-select-' + i" *ngIf="responseEncuesta[i].response">{{responseEncuesta[i].response}}</button>-->
+                                    
+                                </div>
+                                <ul class="options" [id]="'opciones-' + i">
+                                  <li data-value="option"  *ngFor="let option of question.options" (click)="onSelectChange($event, i)">{{option}}</li>
+                                </ul>
+                                <p class="seleccion-temp" [id]="'selection-option-' + i" style="display: none;"></p>
+                            </div>
+                              
+                              
+            
+                            <div *ngSwitchCase="'CHECK'" id="checkboxGroup">
+                                <label *ngFor="let option of question.options">
+                                    <input 
+                                        [id]="'check-' + i"
+                                        type="checkbox" 
+                                        [value]="option" 
+                                        (change)="onCheckboxChange($event,option, i)"/>
+                                            {{option}}
+                                </label>
+                                
+                            </div>
+            
+                            <div *ngSwitchCase="'LEVEL'" [id]="'levelgroup-' + i" class="group-level">
+            
+                                <div class="opciones-puntuacion">
+                                    <div class="opcion" *ngFor="let option of question.options" (click)="seleccionarLevel($event, option, i)">{{option}}</div>
+                                </div>
+            
+                            </div>
+            
+                        </div>
+            
+                        
+            
+            
+                    </div>  
+            
+        
+                </div>
+
+                <div class="content-buttons">
+                    <div class="contain-button">
+                        <lib-boton6
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="'#242424'"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="textButtonAnt"
+                            [type]="'button'"
+                            (click)="anterior()"
+                            [isDisabled]="preguntaActual == 1">
+                        </lib-boton6>
+                    </div>
+                    <div class="contain-button">
+                        <lib-boton6 *ngIf="preguntaActual != numPreguntas"
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="'#242424'"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="textButtonSig"
+                            [type]="'button'"
+                            (click)="siguiente()"
+                            [isDisabled]="!continuar">
+                        </lib-boton6>
+                        <lib-boton6 *ngIf="preguntaActual == numPreguntas"
+                            [colorTexto]="'#ffffff'"
+                            [colorIzq]="colorBoton"
+                            [colorDcha]="'#3333ff'"
+                            [buttonText]="'Terminar'"
+                            [type]="'button'"
+                            (click)="aceptar()"
+                            [isDisabled]="response.length != numPreguntas && !continuar">
+                        </lib-boton6>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        
+            <div class="container-image" *ngIf="encuesta">
+                <img [src]="encuesta.image" alt="">
+            </div>
+
         </div>
+  
     </div>
 
     <div class="encuesta" *ngIf="mostrarMensaje">
