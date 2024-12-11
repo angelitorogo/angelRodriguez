@@ -10,6 +10,7 @@
   position: relative;
   z-index: 10;
   background-color: var(--color-nav);
+  letter-spacing: 0.1em;
 
 }
 
@@ -41,9 +42,11 @@
   color: var(--color-active-hover);
 }
 
-.menu-item .active {
+.item-link.active {
   color: var(--color-active-hover);
 }
+
+
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
@@ -101,4 +104,8 @@
     color: var(--color-texto);
     transition: all 0.2s ease;
   }
+}
+
+.bi-person-circle {
+  font-size: 1.8rem;
 }

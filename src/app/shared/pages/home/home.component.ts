@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home-service.service';
 import { AuthService } from '../../../auth/service/auth.service';
 import { Router } from '@angular/router';
-import { User } from '../../interfaces/user.interface';
+import { MailSendForm, User } from '../../interfaces/user.interface';
 import { Title } from '@angular/platform-browser';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   identity?: User;
 
@@ -29,49 +30,81 @@ export class HomeComponent implements OnInit{
     }  
   ];
 
+  showModal1: boolean = false;
+  modalText1: string = 'Este es un mensaje de información';
+  modalType1: 'info' | 'success' | 'alert' = 'info';
 
-  constructor(public _homeService: HomeService, private _authService: AuthService, private _router: Router, private _titleService: Title) {}
+  form: ReturnType<FormBuilder['group']>;
 
+
+
+  constructor(public _homeService: HomeService, 
+              private _authService: AuthService, 
+              private _router: Router, 
+              private _titleService: Title, 
+              private _formBuilder: FormBuilder) {
+
+                this.form = this._formBuilder.group<MailSendForm>({
+                  email: this._formBuilder.nonNullable.control('',[Validators.required, Validators.email]),
+                  nombre: this._formBuilder.nonNullable.control('', Validators.required),
+                  apellido: this._formBuilder.nonNullable.control('', Validators.required),
+                  asunto: this._formBuilder.nonNullable.control('',  Validators.required),
+                  text: this._formBuilder.nonNullable.control('', Validators.required),
+                  extra_field: this._formBuilder.control('')
+                });
+
+              }
 
 
   ngOnInit(): void {
 
-    //if( !this.identity ) this._router.navigate(['/auth/login']);
-
     this._titleService.setTitle('Formuease | Inicio');
-
-    this.prepararMenu();
     
+
   }
 
 
-  prepararMenu() {
-    //resetear valores mostrar de elementosMenu
-    for (let i = 0; i < this._homeService.elementosMenu.length; i++) {
-      this._homeService.elementosMenu[i].mostrar = true;
+  
+
+  submit() {
+
+    if (this.form.invalid || this.form.value.extra_field != '') {
+      return;
     }
 
-    this.identity = this._authService.getIdentity;
-    
-    if(this.identity) {
-      //como estamos logados no mostramos ni login ni register
-      this._homeService.elementosMenu[3].mostrar = false;
+    const { email, nombre, apellido, asunto, text} = this.form.value;
 
-      //Si es user o userpro
-      if( this.identity?.role != 'ADMIN' ) {
-      
-        this._homeService.elementosMenu[2].mostrar = false;
 
+    this._homeService.sendMail(email, nombre, apellido, asunto, text).subscribe({
+      next: async( response: any ) => {
+        console.log(response)
+        this.openModal1('success', 'Hemos recibido su consulta. Le contestaremos lo antes posible')
+        
+      },
+      error: (error: any) => {
+        console.log(error)
+        this.openModal1('alert', 'No ha sido posible envíar su consulta, inténtelo de nuevo pasados unos instantes')
       }
+    })
 
-    } else {
-      //como NO estamos logados solo mostramos login y register
-      this._homeService.elementosMenu[0].mostrar = false;
-      this._homeService.elementosMenu[1].mostrar = false; 
-      this._homeService.elementosMenu[2].mostrar = false;
-      this._homeService.elementosMenu[4].mostrar = false;
-    }
+  }
 
+  openModal1(type: 'info' | 'success' | 'alert', text: string) {
+    this.modalType1 = type;
+    this.modalText1 = text;
+    this.showModal1 = true;
+  }
+
+  closeModal1() {
+    this.showModal1 = false;
+    this.form = this._formBuilder.group<MailSendForm>({
+      email: this._formBuilder.nonNullable.control('',[Validators.required, Validators.email]),
+      nombre: this._formBuilder.nonNullable.control('', Validators.required),
+      apellido: this._formBuilder.nonNullable.control('', Validators.required),
+      asunto: this._formBuilder.nonNullable.control('',  Validators.required),
+      text: this._formBuilder.nonNullable.control('', Validators.required),
+      extra_field: this._formBuilder.control('')
+    });
   }
 
   

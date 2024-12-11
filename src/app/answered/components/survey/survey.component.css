@@ -493,7 +493,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-top: 7rem;
+    margin-top: 2rem;
   }
 
   .text-mensaje {
@@ -518,7 +518,7 @@ header {
   .container-mensaje {
     background-color: var(--color-background);
     padding: 4rem;
-    height: 40rem;
+    height: 46rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

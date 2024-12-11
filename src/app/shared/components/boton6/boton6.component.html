@@ -15,6 +15,30 @@
     [disabled]="isDisabled"
     (click)="onClick()"
     (change)="onChange($event)"
-    [type]="type">
-    {{ buttonText }}
+    [type]="type"
+    [title]="buttonText">
+    
+    <div class="container-text-button" *ngIf="buttonText !== 'Facebook' && buttonText !== 'LinkedIn' && buttonText !== 'X'">
+
+        <ng-container >
+            {{ buttonText }}
+        </ng-container>
+
+    </div>
+
+    <div class="container-text-button-social" *ngIf="buttonText === 'Facebook' || buttonText === 'LinkedIn' || buttonText === 'X'">
+
+        <div class="social">
+            <i class="bi bi-facebook" *ngIf="buttonText === 'Facebook'"></i>
+            <i class="bi bi-linkedin" *ngIf="buttonText === 'LinkedIn'"></i>
+            <i class="bi bi-twitter" *ngIf="buttonText === 'X'"></i>
+        </div>
+        
+
+        <ng-container>
+           <p  class="text-social" > {{ buttonText }}</p>
+        </ng-container>
+
+    </div>
+    
 </button>

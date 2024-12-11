@@ -20,6 +20,7 @@ button {
   text-align: center;
   outline: none;
   transition: all 0.3s ease;
+  letter-spacing: 0.1em;
 }
 
 button:hover:not(:disabled) {
@@ -48,4 +49,30 @@ button:disabled {
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+
+.container-text-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-text-button-social {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.social {
+  position: absolute;
+  left: 1rem;
+}
+
+.text-social {
+  margin: 0;
+  margin-left: 1rem;
+  margin-top: 0.2rem;
 }

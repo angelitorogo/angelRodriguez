@@ -5,19 +5,21 @@
   .container-nav {
     height: 40rem;
     background: url('../../../../assets/images/fondo6.webp');
+    background-size: cover;
+    background-position: center;
   }
 
   .header-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 4rem;
+    font-size: 3rem;
     align-items: center;
     font-weight: 500;
     text-align: center;
     margin-top: 2rem;
     height: 26rem;
-    
+    letter-spacing: 0.1em;
   }
   
   .principal-title {
@@ -28,7 +30,7 @@
   }
   
   .text-title {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-top: 0rem;
     background-color: #dadada73;
@@ -438,7 +440,7 @@ a.btn.disabled {
   
   .group-buttons {
     position: absolute;
-    width: 50rem;
+    width: 55rem;
     display: flex;
     flex-direction: row;
     gap: 2rem;

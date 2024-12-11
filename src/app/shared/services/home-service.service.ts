@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -6,75 +9,19 @@ import { Injectable } from '@angular/core';
 })
 export class HomeService {
 
-    // Los elementos que pasarás a lib-nav1
-  elementosNav= [
-    {
-      elemento: 'Home', //mostrar se configurara en cada app, dependiendo de lo que sea, permisos, etc
-      link: '/', 
-      mostrar: true 
-    },
-    {
-      elemento: 'About',
-      link: '/', 
-      mostrar: true
-    },
-    {
-      elemento: 'Contact',
-      link: '/', 
-      mostrar: true
-    }
-  ];
+  apiUrl = environment.API_URL;
 
-  elementosMenu = [
-    { pos: 0, elemento: 'Profile', link: '/', mostrar: true }, //mostrar se configurara en cada app, dependiendo de lo que sea, permisos, etc
-    { pos: 1, elemento: 'Settings',mostrar: true, subMenu: 
-      [
-        { elemento: 'Language', link: '/', mostrar: true },
-        { elemento: 'Theme', link: '/', mostrar: true }
-      ],
-    },
-    { pos: 2, elemento: 'Administration', mostrar: true,
-       subMenu: 
-       [
-        { elemento: 'Logs', link: '/', mostrar: true },
-        { elemento: 'Users', link: '/', mostrar: true }
-      ], 
-    },
-    { pos: 3, elemento: 'Login', link: '/auth/login', mostrar: true },
-    { pos: 4, elemento: 'Logout', link: '/', mostrar: true },  
+  constructor(private _http: HttpClient) {
 
-  ];
-
-    
-  appIcon1: string = 'assets/icons/icono2.webp';
+  }
 
 
-   // Los elementos que pasarás a lib-nav2
-   elementosNav2 = [
-    { elemento: 'Primero', link: '/', mostrar: true }, //mostrar se configurara en cada app, dependiendo de lo que sea, permisos, etc
-    { elemento: 'Segundo',mostrar: true, subMenu: 
-      [
-        { elemento: 'SegundoA', link: '/', mostrar: true },
-        { elemento: 'SegundoB', link: '/', mostrar: true }
-      ],
-    },
-    { elemento: 'Tercero', mostrar: true,
-       subMenu: 
-       [
-        { elemento: 'TerceroA', link: '/', mostrar: true },
-        { elemento: 'TerceroB', link: '/', mostrar: true }
-      ], 
-    },
-    { elemento: 'Tercero', mostrar: true,
-       subMenu: 
-       [
-        { elemento: 'TerceroA', link: '/', mostrar: true },
-        { elemento: 'TerceroB', link: '/', mostrar: true },
-        { elemento: 'TerceroA', link: '/', mostrar: true },
-        { elemento: 'TerceroB', link: '/', mostrar: true }
-      ], 
-    }    
+  sendMail(email: string, nombre: string, apellido: string, asunto: string, text: string):Observable<any> {
+    return this._http.post(`${this.apiUrl}/mail/create-mail`, { email, nombre, apellido, asunto, text });
+  }
 
-  ];
+
+
+
 
 }

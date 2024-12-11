@@ -1,3 +1,9 @@
+<lib-modal-1
+    *ngIf="showModal1"
+    [text]="modalText1"
+    [type]="modalType1"
+    (close)="closeModal1()">
+</lib-modal-1>
 
 <div class="header" id="header">
 
@@ -174,15 +180,26 @@
             <h4 class="contacto-title">
                 Contacto
             </h4>
-            <p class="contacto-datos">
-                Dirección: Agustin Calvo 4, Madrid <br> Email: contact&#64;formuease.com. <br> Tel: +34 658 857 144
-            </p>
+
+            <div class="lateral-content">
+                <ul class="social-menu">
+                    <li class="social-item" title="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </li>
+                    <li class="social-item" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </li>
+                    <li class="social-item" title="X">
+                        <i class="bi bi-twitter"></i>
+                    </li>
+                </ul>
+            </div>
 
         </div>
 
         <div class="contacto-form">
 
-            <form class="form" action="" autocomplete="off">
+            <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
 
                 <div class="form-title">
                     También puedes contactarnos con este formulario
@@ -190,34 +207,36 @@
 
                 <div class="form-line">
                     <div class="form-group">
-                        <label class="form-label" for="name">Nombre *</label>
-                        <input type="text" name="name" id="name" autocomplete="off">
+                        <label class="form-label" for="nombre">Nombre *</label>
+                        <input formControlName="nombre" type="text" name="nombre" id="nombre" autocomplete="off">
                     </div>
     
                     <div class="form-group">
-                        <label class="form-label" for="surname">Apellido *</label>
-                        <input type="text" name="surname" id="surname" autocomplete="off">
+                        <label class="form-label" for="apellido">Apellido *</label>
+                        <input formControlName="apellido" type="text" name="apellido" id="apellido" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="form-line">
                     <div class="form-group">
                         <label class="form-label" for="email">Email *</label>
-                        <input type="email" name="email" id="email" autocomplete="off">
+                        <input formControlName="email" type="email" name="email" id="email" autocomplete="off">
                     </div>
     
                     <div class="form-group">
                         <label class="form-label" for="asunto">Asunto *</label>
-                        <input type="text" name="asunto" id="asunto" autocomplete="off">
+                        <input formControlName="asunto" type="text" name="asunto" id="asunto" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="form-line">
                     <div class="form-group">
                         <label class="form-label" for="textarea">Déjanos un mensaje *</label>
-                        <textarea name="textarea" rows="5" id="textarea" autocomplete="off"></textarea>
+                        <textarea formControlName="text" name="textarea" rows="5" id="textarea" autocomplete="off"></textarea>
                     </div>
                 </div>
+
+                <input type="text" formControlName="extra_field" name="extra_field" style="display: none;" autocomplete="off"/>
 
                 <div class="container-boton">
                     <lib-boton6 
@@ -225,7 +244,8 @@
                         [colorIzq]="'#434343'"
                         [colorDcha]="'#3333ff'"
                         [buttonText]="'Envíar'"
-                        [type]="'submit'">
+                        [type]="'submit'"
+                        [isDisabled]="form.invalid">
                     </lib-boton6>
                 </div>
 

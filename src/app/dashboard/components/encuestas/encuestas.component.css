@@ -154,7 +154,7 @@
     padding: 2rem;
     border-bottom: 1px solid #c9c9c9;
     display: grid;
-    grid-template-columns: 5fr 2fr 5fr;
+    grid-template-columns: 2fr 2fr 5fr;
     align-items: center;
     gap: 2rem;
   }

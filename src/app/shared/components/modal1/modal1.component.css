@@ -60,3 +60,31 @@
   }
   
   
+
+.container-qr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-qr img {
+  border: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.buttons-social {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .buttons-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+

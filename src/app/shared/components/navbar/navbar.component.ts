@@ -23,9 +23,26 @@ export class NavbarComponent {
     this.menuOpen = !this.menuOpen;
   }
 
-  irA(ruta: string, fragmento?: string) {
+  irA(route: string, fragmento?: string) {
     this.toggleMenu();
-    this._router.navigate([ruta], {fragment: fragmento})
+
+    const menuItems = document.getElementsByClassName('item-link')
+
+    for (let i = 0; i < menuItems.length; i++) {
+      const element = menuItems[i];
+      
+      if( element.classList.contains('active')) {
+        element.classList.remove('active')
+      }
+      
+    }
+
+    console.log(route);
+
+
+
+    this._router.navigate([route], {fragment: fragmento})
+    
   }
 
 }

@@ -6,6 +6,8 @@
   .container-nav {
     height: 29rem;
     background: url('../../../../assets/images/fondo6.webp');
+    background-position: center;
+    background-size: cover;
   }
 
 .header-title {
@@ -13,7 +15,7 @@
   width: 95%;
   display: flex;
   flex-direction: column;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 500;
   margin: 4rem auto;
   background-color: #dadada73;
@@ -36,6 +38,8 @@
   .container-nav {
     height: 40rem;
     background: url('../../../../assets/images/fondo6.webp');
+    background-size: cover;
+    background-position: center;
   }
 
   .header-title {

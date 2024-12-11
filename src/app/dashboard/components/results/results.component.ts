@@ -7,6 +7,7 @@ import { EstadisticasService } from '../../services/estadisticas.service';
 import { ResponseEstadisticas } from '../../interfaces/estadisticas';
 import { Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { ExportService } from '../../services/export.service';
 
 
 @Component({
@@ -56,10 +57,15 @@ export class ResultsComponent implements OnInit{
   widthSize: number = 0;
 
 
+
+  datas: [] = [];
+
+
   constructor(private _dashboardService: DashboardService, 
               private _route: ActivatedRoute,
               private _stadisticasService: EstadisticasService,
-              private _location: Location, private _titleService: Title) {
+              private _location: Location, private _titleService: Title,
+              private exportService: ExportService) {
 
   }
 
@@ -89,6 +95,9 @@ export class ResultsComponent implements OnInit{
     this._dashboardService.loadSurveisRespondedById(id).subscribe({
       next: async (response: any) => {
 
+        console.log(response)
+
+        this.datas = response;
 
         if (response.encuestasRespondidas.length > 0 ) {
           this.encuestasRespondidas = response.encuestasRespondidas;
@@ -254,6 +263,8 @@ export class ResultsComponent implements OnInit{
       next: async (response: ResponseEstadisticas[]) => {
 
 
+        console.log(response)
+
         this.estadisticas = response;
         //this.estadisticaSeleccionada = response[0];
 
@@ -278,6 +289,19 @@ export class ResultsComponent implements OnInit{
 
   closeModal1() {
     this.showModal1 = false;
+  }
+
+ 
+  exportExcel(): void {
+    this.exportService.exportToExcel(this.datas, `Encuesta:${this.nombreEncuesta}`, this.estadisticas);
+  }
+
+  exportCSV(): void {
+    this.exportService.exportToCSV(this.datas, `Encuesta:${this.nombreEncuesta}`, this.estadisticas);
+  }
+
+  exportJson(): void {
+    this.exportService.exportToJSON(this.datas, `Encuesta:${this.nombreEncuesta}`, this.estadisticas);
   }
 
 

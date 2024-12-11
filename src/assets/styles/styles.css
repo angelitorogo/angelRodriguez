@@ -40,3 +40,6 @@
     display: none;
   }
 
+  .active {
+    color: var(--color-active-hover);
+  }

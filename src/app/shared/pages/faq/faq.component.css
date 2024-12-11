@@ -19,6 +19,7 @@
   text-align: center;
   margin-top: 2rem;
   height: 26rem;
+  letter-spacing: 0.1em;
   
 }
 
@@ -35,6 +36,7 @@
   background-color: #dadada73;
   padding: 1rem;
   width: 100%;
+  letter-spacing: 0.1em;
 }
 
 .privacy-terms-container {
@@ -47,6 +49,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   color: #333333; /* Color de texto oscuro para un buen contraste */
   line-height: 1.6;
+  letter-spacing: 0.1em;
 }
 
 .privacy-terms-container h2 {

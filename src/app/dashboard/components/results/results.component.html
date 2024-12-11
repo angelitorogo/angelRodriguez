@@ -157,5 +157,38 @@
 
     </div>
 
+   
+
 </div>
+
+<div class="group-buttons" *ngIf="estadisticaSeleccionada?.estadisticas && !nohayEncuestas">
+
+    <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#FFB400'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Exportar a CSV'"
+        [type]="'button'"
+        (click)="exportCSV()">
+    </lib-boton6>
+
+    <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#217346'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Exportar a Excel'"
+        [type]="'button'"
+        (click)="exportExcel()">
+    </lib-boton6>
+
+    <lib-boton6 
+        [colorTexto]="'#ffffff'"
+        [colorIzq]="'#007ACC'"
+        [colorDcha]="'#3333ff'"
+        [buttonText]="'Exportar a JSON'"
+        [type]="'button'"
+        (click)="exportJson()">
+    </lib-boton6>
+
+  </div>
 

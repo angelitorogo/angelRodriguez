@@ -10,6 +10,8 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { Boton6Component } from './components/boton6/boton6.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { Modal1Component } from './components/modal1/modal1.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -25,13 +27,15 @@ import { FaqComponent } from './pages/faq/faq.component';
     LeerMasComponent,
     TermsConditionsComponent,
     FaqComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    Boton6Component
+    Boton6Component,
+    Modal1Component
   ],
   exports: [
     NavbarComponent,

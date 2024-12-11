@@ -23,9 +23,11 @@
   <div class="modal-content" [ngClass]="type" (click)="$event.stopPropagation()">
 
     <h3 class="title-link">Link de la encuesta : {{name}}</h3>
-    <p class="modal-text">{{ text }}</p>
+    
 
     <div class="group-buttons">
+
+      <p class="modal-text">{{ text }}</p>
 
       <lib-boton6 
         [colorTexto]="'#ffffff'"
@@ -36,7 +38,37 @@
         [type]="'button'">
       </lib-boton6>
 
-      <p class="modal-text">Compartir</p>
+    </div>
+
+    <div class="group-buttons">
+
+      <p class="modal-text">Código QR</p>
+
+      <div class="container-qr">
+        <img *ngIf="qrCodeImage" [src]="qrCodeImage" alt="Código QR">
+      </div>
+
+      <br>
+
+      <lib-boton6 
+          [colorTexto]="'#ffffff'"
+          [colorIzq]="'#006e4e'"
+          [colorDcha]="'#3333ff'"
+          [buttonText]="'Descargar QR'"
+          (buttonClicked)="downloadQRCode()"
+          [type]="'button'">
+        </lib-boton6>
+
+
+    </div>
+
+
+    <p class="modal-text">Compartir</p>
+    
+
+    <div class="group-buttons buttons-social">
+      
+     
 
       <lib-boton6 
         [colorTexto]="'#ffffff'"
@@ -53,15 +85,6 @@
         [colorDcha]="'#3333ff'"
         [buttonText]="'X'"
         (buttonClicked)="closeModal('x')"
-        [type]="'button'">
-      </lib-boton6>
-
-      <lib-boton6 
-        [colorTexto]="'#ffffff'"
-        [colorIzq]="'#E1306C'"
-        [colorDcha]="'#3333ff'"
-        [buttonText]="'Instagram'"
-        (buttonClicked)="closeModal('instagram')"
         [type]="'button'">
       </lib-boton6>
 

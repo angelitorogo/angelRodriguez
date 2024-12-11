@@ -44,7 +44,10 @@ export class CreateEncuestaComponent implements OnInit{
   token: any;
   
 
-  constructor(public _encuestasService: EncuestasService, private _authService: AuthService, private _router: Router, private _titleService: Title) {
+  constructor(public _encuestasService: EncuestasService, 
+              private _authService: AuthService, 
+              private _router: Router, 
+              private _titleService: Title) {
 
   }
 
@@ -212,7 +215,7 @@ export class CreateEncuestaComponent implements OnInit{
     this._encuestasService.addSurvey(this.titleSurvey).subscribe({
       next: async (response: any) => {
 
-        //console.log(response);
+        console.log(response);
 
         if (response.encuestaSinCamposExtras.id) {
 
