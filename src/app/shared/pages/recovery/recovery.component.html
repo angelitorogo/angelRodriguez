@@ -1,0 +1,65 @@
+<div class="content">
+    <lib-modal-1
+        *ngIf="showModal1"
+        [text]="modalText1"
+        [type]="modalType1"
+        (close)="closeModal1()">
+    </lib-modal-1>
+
+    <lib-modal-1
+        *ngIf="showModal2"
+        [text]="modalText2"
+        [type]="modalType2"
+        (close)="closeModal2()">
+    </lib-modal-1>
+
+    <div class="login-container" *ngIf="decryptedData">
+      <h2>Creación nueva contraseña</h2>
+      <form [formGroup]="formPasswordRecovery"  (ngSubmit)="submit()" autocomplete="off">
+  
+        <lib-input-4
+          formControlName="password1"
+          label="Nueva contraseña"
+          [type]="'password'"
+          [placeholder]="'Introduce tu nueva contraseña'"
+  
+          [colorTexto]="'#eeeeee'"
+          [colorBackground]= "'#333'"
+          [colorFocusInput]="'#e3f5ff'"
+  
+          [invalid] = "formPasswordRecovery.get('password1')?.invalid"
+          [touched] = "formPasswordRecovery.get('password1')?.touched">
+        </lib-input-4>
+
+        <lib-input-4
+          formControlName="password2"
+          label="Repite la  contraseña"
+          [type]="'password'"
+          [placeholder]="'Repite la nueva contraseña'"
+  
+          [colorTexto]="'#eeeeee'"
+          [colorBackground]= "'#333'"
+          [colorFocusInput]="'#e3f5ff'"
+  
+          [invalid] = "formPasswordRecovery.get('password2')?.invalid"
+          [touched] = "formPasswordRecovery.get('password2')?.touched">
+        </lib-input-4>
+
+  
+        <br>
+    
+        <lib-boton6 
+          [colorTexto]="'#ffffff'"
+          [colorIzq]="'#242424'"
+          [colorDcha]="'#3333ff'"
+          [buttonText]="'Entrar'"
+          [type]="'submit'"
+          [isDisabled]="formPasswordRecovery.invalid">
+        </lib-boton6>
+  
+      </form>
+  
+  
+    </div>
+  </div>
+  

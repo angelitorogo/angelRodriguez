@@ -1,0 +1,57 @@
+.content {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-texto-login);
+    letter-spacing: 0.1em;
+    justify-content: center;
+    padding-top: 10rem;
+  }
+  
+  
+  .login-container {
+    width: 98%;
+    max-width: 560px;
+    padding: 3rem;
+    background-color: var(--color-container);
+    box-shadow: 1px 1px 4px var(--color-shadow);
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 4rem;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-texto-login);
+  }
+  
+  form{
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    form{
+      width: 71%;
+      margin: 0 auto;
+    }
+  }
+  
+  .text-link {
+    color: var(--color-texto-login);
+    transition: all 0.2s ease;
+  }
+  
+  .text-link:hover {
+    cursor: pointer;
+    color: var(--color-active-hover);
+  }
+  
+  .text-register {
+    margin-top: 3rem;
+  }
+  
+  
+  

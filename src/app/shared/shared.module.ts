@@ -12,6 +12,9 @@ import { Boton6Component } from './components/boton6/boton6.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { Modal1Component } from './components/modal1/modal1.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { Input4Component } from './components/input4/input4.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
+import { RecoveryRequestComponent } from './pages/recovery-request/recovery-request.component';
 
 
 
@@ -27,7 +30,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     LeerMasComponent,
     TermsConditionsComponent,
     FaqComponent,
-    ProfileComponent
+    ProfileComponent,
+    RecoveryComponent,
+    RecoveryRequestComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +40,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FormsModule,
     RouterModule,
     Boton6Component,
-    Modal1Component
+    Modal1Component,
+    Input4Component
   ],
   exports: [
     NavbarComponent,

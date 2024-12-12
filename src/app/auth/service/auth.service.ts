@@ -26,6 +26,10 @@ export class AuthService {
         return this._http.post(`${this.apiUrl}/auth/login`, { email, password });
     }
 
+    recoveryRequest(email: string):Observable<any> {
+        return this._http.post(`${this.apiUrl}/auth/recovery`, { email });
+    }
+
     signOut() {
         
         //restaurar el menu a lo que teniamos, con todo mostrandose

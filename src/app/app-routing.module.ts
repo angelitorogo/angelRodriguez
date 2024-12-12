@@ -5,6 +5,8 @@ import { LeerMasComponent } from './shared/pages/leer-mas/leer-mas.component';
 import { TermsConditionsComponent } from './shared/pages/terms-conditions/terms-conditions.component';
 import { FaqComponent } from './shared/pages/faq/faq.component';
 import { ProfileComponent } from './shared/pages/profile/profile.component';
+import { RecoveryComponent } from './shared/pages/recovery/recovery.component';
+import { RecoveryRequestComponent } from './shared/pages/recovery-request/recovery-request.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,14 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'recovery-request',
+    component: RecoveryRequestComponent
+  },
+  {
+    path: 'recovery',
+    component: RecoveryComponent
   },
   {
     path: 'auth',

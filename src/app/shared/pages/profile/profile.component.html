@@ -2,7 +2,7 @@
 
     <div class="container-nav">
 
-        <app-navbar></app-navbar>
+        <!--<app-navbar></app-navbar>-->
 
         <h1 class="header-title">
             <span class="principal-title">Perfil</span>
@@ -11,5 +11,79 @@
     </div>
     
 </div>
+
+<div class="content">
+    <lib-modal-1
+        *ngIf="showModal1"
+        [text]="modalText1"
+        [type]="modalType1"
+        (close)="closeModal1()">
+    </lib-modal-1>
+    <div class="login-container">
+      <h2>Datos de usuario</h2>
+      
+      <form [formGroup]="formSignUp"  (ngSubmit)="submit()" autocomplete="off">
+        <lib-input-4
+          formControlName="fullName"
+          label="Nombre completo"
+          [type]="'text'"
+          [placeholder]="'Nombre y apellidos'"
+          [colorTexto]="'#e0e0e0'"
+          [colorBackground]= "'#333'"
+          [colorFocusInput]="'#e3f5ff'"
+
+
+          [valor]="sesion.fullname"
+  
+          [invalid] = "formSignUp.get('fullName')?.invalid"
+          [touched] = "formSignUp.get('fullName')?.touched">
+        </lib-input-4>
+  
+        <lib-input-4
+          formControlName="email"
+          label="Correo"
+          [type]="'email'"
+          [placeholder]="'Dirección de correo'"
+  
+          [colorTexto]="'#e0e0e0'"
+          [colorBackground]= "'#333'"
+          [colorFocusInput]="'#e3f5ff'"
+
+          [valor]="sesion.email"
+  
+          [invalid] = "formSignUp.get('email')?.invalid"
+          [touched] = "formSignUp.get('email')?.touched">
+        </lib-input-4>
+
+        <lib-input-4
+          formControlName="telephone"
+          label="Teléfono"
+          [type]="'tel'"
+          [placeholder]="'Número de teléfono'"
+  
+          [colorTexto]="'#e0e0e0'"
+          [colorBackground]= "'#333'"
+          [colorFocusInput]="'#e3f5ff'"
+
+          [valor]="sesion.telephone"
+  
+          [invalid] = "formSignUp.get('telephone')?.invalid"
+          [touched] = "formSignUp.get('telephone')?.touched">
+        </lib-input-4>
+
+
+        <lib-boton6 
+          [colorTexto]="'#ffffff'"
+          [colorIzq]="'#242424'"
+          [colorDcha]="'#3333ff'"
+          [buttonText]="'Actualizar'"
+          [type]="'submit'"
+          [isDisabled]="formSignUp.invalid">
+        </lib-boton6>
+      </form>
+  
+    </div>
+  </div>
+  
 
 <app-footer></app-footer>

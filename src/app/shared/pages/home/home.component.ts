@@ -77,7 +77,6 @@ export class HomeComponent implements OnInit {
 
     this._homeService.sendMail(email, nombre, apellido, asunto, text).subscribe({
       next: async( response: any ) => {
-        console.log(response)
         this.openModal1('success', 'Hemos recibido su consulta. Le contestaremos lo antes posible')
         
       },

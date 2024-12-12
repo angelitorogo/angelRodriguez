@@ -57,7 +57,6 @@ export class RegisterComponent implements OnInit{
         next: async (response: any) => {
 
           if (response.token && response.user) {
-            console.log('Usuario creado')
             this.openModal1('success', 'Usuario creado con exito')
             
           }

@@ -1,9 +1,9 @@
 .header {
-    height: 40rem;
+    height: 43rem;
   }
   
   .container-nav {
-    height: 40rem;
+    height: 43rem;
     background: url('../../../../assets/images/fondo6.webp');
     background-size: cover;
     background-position: center;
@@ -17,8 +17,8 @@
     align-items: center;
     font-weight: 500;
     text-align: center;
-    margin-top: 2rem;
-    height: 26rem;
+    margin-top: 0;
+    height: 43rem;
     letter-spacing: 0.1em;
   }
   
@@ -54,14 +54,14 @@
     align-items: center;
     font-weight: 500;
     text-align: center;
-    margin-top: 2rem;
-    height: 26rem;
+    margin-top: 0;
+    height: 43rem;
   }
 
   .principal-title {
     background-color: #dadada73;
     padding: 1rem;
-    width: 75rem;
+    width: 81rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
   }
@@ -72,7 +72,7 @@
     font-weight: 500;
     background-color: #dadada73;
     padding: 1rem;
-    width: 75rem;
+    width: 81rem;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
   }
@@ -148,7 +148,7 @@
 /* Estilo base para todos los inputs */
 
 .label-question {
-  width: 12rem;
+  width: 17rem;
 }
 
 input[type="text"] {

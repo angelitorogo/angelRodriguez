@@ -21,6 +21,7 @@ export class Input4Component implements ControlValueAccessor, OnInit {
     @Input() id: string = ''; // Id de input
     @Input() label: string = ''; // Tipo de input
     @Input() placeholder: string = 'Campo por defecto'; // Placeholder del input
+    @Input() valor: string = '';
 
     @Input() colorTexto: string = '#333333';
     @Input() colorBackground: string = '#f3f3f3';

@@ -1,13 +1,13 @@
 /* Reset de márgenes y paddings */
 .content {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
   background-color: var(--color-background);
-  /*background: url('../../../../assets/images/fondo6.webp');*/
   color: var(--color-texto-login);
   letter-spacing: 0.1em;
+  justify-content: center;
+  padding-top: 10rem;
 }
 
 

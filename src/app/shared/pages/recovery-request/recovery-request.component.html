@@ -1,0 +1,48 @@
+<div class="content">
+    <lib-modal-1
+        *ngIf="showModal1"
+        [text]="modalText1"
+        [type]="modalType1"
+        (close)="closeModal1()">
+    </lib-modal-1>
+    <div class="login-container">
+      <h2>Recuperación contraseña</h2>
+      <form [formGroup]="formSignRecovery"  (ngSubmit)="submit()" autocomplete="off">
+  
+        <lib-input-4
+          formControlName="email"
+          label="Correo"
+          [type]="'email'"
+          [placeholder]="'Introduce tu dirección de correo'"
+  
+          [colorTexto]="'#eeeeee'"
+          [colorBackground]= "'#333'"
+          [colorFocusInput]="'#e3f5ff'"
+  
+          [invalid] = "formSignRecovery.get('Email')?.invalid"
+          [touched] = "formSignRecovery.get('Email')?.touched">
+        </lib-input-4>
+
+  
+        <br>
+    
+        <lib-boton6 
+          [colorTexto]="'#ffffff'"
+          [colorIzq]="'#242424'"
+          [colorDcha]="'#3333ff'"
+          [buttonText]="'Entrar'"
+          [type]="'submit'"
+          [isDisabled]="formSignRecovery.invalid">
+        </lib-boton6>
+  
+      </form>
+  
+      <div class="form-text">
+        <p class="text-register">
+          Si existe el usuario, se enviará correo electrónico con las instrucciones
+        </p>
+      </div>
+  
+    </div>
+  </div>
+  
