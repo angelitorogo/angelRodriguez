@@ -118,8 +118,8 @@ export class EncuestasComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
-        if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message' || error.message === 'Http failure response for https://formuease-api.argomez.com/api/encuestas/find-all: 0 Unknown Error') {
+        //console.log('error', error);
+        if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message' || error.message === 'Http failure response for https://formuease-api.formuease.com/api/encuestas/find-all: 0 Unknown Error') {
           this.openModal1('alert', 'Sin conexión al servidor')
         } else {
           this.openModal1('alert', error.error.message)
@@ -165,7 +165,7 @@ export class EncuestasComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
         if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message') {
           this.openModal1('alert', 'Sin conexión al servidor')
         } else {
@@ -218,19 +218,19 @@ export class EncuestasComponent implements OnInit{
     if(redSocial) {
 
       if( redSocial === 'facebook') {
-        urlShared = `https://www.facebook.com/sharer/sharer.php?u=https://formuease-api.argomez.com/previews/${id}.html`;
+        urlShared = `https://www.facebook.com/sharer/sharer.php?u=https://formuease-api.formuease.com/previews/${id}.html`;
       }
 
       if( redSocial === 'x') {
         const text = encodeURIComponent("Responde a esta encuesta. No te llevará mas de 1 minuto.");
         const hashtags = encodeURIComponent("Encuesta,FormuEase");
-        urlShared = `https://twitter.com/intent/tweet?text=${text}&url=https://formuease-api.argomez.com/previews/${id}.html&hashtags=${hashtags}`;
+        urlShared = `https://twitter.com/intent/tweet?text=${text}&url=https://formuease-api.formuease.com/previews/${id}.html&hashtags=${hashtags}`;
       }
 
       if( redSocial === 'linkedin') {
         const title = encodeURIComponent("Responde a esta encuesta. No te llevará mas de 1 minuto.");
-        const source = encodeURIComponent(`formuease.argomez.com`);
-        urlShared= `https://www.linkedin.com/shareArticle?mini=true&url=https://formuease-api.argomez.com/previews/${id}.html&title=${title}&source=${source}`;
+        const source = encodeURIComponent(`formuease.formuease.com`);
+        urlShared= `https://www.linkedin.com/shareArticle?mini=true&url=https://formuease-api.formuease.com/previews/${id}.html&title=${title}&source=${source}`;
 
       }
 

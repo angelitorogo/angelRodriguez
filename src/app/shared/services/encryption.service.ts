@@ -32,12 +32,12 @@ export class EncryptionService {
 
       //console.log(payload)
 
-      /*
+      
       if (currentTime - payload.timestamp > expirationTime) {
         //console.log('Enlace expirado');
         return null;
       }
-      */
+      
 
       //console.log(payload)
       return payload.data; // Retorna los datos desencriptados

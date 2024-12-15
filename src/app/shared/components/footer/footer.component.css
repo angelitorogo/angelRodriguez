@@ -55,6 +55,7 @@
   
   .footer-texto {
     margin: 3rem 0 0 0;
+    text-align: justify;
   }
   
   .copyright span {
@@ -63,5 +64,6 @@
   
   .copyright {
     margin-top: 0;
+    margin-bottom: 2rem;
   }
   

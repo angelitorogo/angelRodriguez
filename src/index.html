@@ -1,14 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
 
-  <title>Formuease</title>
+  <title>Formuease - Encuestas gratuítas y analisis de resultados</title>
 
-  <meta name="description" content="Bienvenido a FormuEase, la plataforma que te permite crear encuestas personalizadas con las preguntas que desees, publicarlas en redes sociales o por correo electrónico y analizar los resultados de manera detallada. Recoge respuestas fácilmente y obtén estadísticas avanzadas con la posibilidad de descargar los datos en diferentes formatos.">
-
-  <meta name="keywords" content="creación de encuestas,formularios personalizados,publicación en redes sociales,análisis de resultados,estadísticas avanzadas,descarga de datos,encuestas online,recolección de datos,formularios interactivos,herramienta de encuestas">
-
+  <meta name="description" content="Bienvenido a FormuEase, la plataforma que permite crear encuestas personalizadas con las preguntas que desees y publicarlas en redes sociales">
+  <meta name="keywords" content="formularios, encuestas, formuease, creación de encuestas,formularios personalizados,publicación en redes sociales,análisis de resultados,estadísticas avanzadas,descarga de datos,encuestas online,recolección de datos,formularios interactivos,herramienta de encuestas">
   <meta name="author" content="Angel Rodríguez Gómez">
 
 
@@ -18,8 +16,178 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8213871839878629" crossorigin="anonymous">
+  </script>
+
+
+  <style>
+    
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #242424;
+      color: #e0e0e0;
+      padding-top: 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: normal;
+      margin: 0 auto;
+    }
+    #cookie-banner p{
+      margin-block: 0.2rem;
+    }
+
+  #cookie-banner button {
+      width: 10rem;
+      margin-left: 10px;
+      background: #f1f1f1;
+      color: #000;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+      margin: 0.2rem auto 0 auto;
+      height: 2.5rem;
+  }
+
+  #cookie-banner button:hover {
+    background: #ffffff;
+  }
+
+  #cookie-banner a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.2s ease;
+  }
+
+  #cookie-banner a:hover {
+    color: #5d93ff;
+  }
+
+
+    @media (min-width: 768px) { 
+        #cookie-banner {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          background: #242424;
+          color: #e0e0e0;
+          padding-top: 10px;
+          padding-bottom: 5px;
+          text-align: center;
+          z-index: 1000;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: normal;
+          margin: 0 auto;
+        }
+        #cookie-banner p{
+          margin-block: 0.2rem;
+        }
+
+      #cookie-banner button {
+          width: 10rem;
+          margin-left: 10px;
+          background: #f1f1f1;
+          color: #000;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: all 0.2s ease;
+          margin-top: 0.2rem;
+          margin: 0.2rem 0 0 1rem;
+          height: 2.5rem;
+      }
+
+      #cookie-banner button:hover {
+        background: #ffffff;
+      }
+
+      #cookie-banner a {
+          color: #fff;
+          text-decoration: none;
+          transition: all 0.2s ease;
+      }
+
+      #cookie-banner a:hover {
+        color: #5d93ff;
+      }
+
+    }
+  </style>
+
+  <!-- Verificar consentimiento de cookies -->
+  <script>
+    // Bloquear scripts adicionales si no se han aceptado las cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+        //console.log("El usuario no aceptó cookies. Scripts adicionales deshabilitados.");
+        window.cookieConsentGranted = false; // Variable global para usar en la app
+    } else {
+        //console.log("El usuario aceptó cookies. Scripts habilitados.");
+        window.cookieConsentGranted = true;
+    }
+  </script>
+
+  <!-- Cargar Google Ads o Analytics solo si hay consentimiento -->
+  <script>
+    if (window.cookieConsentGranted) {
+        // Cargar Google Tag Manager o AdSense
+        var script = document.createElement('script');
+        script.src = "https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX-X"; //cambiar id=UA-XXXXXX-X con lo que nos de cuando nos registremos
+        script.async = true;
+        document.head.appendChild(script);
+
+        script.onload = function () {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-XXXXXX-X');
+        };
+    }
+  </script>
+ 
+
 </head>
 <body>
+
   <app-root></app-root>
+  
+  <!-- Banner de Cookies -->
+  <div id="cookie-banner">
+    <p>Este sitio utiliza cookies para mostrar anuncios personalizados. <a href="/#/terms-conditions">Más información</a>.</p>  
+    <button onclick="grantConsent()">Aceptar</button>
+  </div>
+
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      
+      // Bloqueo por defecto de cookies publicitarias
+      gtag('consent', 'default', {
+          'ad_storage': 'denied'
+      });
+
+      // Aplicar el consentimiento cuando el usuario lo acepte
+      function grantConsent() {
+          gtag('consent', 'update', { 'ad_storage': 'granted' });
+          localStorage.setItem('cookiesAccepted', 'true');
+          document.getElementById('cookie-banner').style.display = 'none';
+      }
+
+      // Mostrar el banner si las cookies no han sido aceptadas
+      window.onload = function() {
+          if (!localStorage.getItem('cookiesAccepted')) {
+              //document.getElementById('cookie-banner').style.display = 'flex';
+          }
+      };
+  </script>
 </body>
 </html>

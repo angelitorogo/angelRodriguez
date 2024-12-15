@@ -65,7 +65,7 @@ export class EncuestaComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
         if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message') {
           this.openModal1('alert', 'Sin conexión al servidor')
         } else {
@@ -229,7 +229,7 @@ export class EncuestaComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
         if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message') {
           this.openModal1('alert', 'Sin conexión al servidor')
         } else {
@@ -260,7 +260,7 @@ export class EncuestaComponent implements OnInit{
 
     this.responseEncuesta = ordenado;
 
-    console.log(this.responseEncuesta);
+    //console.log(this.responseEncuesta);
 
   }
     */

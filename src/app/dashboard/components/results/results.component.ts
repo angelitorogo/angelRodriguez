@@ -95,7 +95,7 @@ export class ResultsComponent implements OnInit{
     this._dashboardService.loadSurveisRespondedById(id).subscribe({
       next: async (response: any) => {
 
-        console.log(response)
+        //console.log(response)
 
         this.datas = response;
 
@@ -133,7 +133,7 @@ export class ResultsComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
      
       }      
 
@@ -263,7 +263,7 @@ export class ResultsComponent implements OnInit{
       next: async (response: ResponseEstadisticas[]) => {
 
 
-        console.log(response)
+        //console.log(response)
 
         this.estadisticas = response;
         //this.estadisticaSeleccionada = response[0];
@@ -272,7 +272,7 @@ export class ResultsComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
 
         
       }      

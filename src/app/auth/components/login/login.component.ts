@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit{
             
             
           } catch (error: any) {
-            console.log(error)
+            //console.log(error)
             this.openModal1('alert', error.message)
             
           }

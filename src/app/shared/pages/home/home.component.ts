@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
         
       },
       error: (error: any) => {
-        console.log(error)
+        //console.log(error)
         this.openModal1('alert', 'No ha sido posible envíar su consulta, inténtelo de nuevo pasados unos instantes')
       }
     })

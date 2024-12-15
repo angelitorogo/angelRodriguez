@@ -215,7 +215,7 @@ export class CreateEncuestaComponent implements OnInit{
     this._encuestasService.addSurvey(this.titleSurvey).subscribe({
       next: async (response: any) => {
 
-        console.log(response);
+        //console.log(response);
 
         if (response.encuestaSinCamposExtras.id) {
 
@@ -243,7 +243,7 @@ export class CreateEncuestaComponent implements OnInit{
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
         if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message') {
           this.openModal1('alert', 'Sin conexión al servidor')
         } else {
@@ -304,7 +304,7 @@ export class CreateEncuestaComponent implements OnInit{
 
     this.responses = this.questionSelected.options || []
 
-    console.log(this.indexSelected)
+    //console.log(this.indexSelected)
 
 
   }

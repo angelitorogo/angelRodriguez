@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit{
     const { email, fullname, password1, password2, acepted } = this.formSignUp.value;
 
       if (password1 !== password2) {
-        console.log('contraseñas no son iguales')
+        //console.log('contraseñas no son iguales')
         this.openModal1('alert', 'Contraseñas no son iguales')
         return;
       }
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit{
         },
 
         error: (error: any) => {
-          console.log('error', error);
+          //console.log('error', error);
           if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message') {
             this.openModal1('alert', 'Sin conexión al servidor')
           } else {

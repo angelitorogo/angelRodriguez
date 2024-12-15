@@ -57,7 +57,7 @@ export class RecoveryComponent {
 
       this.decryptedData = this._encryptionService.decrypt(encryptedData, iv);
 
-      console.log(this.decryptedData)
+      //console.log(this.decryptedData)
 
       if (!this.decryptedData) {
         this.openModal1('alert', 'Enlace expirado');
@@ -87,7 +87,7 @@ export class RecoveryComponent {
       },
       error: (error: any) => {
 
-        console.log('error', error);
+        //console.log('error', error);
         if( error.error.message === 'Error: Empty response. There are no subscribers listening to that message') {
           this.openModal1('alert', 'Sin conexión al servidor')
         } 

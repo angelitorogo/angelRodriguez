@@ -34,6 +34,6 @@ Cuando se tenga dominio comprado hay que cambiarlo en:
 
     src\assets\pagina_intermedia\share.html -> const domain = 'http://localhost:4200/#'; //cuando se tenga dominio cambiar
     export const environment = {
-        API_URL: 'https://auth.argomez.com/api',
+        API_URL: 'https://formuease-api.formuease.com/api',
         DOMAIN_URL: 'http://localhost:4200/#'   //aqui tambien
     };

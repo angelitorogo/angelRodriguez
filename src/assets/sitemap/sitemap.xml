@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.formuease.com/#/home</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.formuease.com/#/more</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.formuease.com/#/terms-conditions</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.formuease.com/#/faqs</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.formuease.com/#/profile</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.formuease.com/#/recovery-request</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.formuease.com/#/recovery</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/auth/login</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/auth/register</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/surveis/create</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/dashboard/encuestas</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/dashboard/encuesta/1</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/dashboard/results/1</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/dashboard/publish/1</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.formuease.com/#/response/survey/1</loc>
+    <lastmod>2024-12-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+</urlset>
